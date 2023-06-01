@@ -2,13 +2,13 @@
 export default {
     preset: 'ts-jest',
     testMatch: ['<rootDir>/src/components/__tests__/**/*.(test|spec).(jsx|tsx)'],
-    testEnvironment: 'jsdom', // Use JSDOM as the test environment
+    testEnvironment: 'jsdom',
     moduleNameMapper: {
-    '\\.(css|less|scss)$': 'identity-obj-proxy', // Mock CSS modules
+    '\\.(css|less|scss)$': 'identity-obj-proxy',
     },
-    setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'], // Extend Jest's expect with matchers from Jest DOM
+    setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
     transform: {
-    '^.+\\.jsx?$': 'babel-jest', // Transform JavaScript and JSX files using Babel
+    '^.+\\.jsx?$': 'babel-jest',
     },
     coverageThreshold: {
         global: {
