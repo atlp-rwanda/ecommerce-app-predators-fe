@@ -1,6 +1,6 @@
-[![Node.js CI](https://github.com/atlp-rwanda/ecommerce-app-predators-fe/actions/workflows/node.js.yml/badge.svg)](https://github.com/atlp-rwanda/ecommerce-app-predators-fe/actions/workflows/node.js.yml)
-<a href="https://codeclimate.com/github/atlp-rwanda/ecommerce-app-predators-fe/maintainability"><img src="https://api.codeclimate.com/v1/badges/f43b1bf0f2429d8e6ad6/maintainability" /></a>
-<a href="https://codeclimate.com/github/atlp-rwanda/ecommerce-app-predators-fe/test_coverage"><img src="https://api.codeclimate.com/v1/badges/f43b1bf0f2429d8e6ad6/test_coverage" /></a>
+[![CI](https://github.com/atlp-rwanda/ecommerce-app-predators-fe/actions/workflows/intergrations.yml/badge.svg)](https://github.com/atlp-rwanda/ecommerce-app-predators-fe/actions/workflows/intergrations.yml)
+<a href="https://codeclimate.com/github/atlp-rwanda/ecommerce-app-predators-fe/test_coverage"><img src="https://api.codeclimate.com/v1/badges/b69a1e7f0474ff432936/test_coverage" /></a>
+<a href="https://codeclimate.com/github/atlp-rwanda/ecommerce-app-predators-fe/maintainability"><img src="https://api.codeclimate.com/v1/badges/b69a1e7f0474ff432936/maintainability" /></a>
 
 # ecommerce-app-predators-fe
 
