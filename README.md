@@ -55,10 +55,7 @@ Contributions are welcome! If you have any suggestions or find any bugs, please 
 
 Vite
 React
-Tailwind CSS
-
+Tailwind CS
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Authors
