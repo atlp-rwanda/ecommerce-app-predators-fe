@@ -56,6 +56,3 @@ React
 Tailwind CSS
 React Redux toolKit
 
-```
-
-```
