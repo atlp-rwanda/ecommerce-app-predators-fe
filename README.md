@@ -26,15 +26,13 @@ This is the frontend of the full-stack ecommerce website built using Vite, React
 Make sure you have Node.js and npm installed on your computer.
 
 1. Clone this repository:
+   `https://github.com/atlp-rwanda/ecommerce-app-predators-fe.git`
 
-   ```shell
-   git clone https://github.com/atlp-rwanda/ecommerce-app-predators-fe.git
-   ```
-
-2. Navigate to the project directory:cd ecommerce-app-predators-fe
+2. Navigate to the project directory: `cd ecommerce-app-predators-fe`
 3. Install the dependencies using npm: `npm install`
-4. Start the development server: `npm run dev`. This command will start the development server and make your application available for testing and development at http://http://localhost:5173.
-5. Open your browser and visit http://http://localhost:5173 to see the application.
+4. Start the development server: `npm run dev`.
+   This command will start the development server and make your application available for testing and development at http://localhost:5173.
+5. Open your browser and visit http://localhost:5173 to see the application.
 
 ## Testing
 
@@ -56,9 +54,5 @@ Contributions are welcome! If you have any suggestions or find any bugs, please 
 Vite
 React
 Tailwind CSS
+React Redux toolKit
 
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Authors

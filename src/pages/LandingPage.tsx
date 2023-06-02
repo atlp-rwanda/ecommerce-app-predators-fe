@@ -2,7 +2,7 @@
 
 function LandingPage() {
   return (
-    <div className="text-3xl font-bold underline text-center">LandingPage</div>
+    <div className="text-2xl font-bold  text-center">LandingPage</div>
   )
 }
 
