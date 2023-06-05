@@ -17,6 +17,7 @@ const RegisterPage = () => {
     const handleNameChange = (e: { target: { value: SetStateAction<string>; }; }) => {
         setName(e.target.value);
     };
+    console.log(registrationStatus)
 
     const handleEmailChange = (e: { target: { value: SetStateAction<string>; }; }) => {
         setEmail(e.target.value);
