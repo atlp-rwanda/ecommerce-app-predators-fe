@@ -14,10 +14,17 @@ export default {
         'primary': '#003F62',
         'secondary':'#E2F4FF',
         'tertiary':'#EDA415', // button color
+        'customBlue': '#003F62',
     },
     fontFamily: {
       'Poppins':['Poppins', 'sans-serif']
-      }
+      },
+      boxShadow: {
+        custom: [
+          '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+          '0 2px 4px -2px rgba(0, 0, 0, 0.1)',
+        ],
+      },
       },
   },
   plugins: [],
