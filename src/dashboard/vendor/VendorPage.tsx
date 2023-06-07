@@ -55,8 +55,8 @@ useEffect(() => {
               <div onClick={() => showForm(true)} className="add_new_product cursor-pointer bg-tertiary h-14 w-14 p-3 flex items-center justify-center rounded-xl">
                 <img src={add} alt="add product" />
               </div>
-            </div>
-          </div>
+            </div >
+          </div >
           <Table />
           <div className="buttons_pagination flex text-sm font-light">
             <button className='border p-2 text-center rounded-l-lg h-10'>Prev</button>

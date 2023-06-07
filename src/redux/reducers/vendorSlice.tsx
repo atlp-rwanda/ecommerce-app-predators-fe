@@ -29,7 +29,7 @@ const addProdictSlice = createSlice({
                 state.status = "error";
                 toast.error(`${action.payload.data.message}`);
             });
-        }
+    }
 })
 
 export default addProdictSlice.reducer
