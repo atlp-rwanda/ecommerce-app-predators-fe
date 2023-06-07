@@ -17,6 +17,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
+
     "@mui/icons-material": "^5.11.16",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
@@ -55,6 +56,11 @@
     "@types/js-cookie": "^3.0.3",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",
+
+    "@types/js-cookie": "^3.0.3",
+
+
+
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",

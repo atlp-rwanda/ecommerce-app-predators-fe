@@ -5,17 +5,17 @@ import add from "./../../assets/dashboard/plus.svg";
 import profile from "./../../assets/dashboard/account_photo.jpg";
 import { ToastContainer } from 'react-toastify';
 import { fetchProductsCollection } from '../../redux/action/productActions';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 export default function VendorPage() {
-  const product = useSelector((state: { CollectionProducts: { data: any } }) => state.CollectionProducts.data);
+  // const product = useSelector((state: { CollectionProducts: { data: any } }) => state.CollectionProducts.data);
 
-const dispatch = useDispatch ()
+  const dispatch = useDispatch()
 
-useEffect(() => {
-  dispatch(fetchProductsCollection()as any) 	//dispatches an action to the store (redux)
-//console.log('collected product', product?.data)
-}, [dispatch])
+  useEffect(() => {
+    dispatch(fetchProductsCollection() as any) 	//dispatches an action to the store (redux)
+    //console.log('collected product', product?.data)
+  }, [dispatch])
 
 
   const [visible, showForm] = useState(false);
@@ -31,7 +31,7 @@ useEffect(() => {
               <div className="max-[1023px]:flex-1 flex flex-wrap gap-8 justify-between items-end">
                 <div className="dashboard__search shadow-md border rounded-md flex gap-3 p-1">
                   <i className='material-symbols-rounded text-gray-400'>search</i>
-                  <input  className=" focus:outline-none placeholder:text-gray-400 outline-0 bg-inherit border-0 xs:w-64 md:w-72" type="text" placeholder='Search product ...' />
+                  <input className=" focus:outline-none placeholder:text-gray-400 outline-0 bg-inherit border-0 xs:w-64 md:w-72" type="text" placeholder='Search product ...' />
                 </div>
                 <div className="dashboard__notification flex gap-7 text-blue-500">
                   <i className="material-symbols-rounded">message</i>
@@ -66,7 +66,7 @@ useEffect(() => {
             <button className='border-t border-b border-l p-2 text-center h-10 w-10'>40</button>
             <button className='border p-2 text-center rounded-r-lg h-10'>Next</button>
           </div>
-          <Product_form onClose={handleClose} visible={visible}/>
+          <Product_form onClose={handleClose} visible={visible} />
         </div>
       </div>
     </div>

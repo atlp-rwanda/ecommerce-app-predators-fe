@@ -1,6 +1,10 @@
 TN:
 SF:src/App.tsx
+<<<<<<< HEAD
 FN:11,App
+=======
+FN:7,App
+>>>>>>> 46c328d (feature(seller should update product))
 FNF:1
 FNH:0
 FNDA:0,App
@@ -8,6 +12,7 @@ DA:1,0
 DA:2,0
 DA:3,0
 DA:4,0
+<<<<<<< HEAD
 DA:5,0
 DA:6,0
 DA:7,0
@@ -16,6 +21,11 @@ DA:9,0
 DA:12,0
 DA:29,0
 LF:11
+=======
+DA:8,0
+DA:22,0
+LF:6
+>>>>>>> 46c328d (feature(seller should update product))
 LH:0
 BRF:0
 BRH:0
@@ -88,6 +98,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
 SF:src/components/index.tsx
 FN:1,(anonymous_1)
 FN:2,(anonymous_2)
@@ -106,6 +117,8 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+=======
+>>>>>>> 46c328d (feature(seller should update product))
 SF:src/components/sample.tsx
 FN:1,(anonymous_0)
 FNF:1
@@ -119,6 +132,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
 SF:src/components/product_form/Product_form.tsx
 FN:19,Product_form
 FN:31,handleNameChange
@@ -400,6 +414,8 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+=======
+>>>>>>> 46c328d (feature(seller should update product))
 SF:src/pages/LandingPage.tsx
 FN:3,LandingPage
 FNF:1
@@ -413,6 +429,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
 SF:src/pages/PasswordConfirminationPage..tsx
 FN:9,(anonymous_1)
 FN:15,(anonymous_2)
@@ -464,6 +481,8 @@ BRF:3
 BRH:0
 end_of_record
 TN:
+=======
+>>>>>>> 46c328d (feature(seller should update product))
 SF:src/pages/ProductPage.tsx
 FN:3,productPage
 FNF:1
@@ -589,6 +608,7 @@ BRF:8
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
 SF:src/pages/ResetPasswordPage.tsx
 FN:8,(anonymous_1)
 FN:13,(anonymous_2)
@@ -665,10 +685,36 @@ FNDA:0,(anonymous_12)
 FNDA:0,(anonymous_13)
 FNDA:0,(anonymous_14)
 FNDA:0,(anonymous_15)
+=======
+SF:src/redux/action/ProductAction.tsx
+FN:6,(anonymous_1)
+FNF:1
+FNH:0
+FNDA:0,(anonymous_1)
+DA:1,0
+DA:2,0
+DA:4,0
+DA:7,0
+DA:8,0
+DA:9,0
+DA:11,0
+LF:7
+LH:0
+BRF:0
+BRH:0
+end_of_record
+TN:
+SF:src/redux/action/UserAction.tsx
+FN:7,(anonymous_1)
+FNF:1
+FNH:0
+FNDA:0,(anonymous_1)
+>>>>>>> 46c328d (feature(seller should update product))
 DA:1,0
 DA:2,0
 DA:3,0
 DA:5,0
+<<<<<<< HEAD
 DA:6,0
 DA:7,0
 DA:8,0
@@ -919,6 +965,13 @@ DA:19,0
 DA:24,0
 DA:26,0
 LF:10
+=======
+DA:8,0
+DA:9,0
+DA:10,0
+DA:12,0
+LF:8
+>>>>>>> 46c328d (feature(seller should update product))
 LH:0
 BRF:0
 BRH:0
@@ -955,6 +1008,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
 SF:src/redux/reducers/ResetPasswordSlice.tsx
 FN:14,(anonymous_0)
 FN:16,(anonymous_1)
@@ -1060,6 +1114,8 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+=======
+>>>>>>> 46c328d (feature(seller should update product))
 SF:src/redux/reducers/UserSlice.tsx
 FN:14,(anonymous_0)
 FN:16,(anonymous_1)
@@ -1095,6 +1151,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+<<<<<<< HEAD
 SF:src/redux/reducers/disableUserSlice.tsx
 FN:13,(anonymous_0)
 FN:15,(anonymous_1)
@@ -1228,12 +1285,15 @@ BRF:0
 BRH:0
 end_of_record
 TN:
+=======
+>>>>>>> 46c328d (feature(seller should update product))
 SF:src/redux/store/Store.tsx
 FNF:0
 FNH:0
 DA:1,0
 DA:2,0
 DA:3,0
+<<<<<<< HEAD
 DA:4,0
 DA:5,0
 DA:6,0
@@ -1243,6 +1303,11 @@ DA:9,0
 DA:11,0
 DA:23,0
 LF:11
+=======
+DA:6,0
+DA:13,0
+LF:5
+>>>>>>> 46c328d (feature(seller should update product))
 LH:0
 BRF:0
 BRH:0

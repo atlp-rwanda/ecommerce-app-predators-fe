@@ -8,21 +8,27 @@ import addProductReducer from '../reducers/vendorSlice';
 import OtpReducer from '../reducers/otpSlice';
 import disableUserReducer from "../reducers/UserSlice"
 import getAllUsersReducer from '../reducers/usersSlice'
-import popupReducer from '../reducers/PasswordExpirationReduce'; 
+import popupReducer from '../reducers/PasswordExpirationReduce';
+import updateProduct from '../reducers/UpdateProdSlice';
+import getProductByIdSlice from '../reducers/GetProdSlice';
+
+
 import productCollectionReducer from '../reducers/productReducer'
 
 const store = configureStore({
   reducer: {
     products: productReducer,
     user: OtpReducer,
-    UserReducer, 
+    UserReducer,
     User: ResetPasswordSlice,
     Update: UpdatePasswordSlice,
     disableUser: disableUserReducer,
     getAllUsers: getAllUsersReducer,
     addProduct: addProductReducer,
-    passwordExpiration: popupReducer,  
+    passwordExpiration: popupReducer,
     CollectionProducts: productCollectionReducer,
+    product: updateProduct,
+    getProductById: getProductByIdSlice,
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });

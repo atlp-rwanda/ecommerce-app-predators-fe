@@ -32,6 +32,5 @@ const addProdictSlice = createSlice({
     }
 })
 
-export default addProdictSlice.reducer
 
 export default addProdictSlice.reducer
