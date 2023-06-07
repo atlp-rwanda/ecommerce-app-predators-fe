@@ -1,4 +1,5 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import thunk from 'redux-thunk';
 import productReducer from "../reducers/ProductSlice";
 import UserReducer from "../reducers/UserSlice";
 import ResetPasswordSlice from "../reducers/ResetPasswordSlice";
@@ -13,18 +14,18 @@ const store = configureStore({
   reducer: {
     products: productReducer,
     user: OtpReducer,
-    UserReducer,
-
-
-        User: ResetPasswordSlice,
-        Update: UpdatePasswordSlice,
-        addProduct: addProductReducer,
-        passwordExpiration: popupReducer, 
-  
+    UserReducer, 
+    User: ResetPasswordSlice,
+    Update: UpdatePasswordSlice,
+    addProduct: addProductReducer,
+    passwordExpiration: popupReducer,  
     CollectionProducts:productCollectionReducer,
-
-    
-
   },
+  middleware: [...getDefaultMiddleware(), thunk],
 });
+
 export default store;
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+ 

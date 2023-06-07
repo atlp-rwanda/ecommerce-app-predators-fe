@@ -54,3 +54,4 @@ Contributions are welcome! If you have any suggestions or find any bugs, please 
 Vite
 React
 Tailwind CSS
+React Redux toolKit

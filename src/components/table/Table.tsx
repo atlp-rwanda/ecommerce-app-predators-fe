@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { fetchProductsCollection } from '../../redux/action/productActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Product } from '../../redux/reducers/productReducer';
+import DeleteItem from '../vendor/DeleteItem';
 export default function Table() {
   const product = useSelector((state: { CollectionProducts: { data:Product } }) => state.CollectionProducts.data);
 
@@ -16,7 +17,7 @@ export default function Table() {
   console.log('collected product', product?.data) 
   return (
     
-    <div className="relative mt-10 mb-6 shadow-lg w-[90%]">
+    <div className="  mt-10 mb-6 shadow-lg ">
       <p className="font-medium mb-2 inline-block">Recent Products</p>
       <div className="w-full pb-2 overflow-x-auto">
         <table className="font-light w-full table-fixed">
@@ -50,8 +51,8 @@ export default function Table() {
         <td className="w-32 text-start px-6 py-1">
           <div className="symbols flex justify-between">
             <i className="material-symbols-rounded text-blue-500">visibility</i>
-            <i className="update material-symbols-rounded text-orange-500">edit</i>
-            <i className="material-symbols-rounded text-red-500">delete</i>
+            <i className="update material-symbols-rounded text-orange-500">edit</i> 
+            <DeleteItem productId={product.id} reason=''/>
           </div>
         </td>
       </tr>

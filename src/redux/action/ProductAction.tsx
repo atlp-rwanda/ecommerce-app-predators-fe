@@ -1,11 +1,13 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit'; 
 
-export const fetchProducts = createAsyncThunk(
-  "products/fetchProduct",
+ export const fetchProducts = createAsyncThunk(
+  'products/fetchProduct',
   async () => {
     try {
-      const response = await axios.get("https://talented-wig-goat.cyclic.app/api/product"); //URL HERE
+      const response = await axios.get(
+        'https://talented-wig-goat.cyclic.app/api/product'
+      ); //URL HERE
       return response.data;
     } catch (error) {
       throw new Error('error'); //Something went wrong!
@@ -13,6 +15,29 @@ export const fetchProducts = createAsyncThunk(
   }
 );
  
+export const productRemove = createAsyncThunk(
+  'products/productRemove',
+  async ({data}: any, thunkAPI) => {
+    try { 
+          // Get the token from localStorage
+      const token = localStorage.getItem('token'); 
+    const response = await axios.delete(`https://talented-wig-goat.cyclic.app/api/product/${data.productId}`,{
+      data,
+       headers: {
+          Authorization: `Bearer ${token}`,
+        },
+    });
+      return response.data; 
+
+      
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+
+
 export const addProduct = createAsyncThunk(
   "products/addProduct",
   async (product: any, thunkAPI) => {
