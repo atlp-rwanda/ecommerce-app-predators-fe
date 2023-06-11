@@ -16,6 +16,7 @@ import productCollectionReducer from '../reducers/productReducer';
 import SetRolesSlice from '../reducers/SetRolesSlice';
 import searchReducer from '../reducers/Searchslice';
 import NotificationReducer from '../reducers/NotificationReducer';
+import authReducer from "../reducers/authSlice";
 
 const store = configureStore({
   reducer: {
@@ -35,6 +36,7 @@ const store = configureStore({
     Admin: SetRolesSlice,
     notifications: NotificationReducer,
     search: searchReducer,
+    auth: authReducer,
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });
