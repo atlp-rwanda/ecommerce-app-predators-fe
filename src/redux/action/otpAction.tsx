@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-const API_URL = 'http://localhost:3000/auth/';
+const API_URL = 'https://talented-wig-goat.cyclic.app/auth/';
 
 export const otpVerifyUser = createAsyncThunk(
   'user/verifyOTP',
-  async (OtpDigit: any, thunkAPI) => {
+  async (OtpDigit: unknown, thunkAPI) => {
     try {
       // Get the token from localStorage
       const token = localStorage.getItem('token');

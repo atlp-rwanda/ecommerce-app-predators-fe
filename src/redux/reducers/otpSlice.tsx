@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import { otpVerifyUser } from '../action/otpAction';
 
@@ -18,7 +18,7 @@ const userSlice = createSlice({
         state.status = 'Loading...';
         state.error = null;
       })
-      .addCase(otpVerifyUser.fulfilled, (state, action: PayloadAction<any>) => {
+      .addCase(otpVerifyUser.fulfilled, (state, action) => {
         state.loading = false;
         state.status = 'Verification successful!';
         state.data = action.payload;

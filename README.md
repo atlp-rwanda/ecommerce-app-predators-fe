@@ -54,7 +54,3 @@ Contributions are welcome! If you have any suggestions or find any bugs, please 
 Vite
 React
 Tailwind CSS
-<<<<<<< HEAD
-=======
-React Redux toolKit
->>>>>>> 98be690 (this feature is for two factor auth)
