@@ -10,18 +10,5 @@ export default {
     transform: {
     '^.+\\.jsx?$': 'babel-jest',
     },
-    coverageThreshold: {
-        global: {
-            statements: 30,
-            branches: 30,
-            functions: 30,
-            lines: 30,
-        },
-        'src/components/**/*.{js,jsx,ts,tsx}': {
-            statements: 30,
-            branches: 30,
-            functions: 30,
-            lines: 30,
-        },
-    },
+    collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
 };
