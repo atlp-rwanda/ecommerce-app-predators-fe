@@ -7,6 +7,7 @@ import addProductReducer from '../reducers/vendorSlice';
 import OtpReducer from '../reducers/otpSlice';
 
 
+import productCollectionReducer from '../reducers/productReducer'
 const store = configureStore({
   reducer: {
     products: productReducer,
@@ -15,6 +16,9 @@ const store = configureStore({
     User: ResetPasswordSlice,
     addProduct: addProductReducer,
     Update: UpdatePasswordSlice,
+    CollectionProducts:productCollectionReducer,
+    
+
   },
 });
 export default store;
