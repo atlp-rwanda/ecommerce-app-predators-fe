@@ -13,8 +13,9 @@ export default {
       colors: {
         'primary': '#003F62',
         'secondary': '#E2F4FF',
-        'tertiary': '#EDA415', // button color
         'customBlue': '#003F62',
+        'tertiary': '#EDA415', // button color
+        'inactive': '#808191',
       },
       fontFamily: {
         'Poppins': ['Poppins', 'sans-serif'],
