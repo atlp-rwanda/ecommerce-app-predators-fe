@@ -30,7 +30,7 @@ const userSlice = createSlice({
                 state.status = "Registration failed. Please try again.";
                 state.error = null;
                 toast.error("Registration failed. Please try again.");
-            });
+            })
     }
 });
 export default userSlice.reducer;
