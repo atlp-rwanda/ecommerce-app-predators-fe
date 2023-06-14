@@ -5,6 +5,8 @@ import RegisterPage from "./pages/RegisterPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import PasswordComfirmPage from "./pages/PasswordConfirminationPage.";
 import TwoFactorAuth from '../src/pages/SellerLogin/twoFactorAuth';
+import VendorPage from "./pages/vendor/VendorPage";
+
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
           <Route path="/product-page" element={<ProductPage />} />
           <Route path="/register-page" element={<RegisterPage />} />
           <Route path="/reset-password-page" element={<ResetPasswordPage/>} />
-          <Route path="/confirm-password-page" element={<PasswordComfirmPage/>} />   <Route path="/two-factor" element={<TwoFactorAuth />} />
+          <Route path="/confirm-password-page" element={<PasswordComfirmPage/>} />
+          <Route path="/two-factor" element={<TwoFactorAuth />} />
+          <Route path="/vendor" element={<VendorPage/>} />
         </Routes>
       </Router>
     </div>
