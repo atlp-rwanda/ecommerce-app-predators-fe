@@ -1,12 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import productReducer from '../reducers/ProductSlice';
 import UserReducer from '../reducers/UserSlice';
-import OtpReducer from '../reducers/otpSlice';
-const store = configureStore({
-  reducer: {
-    products: productReducer,
-    user: OtpReducer,
-    UserReducer,
-  },
+import otpReducer from '../reducers/otpSlice';
+import searchReducer from '../reducers/Searchslice';
+const rootReducer = combineReducers({
+  products: productReducer,
+  user: UserReducer,
+  otp: otpReducer,
+  search: searchReducer,
 });
+
+const store = configureStore({
+  reducer: rootReducer,
+});
+
+export type RootState = ReturnType<typeof store.getState>; // Export RootState type
+
 export default store;

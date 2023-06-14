@@ -1,15 +1,19 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchProducts = createAsyncThunk(
-  "products/fetchProduct",
+  'products/fetchProduct',
   async () => {
     try {
-      const response = await axios.get("https://talented-wig-goat.cyclic.app/api/product"); //URL HERE
+      const response = await axios.get(
+        'https://talented-wig-goat.cyclic.app/api/product'
+      );
+
       return response.data;
     } catch (error) {
-      throw new Error('error'); //Something went wrong!
+      throw new Error('error'); // Something went wrong!
     }
   }
 );
- 
+
+export default fetchProducts;

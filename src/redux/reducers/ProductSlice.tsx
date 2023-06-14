@@ -1,11 +1,11 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchProducts } from "../action/ProductAction";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchProducts } from '../action/ProductAction';
 
 const productSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState: {
     data: [],
-    status: "",
+    status: '',
     loading: false,
     error: null,
   },
@@ -14,18 +14,18 @@ const productSlice = createSlice({
     builder
       .addCase(fetchProducts.pending, (state) => {
         state.loading = true;
-        state.status = "pending";
+        state.status = 'pending';
         state.error = null;
       })
       .addCase(fetchProducts.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
-        state.status = "success";
+        state.status = 'success';
         state.data = action.payload;
         state.error = null;
       })
       .addCase(fetchProducts.rejected, (state) => {
         state.loading = false;
-        state.status = "error";
+        state.status = 'error';
       });
   },
 });
