@@ -1,7 +1,41 @@
+
+import {getAllUsers} from '../action/disableAction'
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import {registerUser} from '../action/UserAction'
 
+const getAllUsersSlice = createSlice({
+    name: 'getAllUsers',
+    initialState: {
+        data: [],
+        status: '',
+        loading: false,
+        error: null,
+    },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(getAllUsers.pending, (state) => {
+                state.loading = true;
+                state.status = 'Loading...';
+                state.error = null;
+            }
+            )
+            .addCase(getAllUsers.fulfilled, (state, action) => {
+                state.loading = false;
+                state.status = 'Success';
+                state.data = action.payload;
+                state.error = null;
+            }
+            )
+            .addCase(getAllUsers.rejected, (state) => {
+                state.loading = false;
+                state.status = 'Failed';
+                state.error = null;
+            }
+            );
+    }
+});
 const userSlice = createSlice({
     name: "user",
     initialState: {
