@@ -13,3 +13,23 @@ export const fetchProducts = createAsyncThunk(
   }
 );
  
+export const addProduct = createAsyncThunk(
+  "products/addProduct",
+  async (product: any, thunkAPI) => {
+    try {
+      // Get the token from localStorage
+      const token = localStorage.getItem('token');
+
+      // Set the headers
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await axios.post("https://talented-wig-goat.cyclic.app/api/product", product, config);
+      return response.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+)
