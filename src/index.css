@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-input {
+  padding-right: 40px; /* Adjust the padding to leave space for the button */
+}
+
+.search-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 40px; /* Adjust the width of the button */
+  border: none;
+  background-color: #eda415;
+  color: #fff;
+  cursor: pointer;
+}
