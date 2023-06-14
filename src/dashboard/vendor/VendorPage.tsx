@@ -21,7 +21,7 @@ export default function VendorPage() {
               <div className="max-[1023px]:flex-1 flex flex-wrap gap-8 justify-between items-end">
                 <div className="dashboard__search shadow-md border rounded-md flex gap-3 p-1">
                   <i className='material-symbols-rounded text-gray-400'>search</i>
-                  <input  className=" focus:outline-none placeholder:text-gray-400 outline-0 bg-inherit border-0 xs:w-64 md:w-72" type="text" placeholder='Search product ...' />
+                  <input className=" focus:outline-none placeholder:text-gray-400 outline-0 bg-inherit border-0 xs:w-64 md:w-72" type="text" placeholder='Search product ...' />
                 </div>
                 <div className="dashboard__notification flex gap-7 text-blue-500">
                   <i className="material-symbols-rounded">message</i>
@@ -35,7 +35,7 @@ export default function VendorPage() {
             <div className="cards flex gap-5 flex-wrap justify-between items-end">
               <div className="pending_orders bg-customBlue text-white rounded-xl w-64 h-24 relative overflow-hidden p-3">
                 <div className="absolute -bottom-2 -left-3 scale-75">
-                <img src={cart} alt="stock"/>
+                  <img src={cart} alt="stock" />
                 </div>
                 <div className="standings flex flex-wrap justify-between h-full w-full">
                   <h2 className=' text-lg pl-5 justify-self-center'>Instock</h2>
@@ -56,7 +56,7 @@ export default function VendorPage() {
             <button className='border-t border-b border-l p-2 text-center h-10 w-10'>40</button>
             <button className='border p-2 text-center rounded-r-lg h-10'>Next</button>
           </div>
-          <Product_form onClose={handleClose} visible={visible}/>
+          <Product_form onClose={handleClose} visible={visible} />
         </div>
       </div>
     </div>
