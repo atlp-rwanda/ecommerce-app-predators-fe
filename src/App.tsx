@@ -10,7 +10,7 @@ import VendorPage from "./pages/vendor/VendorPage";
 
 function App() {
   return (
-    <div>
+    
       <Router>
        <Routes>
           <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
           <Route path="/vendor" element={<VendorPage/>} />
         </Routes>
       </Router>
-    </div>
+      
   );
 }
 export default App;
