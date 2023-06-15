@@ -12,9 +12,8 @@ import popupReducer from '../reducers/PasswordExpirationReduce';
 import updateProduct from '../reducers/UpdateProdSlice';
 import getProductByIdSlice from '../reducers/GetProdSlice';
 import profileReducer from '../reducers/ProfileReducer';
-
-
 import productCollectionReducer from '../reducers/productReducer'
+import SetRolesSlice from "../reducers/SetRolesSlice";
 import NotificationReducer from '../reducers/NotificationReducer';
 
 const store = configureStore({
@@ -32,9 +31,10 @@ const store = configureStore({
     product: updateProduct,
     getProductById: getProductByIdSlice,
     updateProfile: profileReducer,
+    Admin: SetRolesSlice,
     notifications:NotificationReducer
   },
-  middleware: [...getDefaultMiddleware(), thunk],
+   middleware: [...getDefaultMiddleware(), thunk],
 });
 
 export default store;

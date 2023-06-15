@@ -1,3 +1,6 @@
+import { createSlice } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+import {disableAccount} from '../action/disableAction'
 
 const disableUserSlice = createSlice({
     name: 'disableUser',
