@@ -15,12 +15,14 @@ const store = configureStore({
     user: OtpReducer,
     UserReducer,
 
+
         User: ResetPasswordSlice,
         Update: UpdatePasswordSlice,
         addProduct: addProductReducer,
         passwordExpiration: popupReducer, 
-   
-       CollectionProducts:productCollectionReducer,
+  
+    CollectionProducts:productCollectionReducer,
+
     
 
   },
