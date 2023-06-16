@@ -4,10 +4,10 @@ import UserTable from '../../components/table/UserTable';
 import cart from "./../../assets/dashboard/cart.svg";
 import profile from "./../../assets/dashboard/account_photo.jpg";
 export default function VendorPage() {
-
+  
   return (
     <div className="products">
-      <Sidebar />
+      <Sidebar/>
       <div className='md:ml-52'>
         <div className='pt-20 flex flex-col items-center lg:mx-20'>
           <div className="dashboard flex flex-col gap-8 flex-wrap w-[90%]">

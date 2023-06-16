@@ -1,9 +1,13 @@
-// import React from 'react'
+
+import PopupMessage from './PasswordExpirationPage'
 
 function LandingPage() {
   return (
+    <>
     <div className="text-2xl font-bold  text-center">LandingPage</div>
+    <PopupMessage/>
+    </>
   )
 }
 
-export default LandingPage
+export default LandingPage;

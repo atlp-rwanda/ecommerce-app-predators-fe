@@ -7,10 +7,10 @@ import PasswordComfirmPage from "./pages/PasswordConfirminationPage.";
 import TwoFactorAuth from '../src/pages/SellerLogin/twoFactorAuth';
 import VendorPage from "./dashboard/vendor/VendorPage";
 import Admin from "./dashboard/admin/admin"
+import PopupMessage from "./pages/PasswordExpirationPage"; 
 
 function App() {
-  return (
-    <div>
+  return ( 
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,9 +21,17 @@ function App() {
           <Route path="/two-factor" element={<TwoFactorAuth />} />
           <Route path="/vendor" element={<VendorPage />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/reset-password-page" element={<ResetPasswordPage/>} />
+
+          <Route path="/confirm-password-page" element={<PasswordComfirmPage/>} /> 
+          <Route path="/two-factor" element={<TwoFactorAuth />} />
+          <Route path="/PopupMessage" element={<PopupMessage/>}/>
+       
+
+          <Route path="/vendor" element={<VendorPage/>} />
         </Routes>
       </Router>
-    </div>
+      
   );
 }
 export default App;

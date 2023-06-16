@@ -1,73 +1,43 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { disableAccount, getAllUsers } from "../../redux/action/disableAction";
-import { ToastContainer ,toast} from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
 interface User {
+  getAllUsers: any;
   id: number;
   name: string;
   email: string;
   status: string;
+  data: User[];
 }
 
 interface DisableData {
   id: number;
-  status: string;
+  status: "active" | "inactive";
   reason: string;
 }
-/**
- * Renders a table of users with disable functionality.
- * @component
- */
 
-const UserTable = () => {
-  /**
-   * Dispatch function provided by react-redux.
-   * @type {function}
-   */
+const UserTable = (): JSX.Element => {
   const dispatch = useDispatch();
-   /**
-   * Array of user objects fetched from the Redux store.
-   * @type {User[]}
-   */
-  const users = useSelector((state: any) => state.getAllUsers.data);
+  //users
+
+  const users = useSelector((state: User) => state.getAllUsers.data);
+
   useEffect(() => {
     dispatch(getAllUsers() as any);
   }, [dispatch]);
 
-   /**
-   * State variable to manage the visibility of the status and reason popup.
-   * @type {boolean}
-   */
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  /**
-   * State variable to store the selected status value.
-   * @type {string}
-   */
-  const [status, setStatus] = useState("");
-  /**
-   * State variable to store the reason input value.
-   * @type {string}
-   */
+  const [status, setStatus] = useState<"active" | "inactive">("active");
   const [reason, setReason] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-/**
-   * State variable to store the disable data.
-   * @type {DisableData}
-   */
   const [disableData, setDisableData] = useState<DisableData>({
     id: 0,
-    status: "",
+    status: "active",
     reason: ""
   });
 
-   /**
-   * Handles the click on the disable icon.
-   * @param {number} id - The user ID.
-   * @returns {void}
-   */
   const handleIconClick = (id: number): void => {
     setIsPopupOpen(true);
     setDisableData((prevData) => ({
@@ -75,35 +45,19 @@ const UserTable = () => {
       id: id
     }));
   };
-/**
-   * Closes the status and reason popup.
-   * @returns {void}
-   */
+
   const handleClosePopup = (): void => {
     setIsPopupOpen(false);
   };
 
-  /**
-   * Handles the change in the status select input.
-   * @param {React.ChangeEvent<HTMLSelectElement>} e - The change event.
-   * @returns {void}
-   */
-  const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setStatus(e.target.value);
+  const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setStatus(e.target.value as "active" | "inactive");
   };
 
-  /**
-   * Handles the change in the reason textarea input.
-   * @param {React.ChangeEvent<HTMLTextAreaElement>} e - The change event.
-   * @returns {void}
-   */
-  const handleReasonChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleReasonChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     setReason(e.target.value);
   };
-/**
-   * Handles the save button click.
-   * @returns {void}
-   */
+
   const handleSave = (): void => {
     setIsLoading(true);
     const updatedDisableData: DisableData = {
@@ -111,21 +65,19 @@ const UserTable = () => {
       status: status,
       reason: reason
     };
-    dispatch(disableAccount(updatedDisableData) as any)
+    dispatch(disableAccount(updatedDisableData)as any)
       .then(() => {
         setIsPopupOpen(false);
         setIsLoading(false);
         toast.success('Account disabled successfully!');
         window.location.reload();
-
       })
-      .catch((err: any) => {
+      .catch((err: Error) => {
         console.log(err);
         setIsLoading(false);
         toast.error('Account disable failed. Please try again.');
       });
   };
-
   return (
     <div>
       <ToastContainer />
@@ -169,8 +121,8 @@ const UserTable = () => {
                                   onChange={handleStatusChange}
                                   className="w-full border border-gray-300 px-3 py-2 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 >
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
+                                  <option value="active">Active</option>
+                                  <option value="inactive">Inactive</option>
                                 </select>
                               </div>
                               <div className="mb-4">
