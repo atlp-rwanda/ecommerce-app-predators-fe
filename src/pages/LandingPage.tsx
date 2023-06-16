@@ -8,7 +8,6 @@ function LandingPage() {
     <PopupMessage/>
     </>
   )
- 
 }
 
-export default LandingPage
+export default LandingPage;

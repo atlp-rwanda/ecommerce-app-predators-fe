@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts } from "../redux/action/ProductAction";
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../redux/action/ProductAction';
 
 function ProductListing() {
   const products = useSelector(
@@ -15,7 +15,7 @@ function ProductListing() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts()as any);
+    dispatch(fetchProducts() as any);
   }, [dispatch]);
 
   if (loading) {

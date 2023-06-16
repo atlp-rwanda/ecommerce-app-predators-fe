@@ -10,10 +10,8 @@ import PopupMessage from "./pages/PasswordExpirationPage";
 
 import VendorPage from "./pages/vendor/VendorPage";
 
-
 function App() {
-  return (
-    
+  return ( 
       <Router>
        <Routes>
           <Route path="/" element={<Home />} />
