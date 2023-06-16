@@ -10,17 +10,17 @@ function HeaderNav() {
         menu(!isOpen)
     }
 
-    return (
-        <>
-            <div className="dashboard fixed bg-white flex flex-col gap-8 flex-wrap w-[100%] p-2 shadow-md mb-3">
-                <div className="  md:hidden">
-                    <div className="">
-                        <div onClick={() => handleCloseMenu()} className={`${isOpen ? "translate-x-52" : "translate-x-0"} transition-transform ease-in-out duration-500 flex gap-2 w-[73px] cursor-pointer`}>
-                            {isOpen ?
-                                <i className='material-symbols-rounded'>close</i> :
-                                <i className='material-symbols-rounded'>menu</i>
-                            }<span >Menu</span>
-                        </div>
+ 
+  return (
+    <> 
+        <div className="dashboard fixed bg-white flex flex-col gap-8 flex-wrap w-[100%] p-2 shadow-md mb-3">
+            <div className="  md:hidden">
+                <div className="">
+                    <div onClick={() => handleCloseMenu()} className={`${isOpen? "translate-x-52": "translate-x-0"} transition-transform ease-in-out duration-500 flex gap-2 w-[73px] cursor-pointer`}>
+                        {isOpen?
+                            <i className='material-symbols-rounded'>close</i> :
+                            <i className='material-symbols-rounded'>menu</i>
+                        }<span >Menu</span>
                     </div>
                 </div>
                 <div className='flex justify-between md:justify-end gap-10 items-center flex-wrap'>
@@ -39,12 +39,20 @@ function HeaderNav() {
                         <img src={profile} alt="profile_photo" className='object-cover' />
                     </div>
                 </div>
-
-            </div>
-            <Sidebar />
-            <Notification OpenPane={openPane} />
-        </>
-    )
+                <div className="dashboard__notification flex gap-7 text-blue-500">
+                    <div className="cursor-pointer"><i className="material-symbols-rounded">message</i></div>
+                    
+                     <Notification/>
+                </div>
+                </div> 
+                <div className=" dashboard__photo hidden lg:block rounded-full overflow-hidden w-10 h-10">
+                    <img src={profile} alt="profile_photo" className='object-cover' />
+                </div>
+             
+            <Sidebar isOpen={isOpen} />
+        </div>
+    </>
+  )
 }
 
 export default HeaderNav
