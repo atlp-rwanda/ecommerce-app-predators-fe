@@ -10,7 +10,6 @@ function HeaderNav() {
         menu(!isOpen)
     }
 
-
   return (
     <>
         <div className="dashboard fixed bg-white flex flex-col gap-8 flex-wrap w-[100%] p-2 shadow-md mb-3">

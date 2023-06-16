@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import electron from '../../assets/sidebar/Electron.svg';
 
-
-export default function Sidebar(props: any) {
+type opnStype= {
+    isOpen:boolean
+    
+}
+export default function Sidebar({isOpen}:opnStype ) {
 
   return (
     <>
-        <div className={`${ props.isOpen ? "block" : "hidden" } lg:block z-40 transition-transform ease-in-out duration-500 flex sticky sidebar h-screen flex-col justify-between min-w-[200px] bg-customBlue p-5 pb-18 text-sm`} >
+        <div className={`${ isOpen ? "block" : "hidden" } lg:block z-40 transition-transform ease-in-out duration-500 flex sticky sidebar h-screen flex-col justify-between min-w-[200px] bg-customBlue p-5 pb-18 text-sm`} >
             <div className='flex-1 min-h-[80%]'>
                 <div className="sidebar__logo flex items-center gap-2 text-white mb-9">
                     <img className="logo__image" src={electron} alt="Electron logo"/><i className="logo__dropdown material-symbols-rounded">arrow_drop_down_circle</i>

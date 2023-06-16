@@ -1,6 +1,14 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit'; 
 
+ type Item = { 
+    productId: number; 
+    reason: string;
+  } 
+type ProductData = {
+  data:Item
+
+}
  export const fetchProducts = createAsyncThunk(
   'products/fetchProduct',
   async () => {
@@ -17,7 +25,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
  
 export const productRemove = createAsyncThunk(
   'products/productRemove',
-  async ({data}: any, thunkAPI) => {
+  async ({data}: ProductData, thunkAPI) => {
     try { 
           // Get the token from localStorage
       const token = localStorage.getItem('token'); 

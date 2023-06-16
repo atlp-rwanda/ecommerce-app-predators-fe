@@ -1,6 +1,8 @@
 import{ useState } from 'react'
-
-function Notification(props: any) { 
+type NoticationType = {
+  OpenPane: boolean
+}
+function Notification(props: NoticationType) { 
   
   const [isOpenNotification, SetisOpenNotification]= useState(props.OpenPane);
   
