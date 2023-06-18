@@ -15,6 +15,7 @@ import profileReducer from '../reducers/ProfileReducer';
 
 
 import productCollectionReducer from '../reducers/productReducer'
+import NotificationReducer from '../reducers/NotificationReducer';
 
 const store = configureStore({
   reducer: {
@@ -31,6 +32,7 @@ const store = configureStore({
     product: updateProduct,
     getProductById: getProductByIdSlice,
     updateProfile: profileReducer,
+    notifications:NotificationReducer
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });

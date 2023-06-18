@@ -1,6 +1,9 @@
 import{ useState,useEffect } from 'react' 
 import { DisplayNotificationAction } from '../../redux/action/NotificationAction';
-import { useAppDispatch,useAppSelector } from '../../redux/store/hooks';  
+import { useAppDispatch,useAppSelector } from '../../redux/store/hooks';   
+import { GetAllNotifications } from '../../redux/action/NotificationAction';
+
+import { toast } from 'react-toastify';
 import moment from 'moment';
 
 type ItemData = {
@@ -12,14 +15,15 @@ type ItemData = {
     receive_notifications: boolean,
     createdAt: string, 
 }
-const Notification =  ()=> {
-    const NotificationData = useAppSelector((state): { data: null } | { data: { notifications: ItemData[] } } => state.notifications);
+const Notification =  ()=> {     const NotificationData = useAppSelector((state): { data: null } | { data: { notifications: ItemData[] } } => state.notifications);
 
     // 
 
     const dispatch = useAppDispatch();
     const [isPaneOpen, setIsPaneOpen] = useState(false); 
     let [loading, setLoading] = useState(true);  
+    
+  const [totalNotifications, setTotalNotifications] = useState(0);
 
   useEffect(() => { 
      dispatch(DisplayNotificationAction()as any) 
@@ -36,11 +40,44 @@ const Notification =  ()=> {
       setLoading(false)   
 
     }
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      try {
+        const response = await GetAllNotifications();
+        const notifications = response.notifications;
+        const newTotalNotifications = notifications.notifications.length;
+        setTotalNotifications(newTotalNotifications);
+        dispatch(newTotalNotifications as any);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchNotifications();
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (totalNotifications > 0) {
+      toast.info(
+        `You have ${totalNotifications} new ${
+          totalNotifications === 1 ? 'notification' : 'notifications'
+        }!`
+      );
+    }
+  }, [totalNotifications]);
+
   return (
     <>
-      <div className="cursor-pointer" onClick={()=> openNotificationPane()}> <i className="material-symbols-rounded" >notifications</i></div>
+      <div className="cursor-pointer" onClick={()=> openNotificationPane()}>
+         <i className="material-symbols-rounded" >notifications</i>
+         {totalNotifications && (
+                      <span className="notification-count">
+                        {totalNotifications}
+                      </span>
+                    )}
+         </div>
       
-        <div className={`fixed transition-transform max-w-[400px] ease-in-out duration-500 shadow-md right-0 p-4 h-[100%] bg-white ${isPaneOpen? 'block': 'hidden'} `}>   
+        <div className={`fixed transition-transform lg:max-w-[400px]  md:max-w-[400px] w-[80%] z-10 ease-in-out duration-500 shadow-md right-0 p-4 h-[100%] bg-white ${isPaneOpen? 'block': 'hidden'} `}>   
           <div className="flex relative">
             <div className="text-red-600 cursor-pointer bg-red-300 rounded-[50%] w-[30px] h-[30px] text-center absolute left-[-40px] top-[-10px] flex flex-col justify-center" 
           onClick={()=>ClosenotificationPane()}

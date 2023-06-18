@@ -6,7 +6,6 @@ import UpdateProduct from '../../pages/UpdateProduct';
 import { Link } from 'react-router-dom';
 import DeleteItem from '../vendor/DeleteItem';
 
-
 export default function Table() {
   const [showForm] = useState(false);
 
@@ -34,7 +33,7 @@ export default function Table() {
   };
 
   return (
-    <div className="relative mt-10 mb-6 shadow-lg w-[90%] ">
+    <div className=" mt-10 mb-6 shadow-lg w-[100%] ">
       <p className="font-medium mb-2 inline-block">Recent Products</p>
       <div className='flex'>
         <div className="w-full pb-2 overflow-x-auto flex">
