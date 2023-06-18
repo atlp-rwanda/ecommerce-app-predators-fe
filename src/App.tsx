@@ -12,6 +12,7 @@ import UpdateProduct from '../src/pages/UpdateProduct';
 import ProfilePage from './pages/profile/ProfilePage';
 import AdminViewUsersPage from './pages/AdminViewUsersPage';
 import SearchProduct from '../src/pages/SearchProductPage';
+import NotFound from './pages/error/NotFound';
 
 function App() {
   return (
@@ -39,6 +40,8 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/product/:id" element={<UpdateProduct />} />
         <Route path="/admin/users" element={<AdminViewUsersPage />} />
+        
+        <Route path="*" element={<NotFound/>} />
       </Routes>
     </Router>
   );
