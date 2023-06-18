@@ -4,7 +4,7 @@ import Layout from '../Layout';
 const AdminViewUsersPage = () => {
   return (
     <Layout>
-      <div className="admin-view ">
+      <div className="admin-view md:ml-52 ">
         <div className="">
           <div className="pt-20 flex flex-col items-center ">
             <div className="dashboard flex flex-col gap-8 flex-wrap w-[100%]">

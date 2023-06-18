@@ -20,9 +20,10 @@ import authReducer from '../reducers/authSlice';
 import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
 import CartCRUD from '../reducers/cartSlice';
-import NotificationReducer from '../reducers/NotificationReducer';
+import NotificationReducer from '../reducers/NotificationSlice';
 import WishlistSlice from '../reducers/WishlistSlice';
-
+import OrdersSlice from "../reducers/OrdersSlice"
+ import addReview from '../reducers/ReviewSlice';
 const store = configureStore({
   reducer: {
     chat: chatReducer,
@@ -45,10 +46,14 @@ const store = configureStore({
     auth: authReducer,
     cart: cartReducer,
     carts: CartCRUD,
-    notification: NotificationReducer,
+    notification: NotificationReducer,    
+    orders: OrdersSlice,
+    review: addReview,
     wishlist: WishlistSlice,
+        
+        
   },
-  middleware: [...getDefaultMiddleware(), thunk],
+  middleware: [...getDefaultMiddleware(),thunk],
 });
 
 export default store;

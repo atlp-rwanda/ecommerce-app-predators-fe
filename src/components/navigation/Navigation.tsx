@@ -36,14 +36,15 @@ export default function Navigation() {
             <i className="material-symbols-rounded cursor-pointer">location_on</i><span className="text-sm">Our store</span>
           </div>
           <div className="flex gap-2">
-            <i className="material-symbols-rounded cursor-pointer">local_shipping</i><span className="text-sm">Track your Order</span>
+           <Link to='/my/orders' className="flex gap-2"><i className="material-symbols-rounded cursor-pointer">local_shipping</i><span className="text-sm">Track your Order</span></Link> 
           </div>
+          <div className="language">
+            <select name="language" id="" className="text-[11px]">
+              <option value="English">EN</option>
+            </select>
         </div>
-        <div className="language absolute bottom-0 right-[7%]">
-          <select name="language" id="" className="text-[11px]">
-            <option value="English">EN</option>
-          </select>
         </div>
+        
       </div>
       <div className=" bg-customBlue pb-5 md:pb-0">
         <div className="flex justify-between px-[7%] pt-7 pb-5 md:pb-7 items-center">
@@ -56,11 +57,15 @@ export default function Navigation() {
           </div>
           <div className="flex gap-8 sm:gap-5 grow-[1] justify-end text-white">
             <div className="flex gap-2 hover:text-tertiary">
-              <i className="material-symbols-rounded cursor-pointer">person</i><span className="text-sm max-[640px]:hidden">Sign in</span>
-            </div>
+              <Link to='/login' className="flex gap-2"> 
+                <i className="material-symbols-rounded cursor-pointer">person</i><span className="text-sm mt-1 max-[640px]:hidden">Sign in</span>
+              </Link>
+             </div>
             <div className="flex gap-2 hover:text-tertiary">
-              <i className="material-symbols-rounded cursor-pointer">shopping_cart</i><span className="text-sm max-[640px]:hidden">Cart</span>
-            </div>
+               <Link to='/login' className="flex gap-2"> 
+                <i className="material-symbols-rounded cursor-pointer">shopping_cart</i><span className="text-sm mt-1 max-[640px]:hidden">Cart</span>
+            </Link>
+              </div>
             <div className="flex gap-2 items-center hover:text-tertiary cursor-pointer md:hidden" onClick={handleMenu}>
               <RiMenuFill className="scale-[150%]"/><span className="text-sm max-[640px]:hidden">Menu</span>
             </div>
