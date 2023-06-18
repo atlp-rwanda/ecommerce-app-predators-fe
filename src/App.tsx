@@ -25,6 +25,8 @@ import 'react-toastify/ReactToastify.css';
 
 import NotFound from './pages/error/NotFound';
 import WishlistPage from './pages/WishlistPage';
+import Orders from './pages/buyer/Orders';
+
 
 function App() {
   return (
@@ -49,6 +51,7 @@ function App() {
         <Route path="/PopupMessage" element={<PopupMessage />} />
         <Route path="/vendor" element={<VendorPage />} />
         <Route path="/search-product" element={<SearchProduct />} />
+        <Route path="/my/orders" element={<Orders />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/product/:id" element={<UpdateProduct />} />
 

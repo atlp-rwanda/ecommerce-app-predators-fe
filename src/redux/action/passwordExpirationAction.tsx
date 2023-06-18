@@ -15,7 +15,7 @@ export const passwordExpirationAction = createAsyncThunk(
       };
 
       const response = await axios.get(
-        'http://localhost:3000/api/usersRestrict',
+        'https://ecommercepredators.onrender.com/api/usersRestrict',
         config
       ); //URL HERE
       // console.log('response from backend', response.data);

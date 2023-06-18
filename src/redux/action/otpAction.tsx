@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-const API_URL = 'https://talented-wig-goat.cyclic.app/auth/';
+const API_URL = 'https://ecommercepredators.onrender.com/api/auth/';
 
 export const otpVerifyUser = createAsyncThunk(
   'user/verifyOTP',
