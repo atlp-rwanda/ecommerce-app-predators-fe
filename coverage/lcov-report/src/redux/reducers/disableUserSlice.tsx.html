@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/redux/action/ProductAction.tsx</title>
+    <title>Code coverage report for src/redux/reducers/disableUserSlice.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/redux/action</a> ProductAction.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/redux/reducers</a> disableUserSlice.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>0/15</span>
             </div>
         
             
@@ -96,15 +96,7 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -112,60 +104,65 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import axios from "axios";</span>
-<span class="cstat-no" title="statement not covered" >import { createAsyncThunk } from "@reduxjs/toolkit";</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import { createSlice } from '@reduxjs/toolkit';</span>
+<span class="cstat-no" title="statement not covered" >import {disableAccount} from '../action/disableAction'</span>
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >fetchProducts = createAsyncThunk(</span>
-  "products/fetchProduct",
-<span class="fstat-no" title="function not covered" >  async </span>() =&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      const response = <span class="cstat-no" title="statement not covered" >await axios.get("https://talented-wig-goat.cyclic.app/api/product");</span> //URL HERE
-<span class="cstat-no" title="statement not covered" >      return response.data;</span>
-    } catch (error) {
-<span class="cstat-no" title="statement not covered" >      throw new Error('error'); </span>//Something went wrong!
+const disableUserSlice = <span class="cstat-no" title="statement not covered" >createSlice({</span>
+    name: 'disableUser',
+    initialState: {
+        data: [],
+        status: '',
+        loading: false,
+        error: null,
+    },
+    reducers: {},
+    extraReducers: <span class="fstat-no" title="function not covered" >(b</span>uilder) =&gt; {
+<span class="cstat-no" title="statement not covered" >        builder</span>
+            .addCase(disableAccount.pending, <span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; {
+<span class="cstat-no" title="statement not covered" >                state.loading = true;</span>
+<span class="cstat-no" title="statement not covered" >                state.status = 'Loading...';</span>
+<span class="cstat-no" title="statement not covered" >                state.error = null;</span>
+            })
+            .addCase(disableAccount.fulfilled, <span class="fstat-no" title="function not covered" >(s</span>tate, action) =&gt; {
+<span class="cstat-no" title="statement not covered" >                state.loading = false;</span>
+<span class="cstat-no" title="statement not covered" >                state.status = 'Account disabled successfully!';</span>
+<span class="cstat-no" title="statement not covered" >                state.data = action.payload;</span>
+<span class="cstat-no" title="statement not covered" >                state.error = null;</span>
+            })
+            .addCase(disableAccount.rejected, <span class="fstat-no" title="function not covered" >(s</span>tate) =&gt; {
+<span class="cstat-no" title="statement not covered" >                state.loading = false;</span>
+<span class="cstat-no" title="statement not covered" >                state.status = 'Account disable failed. Please try again.';</span>
+<span class="cstat-no" title="statement not covered" >                state.error = null;</span>
+            }
+            );
     }
-  }
-);
- 
-export const <span class="cstat-no" title="statement not covered" >addProduct = createAsyncThunk(</span>
-  "products/addProduct",
-<span class="fstat-no" title="function not covered" >  async </span>(product: any, thunkAPI) =&gt; {
-<span class="cstat-no" title="statement not covered" >    try {</span>
-      // Get the token from localStorage
-      const token = <span class="cstat-no" title="statement not covered" >localStorage.getItem('token');</span>
-&nbsp;
-      // Set the headers
-      const config = <span class="cstat-no" title="statement not covered" >{</span>
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const response = <span class="cstat-no" title="statement not covered" >await axios.post("https://talented-wig-goat.cyclic.app/api/product", product, config);</span>
-<span class="cstat-no" title="statement not covered" >      return response.data;</span>
-    } catch (error: any) {
-<span class="cstat-no" title="statement not covered" >      return thunkAPI.rejectWithValue(error.response.data);</span>
-    }
-  }
-)</pre></td></tr></table></pre>
+});
+<span class="cstat-no" title="statement not covered" >export default disableUserSlice.reducer;</span></pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

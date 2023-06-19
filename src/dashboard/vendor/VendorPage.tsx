@@ -16,7 +16,7 @@ export default function VendorPage() {
           <div className="cards flex gap-5 flex-wrap justify-between items-end">
               <div className="pending_orders bg-customBlue text-white rounded-xl w-64 h-24   overflow-hidden p-3">
                 <div className="absolute -bottom-2 -left-3 scale-75">
-                <img src={cart} alt="stock"/>
+                  <img src={cart} alt="stock" />
                 </div>
                 <div className="standings flex flex-wrap justify-between h-full w-full">
                     <h2 className=' text-lg pl-5 justify-self-center'>Instock</h2>

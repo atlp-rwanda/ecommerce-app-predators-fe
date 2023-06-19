@@ -41,7 +41,7 @@ function HeaderNav() {
             </div>
 
         </div>
-      <Sidebar isOpen={isOpen} />
+      <Sidebar/>
       <Notification OpenPane={openPane}/>
     </>
   )
