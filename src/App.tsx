@@ -3,6 +3,7 @@ import Home from '../src/pages/LandingPage';
 import LoginSuccess from './components/login/LoginSuccess';
 import LoginError from './components/login/LoginError';
 import ProductPage from '../src/pages/ProductPage';
+import ModalButton from './components/chat/ModalButton';
 import RegisterPage from './pages/RegisterPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import PasswordComfirmPage from './pages/PasswordConfirminationPage.';
@@ -22,7 +23,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
         <Route path="/product-page" element={<ProductPage />} />
         <Route path="/register-page" element={<RegisterPage />} />
         <Route path="/reset-password-page" element={<ResetPasswordPage />} />
@@ -42,8 +43,9 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signin/success" element={<LoginSuccess />} />
         <Route path="/signin/fail" element={<LoginError />} />
-      <ToastContainer />
       </Routes>
+      <ModalButton />
+      <ToastContainer />
     </Router>
   );
 }
