@@ -2,8 +2,8 @@ import { useState, SetStateAction, useEffect, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { updateProduct, getProductById } from '../redux/action/UpdateProduct';
-import { Link, useParams } from 'react-router-dom';
-import { Sidebar } from '../components';
+import { Link, useParams } from 'react-router-dom'; 
+import Layout from '../Layout';
 
 interface ProductTypes {
   id: number;
@@ -118,23 +118,22 @@ export default function UpdateProduct() {
 
   return (
 
-    <div>
-      <Sidebar />
+    <Layout> 
 
-
-      <div className="flex justify-center  items-center">
+      <div>
         <div
           id="container_form"
-          className="w-5/6 flex justify-center m-20 items-center"
+          className="flex justify-center m-10 items-center"
         >
-          <form className=" flex flex-col shadow-custom p-9  rounded-xl">
+          <form className=" flex flex-col shadow-custom p-9  rounded-xl w-[80%]">
             <div className="flex justify-between w-full p-2 ">
-              <h3 className="mx-auto">Update product</h3>
+              <h3 className="font-semibold">Update product</h3>
+              <hr/>
               <div>
                 <Link
                   to="/vendor"
                   onClick={() => setShowForm(false)}
-                  className="flex items-center justify-center shadow-sm  ring-1 ring-inset ring-gray-300 rounded-full w-6 h-6"
+                  className="flex items-center justify-center shadow-sm  ring-1 ring-inset ring-red-300 bg-red-300 text-red-600 rounded-full w-8 h-8"
                 >
                   <i
                     id="cancel_btn"
@@ -157,7 +156,7 @@ export default function UpdateProduct() {
             </div>
             <div className="mt-2 ">
               <textarea
-
+                  rows={6}
                 value={udescription}
                 onChange={handleDescription}
                 placeholder="Product description"
@@ -230,7 +229,7 @@ export default function UpdateProduct() {
 
       </div >
 
-    </div >
+    </Layout >
   );
 
 

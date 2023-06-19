@@ -17,9 +17,11 @@ import SetRolesSlice from '../reducers/SetRolesSlice';
 import searchReducer from '../reducers/Searchslice';
 import NotificationReducer from '../reducers/NotificationReducer';
 import authReducer from "../reducers/authSlice";
+import chatReducer from '../reducers/chatSlice';
 
 const store = configureStore({
   reducer: {
+    chat: chatReducer,
     products: productReducer,
     user: OtpReducer,
     UserReducer,
