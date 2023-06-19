@@ -22,14 +22,15 @@ const addProdictSlice = createSlice({
                 state.loading = false;
                 state.status = "success";
                 state.data = action.payload;
-                toast.success(`${action.payload.data.message}`);
+                toast.error(`${action.payload.data.message}`);
             })
             .addCase(addProduct.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.status = "error";
                 toast.error(`${action.payload.data.message}`);
             });
-        }
+    }
 })
+
 
 export default addProdictSlice.reducer

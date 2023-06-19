@@ -4,11 +4,11 @@ export default {
     testMatch: ['<rootDir>/src/components/__tests__/**/*.(test|spec).(jsx|tsx)'],
     testEnvironment: 'jsdom',
     moduleNameMapper: {
-    '\\.(css|less|scss)$': 'identity-obj-proxy',
+        '\\.(css|less|scss)$': 'identity-obj-proxy',
     },
     setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
     transform: {
-    '^.+\\.jsx?$': 'babel-jest',
+        '^.+\\.jsx?$': 'babel-jest',
     },
     collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
 };

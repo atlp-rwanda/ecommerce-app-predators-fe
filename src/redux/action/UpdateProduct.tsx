@@ -1,15 +1,25 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_URL = 'http://localhost:3000/api/';
+interface UpdateData {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  picture_urls: string[];
+  available: boolean;
+  expiryDate: string;
+  instock: number;
+}
 
-// get product data from this API_URL
 
-export const fetchProductById = createAsyncThunk(
-  'product/fetchProductById',
-  async (id: any, thunkAPI) => {
+
+// Get product data by ID from the API_URL
+export const getProductById = createAsyncThunk(
+  'product/getProductById',
+  async (id: number, thunkAPI) => {
+
     try {
-
       // Get the token from localStorage
       const token = localStorage.getItem('token');
 
@@ -19,7 +29,13 @@ export const fetchProductById = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.get(`${API_URL}product/${id}`,config);
+
+      // Make the API request to fetch the product by ID
+      const response = await axios.get(
+        `https://talented-wig-goat.cyclic.app/api/product/${id}`,
+        config
+      );
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -27,16 +43,39 @@ export const fetchProductById = createAsyncThunk(
   }
 );
 
-// update product data by Id from this API_URL
+// Update product data by ID using the API_URL
+export const updateProduct = createAsyncThunk(
+  'product/updateProduct',
+  async ({ id, name, description, price, available, picture_urls, expiryDate, instock }: UpdateData, thunkAPI) => {
 
-// export const updateProduct = createAsyncThunk(
-//     'product/updateProduct',
-//     async (product: any, thunkAPI) => {
-//         try {
-//             const response = await axios.put(`${API_URL}product/${product.id}`, product);
-//             return response.data;
-//         } catch (error) {
-//             return thunkAPI.rejectWithValue(error);
-//         }
-//     }
-// );
+    try {
+      // Get the token from localStorage
+      const token = localStorage.getItem('token');
+
+      // Set the headers
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const response = await axios.put(`https://talented-wig-goat.cyclic.app/api/product/${id}`, {
+        name,
+        description,
+        price,
+        available,
+        picture_urls,
+        expiryDate,
+        instock,
+      },
+        config
+      );
+
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
