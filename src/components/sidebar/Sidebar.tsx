@@ -61,13 +61,13 @@ export default function Sidebar() {
                 </ul>
             </div>
         </div>
-        <div className="close_icon flex justify-center pt-5 md:hidden">
+        <div className={`${isOpen? "translate-x-52": "translate-x-0  bg-primary p-2"} transition-transform ease-in-out duration-500 close_icon flex justify-center pt-5 md:hidden`}>
             <div className="w-[90%]">
-                <div onClick={() => handleCloseMenu()} className={`${isOpen? "translate-x-52": "translate-x-0"} transition-transform ease-in-out duration-500 flex gap-2 w-[73px] cursor-pointer`}>
+                <div onClick={() => handleCloseMenu()}  className={isOpen? 'text-black flex gap-2 w-[73px] cursor-pointer' : 'flex gap-2 w-[73px] cursor-pointer text-white'}>
                     {isOpen?
-                        <i className='material-symbols-rounded'>close</i> :
-                        <i className='material-symbols-rounded'>menu</i>
-                    }<span >Menu</span>
+                        <><i className='material-symbols-rounded'>close</i><span>Close</span></> :
+                        <><i className='material-symbols-rounded'>menu</i><span>Menu</span></>
+                    }
                 </div>
             </div>
         </div>

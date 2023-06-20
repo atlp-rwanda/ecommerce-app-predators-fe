@@ -11,6 +11,7 @@ import getAllUsersReducer from '../reducers/usersSlice'
 import popupReducer from '../reducers/PasswordExpirationReduce';
 import updateProduct from '../reducers/UpdateProdSlice';
 import getProductByIdSlice from '../reducers/GetProdSlice';
+import profileReducer from '../reducers/ProfileReducer';
 
 
 import productCollectionReducer from '../reducers/productReducer'
@@ -29,6 +30,7 @@ const store = configureStore({
     CollectionProducts: productCollectionReducer,
     product: updateProduct,
     getProductById: getProductByIdSlice,
+    updateProfile: profileReducer,
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });
