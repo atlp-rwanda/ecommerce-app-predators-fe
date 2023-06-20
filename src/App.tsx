@@ -6,7 +6,8 @@ import ResetPasswordPage from "./pages/ResetPasswordPage";
 import PasswordComfirmPage from "./pages/PasswordConfirminationPage.";
 import TwoFactorAuth from '../src/pages/SellerLogin/twoFactorAuth';
 import VendorPage from "./dashboard/vendor/VendorPage";
-import Admin from "./dashboard/admin/admin"
+import Admin from "./dashboard/admin/admin";
+import SearchProduct from '../src/pages/SearchProductPage';
 import PopupMessage from "./pages/PasswordExpirationPage";
 import UpdateProduct from '../src/pages/UpdateProduct';
 import ProfilePage from './pages/profile/ProfilePage';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/confirm-password-page" element={<PasswordComfirmPage />} />
         <Route path="/two-factor" element={<TwoFactorAuth />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/search-product" element={<SearchProduct />} />
         <Route path="/reset-password-page" element={<ResetPasswordPage />} />
         <Route path="/confirm-password-page" element={<PasswordComfirmPage />} />
         <Route path="/two-factor" element={<TwoFactorAuth />} />

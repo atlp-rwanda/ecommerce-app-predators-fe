@@ -12,7 +12,7 @@ import popupReducer from '../reducers/PasswordExpirationReduce';
 import updateProduct from '../reducers/UpdateProdSlice';
 import getProductByIdSlice from '../reducers/GetProdSlice';
 import profileReducer from '../reducers/ProfileReducer';
-
+import searchReducer from '../reducers/Searchslice';
 
 import productCollectionReducer from '../reducers/productReducer'
 
@@ -29,6 +29,7 @@ const store = configureStore({
     passwordExpiration: popupReducer,
     CollectionProducts: productCollectionReducer,
     product: updateProduct,
+    search: searchReducer,
     getProductById: getProductByIdSlice,
     updateProfile: profileReducer,
   },

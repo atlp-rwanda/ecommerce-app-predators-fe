@@ -3,10 +3,10 @@ import { fetchProducts,productRemove } from "../action/ProductAction";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const productSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState: {
     data: [],
-    status: "",
+    status: '',
     loading: false,
     error: ''
   },
@@ -15,12 +15,12 @@ const productSlice = createSlice({
     builder
       .addCase(fetchProducts.pending, (state) => {
         state.loading = true;
-        state.status = "pending";
+        state.status = 'pending';
         state.error = '';
       })
       .addCase(fetchProducts.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false;
-        state.status = "success";
+        state.status = 'success';
         state.data = action.payload;
         state.error = '';
       })

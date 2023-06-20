@@ -18,7 +18,7 @@ type ProductData = {
       ); //URL HERE
       return response.data;
     } catch (error) {
-      throw new Error('error'); //Something went wrong!
+      throw new Error('error'); // Something went wrong!
     }
   }
 );
