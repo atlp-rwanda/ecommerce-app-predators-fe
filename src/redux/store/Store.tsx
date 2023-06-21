@@ -5,6 +5,7 @@ import UserReducer from "../reducers/UserSlice";
 import ResetPasswordSlice from "../reducers/ResetPasswordSlice";
 import UpdatePasswordSlice from "../reducers/UpdatePasswordSlice";
 import OtpReducer from '../reducers/otpSlice';
+import cartReducer from '../reducers/CartReducer';
 
 
 const store = configureStore({
@@ -15,6 +16,7 @@ const store = configureStore({
     addProduct: addProductReducer,
         User: ResetPasswordSlice,
         Update: UpdatePasswordSlice,
+        cart: cartReducer,
         
         
   },
