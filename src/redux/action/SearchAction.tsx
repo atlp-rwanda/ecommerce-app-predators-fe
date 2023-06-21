@@ -6,7 +6,7 @@ export const searchProducts = createAsyncThunk(
   async (searchTerm: string) => {
     try {
       const response = await axios.get(
-        `https://talented-wig-goat.cyclic.app/api/products/search?keyword=${searchTerm}&&limit=10`
+        `https://talented-wig-goat.cyclic.app/api/products/search?keyword=${searchTerm}&limit=10`
       );
 
       return response.data;

@@ -14,9 +14,8 @@ export const Card = (product: Product) => {
   const products = useSelector(
     (state: { products: { data: any } }) => state.products.data
   );
-  const loading = useSelector(
-    (state: { products: { loading: any } }) => state.products.loading
-  );
+
+  console.log(products);
   const error = useSelector(
     (state: { products: { error: any } }) => state.products.error
   );
@@ -25,10 +24,6 @@ export const Card = (product: Product) => {
   useEffect(() => {
     dispatch(fetchProducts() as any);
   }, [dispatch]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
 
   if (error) {
     return <p>Error: {error}</p>;

@@ -1,4 +1,4 @@
-import NavHeader from '../components/HeaderNav';
+import NavHeader from '../components/buyerHeader/HeaderNav';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -31,7 +31,7 @@ function SearchProductPage() {
   const dispatch = useDispatch<Dispatch<any>>();
 
   useEffect(() => {
-    dispatch(fetchProducts() as any);
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   const [searchText, setSearchText] = React.useState('');
@@ -41,9 +41,9 @@ function SearchProductPage() {
     setSearchText(searchTerm);
     setIsSearchPerformed(!!searchTerm);
     if (searchTerm) {
-      dispatch(searchProducts(searchTerm));
+      dispatch(searchProducts(searchText));
     } else {
-      dispatch(fetchProducts() as any);
+      dispatch(fetchProducts());
     }
   };
 

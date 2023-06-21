@@ -1,12 +1,12 @@
 /* eslint-disable */
 
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/images/logo 3.png';
+import logo from '../../assets/images/logo 3.png';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { FiTruck } from 'react-icons/fi';
 import { BiUser } from 'react-icons/bi';
 import { BiCartAlt } from 'react-icons/bi';
-import SearchBar from '../components/search/SearchBar';
+import SearchBar from '../search/SearchBar';
 
 interface NavHeaderProps {
   onSearchText: (text: string) => void;
