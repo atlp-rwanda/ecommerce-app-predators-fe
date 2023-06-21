@@ -16,6 +16,10 @@ import searchReducer from '../reducers/Searchslice';
 
 import productCollectionReducer from '../reducers/productReducer'
 
+import cartReducer from '../reducers/CartReducer';
+
+
+
 const store = configureStore({
   reducer: {
     products: productReducer,
@@ -32,6 +36,10 @@ const store = configureStore({
     search: searchReducer,
     getProductById: getProductByIdSlice,
     updateProfile: profileReducer,
+    
+        cart: cartReducer,
+        
+        
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });

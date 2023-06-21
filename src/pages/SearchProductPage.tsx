@@ -7,8 +7,10 @@ import { searchProducts } from '../redux/action/SearchAction';
 import Sidebar from '../components/userSidebar/Sidebar';
 import { Card } from './../components/cardComponent/Card';
 import React from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
+import ViewProduct from './viewProduct';
 
-interface Product {
+export interface Product {
   id: any;
   name: any;
   price: any;
@@ -67,8 +69,10 @@ function SearchProductPage() {
         </div>
         <div className="col-span-6 ml-6 mt-44">
           {filteredProducts.length > 0 ? (
+            
             <div className="grid grid-cols-3 gap-3 mt-8 mx-20">
               {filteredProducts.map((product: Product) => (
+               <Link  to={`/viewProduct/${product.id}`} key={product.id}>
                 <Card
                   key={product.id}
                   name={product.name}
@@ -77,7 +81,11 @@ function SearchProductPage() {
                   id={product.id}
                   rating={undefined}
                 />
+                </Link>
               ))}
+              <Routes>
+               <Route path="/viewProduct/:id" element={<ViewProduct />} />
+               </Routes>
             </div>
           ) : (
             <p className="text-tertiary text-3xl font-Poppins text-center mt-10">

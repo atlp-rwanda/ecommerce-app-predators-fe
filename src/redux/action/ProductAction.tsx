@@ -14,7 +14,7 @@ type ProductData = {
   async () => {
     try {
       const response = await axios.get(
-        'https://talented-wig-goat.cyclic.app/api/product'
+        'https://ecommercepredators.onrender.com/api/Product'
       ); //URL HERE
       return response.data;
     } catch (error) {
@@ -29,7 +29,7 @@ export const productRemove = createAsyncThunk(
     try { 
           // Get the token from localStorage
       const token = localStorage.getItem('token'); 
-    const response = await axios.delete(`https://talented-wig-goat.cyclic.app/api/product/${data.productId}`,{
+    const response = await axios.delete(`https://ecommercepredators.onrender.com/api/Product/${data.productId}`,{
       data,
        headers: {
           Authorization: `Bearer ${token}`,
@@ -59,8 +59,32 @@ export const addProduct = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.post("https://talented-wig-goat.cyclic.app/api/product", product, config);
+      const response = await axios.post(" https://ecommercepredators.onrender.com/api/product", product, config);
       return response.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const fetchProductById = createAsyncThunk(
+  "products/fetchProductById",
+  async (id: any, thunkAPI) => {
+    try {
+      // Get the token from localStorage
+      const token = localStorage.getItem('token');
+
+      // Set the headers
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+       
+      
+      const response = await axios.get(` https://ecommercepredators.onrender.com/api/product/${id}`, config);
+      return response.data;
+      //console.log(data)
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.response.data);
     }

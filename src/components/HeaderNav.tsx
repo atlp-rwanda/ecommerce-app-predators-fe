@@ -1,88 +1,33 @@
-import React, { useState, ChangeEvent } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/images/logo 3.png';
-import { HiOutlineLocationMarker } from 'react-icons/hi'; // You can also import individual components if needed';
-import { FiTruck } from 'react-icons/fi'; // You can also import individual components if needed';
-import { BiUser } from 'react-icons/bi'; // You can also import individual components if needed';
-import { BiCartAlt } from 'react-icons/bi'; // You can also import individual components if needed';
-function NavHeader() {
-  const [selectedOption, setSelectedOption] = useState('');
-
-  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value);
-  };
-
+import profile from './../assets/dashboard/account_photo.jpg';
+import Notification from './notification/Notification';
+function HeaderNav() {
   return (
-    <div className="w-full">
-      <div className="bg-white ">
-        <div className="flex justify-between mx-5 my-3">
-          <div>
-            <label>Need help? call us: (+25) 0785 7676 47</label>
-          </div>
-          <div className="flex space-x-2">
-            <HiOutlineLocationMarker size={30} />
-            <label>Our store</label>
-            <FiTruck size={30} />
-            <label>Track your order</label>
-          </div>
-        </div>
-      </div>
-      <div className="bg-primary py-4 text-white flex space-x-2">
-        <div className="flex w-full mx-20">
-          <div className="flex mr-14 pt-2">
-            <img src={logo} alt="" className="w-8 ml-10 h-fit " />
-            <label className="uppercase Poppins font-bold pt-1">predator</label>
-          </div>
-          <div className="flex w-full justify-between">
-            <div className="flex relative">
+    <div className="flex gap-5">
+      <div className=" sticky top-0 gap-7 bg-white pt-3 pb-3 pr-3 flex flex-row flex-wrap shadow-md mb-3 md:justify-end  lg:justify-end  justify-center w-[100%]">
+        <div className="flex justify-end md:justify-end gap-10 items-center ">
+          <div className="max-[1023px]:flex-1 flex md:gap-8 gap-2  lg:gap-8 justify-between items-end">
+            <div className="dashboard__search shadow-md border rounded-md flex gap-3 p-1">
+              <i className="material-symbols-rounded text-gray-400">search</i>
               <input
+                className=" focus:outline-none placeholder:text-gray-400 outline-0 bg-inherit border-0 xs:w-64 md:w-72"
                 type="text"
-                placeholder="Search anything"
-                className="py-3 px-6 rounded-full text-black outline-none w-96"
+                placeholder="Search product ..."
               />
-              <button className="bg-tertiary px-8 rounded-full hover:bg-yellow-600 absolute right-0 py-3">
-                Search
-              </button>
             </div>
-            <div className="space-x-4 pt-2 flex">
-              <BiUser size={25} />
-              <label>Sign in</label>
-              <BiCartAlt size={25} />
-              <label className="w-fit h-fit px-1 rounded-full bg-tertiary">
-                0
-              </label>
-              <label>Cart</label>
+            <div className="dashboard__notification flex gap-7 text-blue-500">
+              <div className="cursor-pointer">
+                <i className="material-symbols-rounded">message</i>
+              </div>
+              <Notification />
             </div>
           </div>
         </div>
-      </div>
-      <div className="bg-gray-100 ">
-        <div className="mx-56 flex space-x-20">
-          <select
-            id="dropdown"
-            value={selectedOption}
-            onChange={handleSelectChange}
-            className="bg-tertiary p-3 text-white outline-none"
-          >
-            <option value="">Browse categories</option>
-            <option value="Telephone">Telephone</option>
-            <option value="Computer">Computer</option>
-            <option value="Tv Screens">Tv Screens</option>
-          </select>
-          <nav>
-            <ul className="flex space-x-6 mt-3">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <NavLink to="/about us">About us</NavLink>
-              </li>
-            </ul>
-          </nav>
+        <div className=" dashboard__photo hidden md:block lg:block rounded-full overflow-hidden w-10 h-10">
+          <img src={profile} alt="profile_photo" className="object-cover" />
         </div>
       </div>
     </div>
   );
 }
 
-export default NavHeader;
+export default HeaderNav;
