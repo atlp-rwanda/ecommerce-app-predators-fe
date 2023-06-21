@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { registerUser } from '../redux/action/UserAction';
 import store from '../../src/assets/store.svg';
 
+
 /**
  * RegisterPage component for user registration
  */
@@ -25,7 +26,9 @@ interface RootState {
 
 const RegisterPage: React.FC = () => {
   const dispatch = useDispatch();
-  const registrationStatus = useSelector((state: RootState) => state.user.status);
+  const registrationStatus = useSelector(
+    (state: RootState) => state.user.status
+  );
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
