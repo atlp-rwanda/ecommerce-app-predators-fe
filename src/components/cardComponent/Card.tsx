@@ -1,38 +1,21 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchProducts } from '../../redux/action/ProductAction';
 
 interface Product {
-  id: any;
-  name: any;
-  price: any;
-  picture_urls: any;
+  id: number;
+  name: string;
+  price: string;
+  picture_urls: string;
   rating: any;
 }
 
 export const Card = (product: Product) => {
-  const products = useSelector(
-    (state: { products: { data: any } }) => state.products.data
-  );
-  const loading = useSelector(
-    (state: { products: { loading: any } }) => state.products.loading
-  );
-  const error = useSelector(
-    (state: { products: { error: any } }) => state.products.error
-  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProducts() as any);
   }, [dispatch]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
 
   const renderRatingStars = (filledStars: number) => {
     const maxStars = 5;

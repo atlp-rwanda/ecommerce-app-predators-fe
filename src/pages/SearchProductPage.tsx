@@ -1,37 +1,52 @@
-import NavHeader from '../components/HeaderNav';
+import NavHeader from '../components/buyerHeader/HeaderNav';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
 import { fetchProducts } from '../redux/action/ProductAction';
-import { searchProducts } from '../redux/action/SearchAction';
+import { searchProductsByFilter } from '../redux/action/SearchAction';
 import Sidebar from '../components/userSidebar/Sidebar';
 import { Card } from './../components/cardComponent/Card';
 import React from 'react';
 
 interface Product {
-  id: any;
-  name: any;
-  price: any;
-  picture_urls: any;
+  id: number;
+  name: string;
+  price: string;
+  aggregate_rating: undefined;
+  picture_urls: string;
+}
+interface SearchCriteria {
+  name?: string;
+  price?: string;
+  keyword?: string;
 }
 
+interface ResponseType {
+  status: string;
+  code: number;
+  message: string;
+  data: Product[];
+}
+interface ResponseTypeTwo {
+  status: string;
+  code: number;
+  message: string;
+  data: {
+    products: Product[];
+  };
+}
 function SearchProductPage() {
   const products = useSelector(
-    (state: { products: { data: any } }) => state.products.data
+    (state: { products: { data: ResponseTypeTwo } }) => state.products.data
   );
   const searchProduct = useSelector(
-    (state: { search: { products: any } }) => state.search.products
+    (state: { search: { products: ResponseType } }) => state.search.products
   );
-  const loading = useSelector(
-    (state: { products: { loading: any } }) => state.products.loading
-  );
-  const error = useSelector(
-    (state: { products: { error: any } }) => state.products.error
-  );
-  const dispatch = useDispatch<Dispatch<any>>();
 
+  const dispatch = useDispatch<Dispatch<any>>();
+  console.log(products);
   useEffect(() => {
-    dispatch(fetchProducts() as any);
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   const [searchText, setSearchText] = React.useState('');
@@ -40,17 +55,26 @@ function SearchProductPage() {
   const handleSearchText = (searchTerm: string) => {
     setSearchText(searchTerm);
     setIsSearchPerformed(!!searchTerm);
+
     if (searchTerm) {
-      dispatch(searchProducts(searchTerm));
+      const searchCriteria: SearchCriteria = {
+        name: '',
+        price: '',
+        keyword: '',
+      };
+
+      if (!isNaN(parseFloat(searchText))) {
+        searchCriteria.price = searchTerm;
+      } else if (!searchCriteria.name) {
+        searchCriteria.keyword = searchTerm.slice(1, -1);
+      } else {
+        searchCriteria.name = searchTerm;
+      }
+      dispatch(searchProductsByFilter(searchCriteria));
     } else {
-      dispatch(fetchProducts() as any);
+      dispatch(fetchProducts());
     }
   };
-
-  if (error) {
-    return <p>Error: {error}</p>;
-  }
-
   const filteredProducts = isSearchPerformed
     ? searchProduct?.data || []
     : products?.data?.products || [];
