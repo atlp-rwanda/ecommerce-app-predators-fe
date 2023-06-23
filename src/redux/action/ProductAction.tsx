@@ -1,15 +1,14 @@
 import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit'; 
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
- type Item = { 
-    productId: number; 
-    reason: string;
-  } 
+type Item = {
+  productId: number;
+  reason: string;
+};
 type ProductData = {
-  data:Item
-
-}
- export const fetchProducts = createAsyncThunk(
+  data: Item;
+};
+export const fetchProducts = createAsyncThunk(
   'products/fetchProduct',
   async () => {
     try {
@@ -18,36 +17,35 @@ type ProductData = {
       ); //URL HERE
       return response.data;
     } catch (error) {
-      throw new Error('error'); //Something went wrong!
+      throw new Error('error'); // Something went wrong!
     }
   }
 );
- 
+
 export const productRemove = createAsyncThunk(
   'products/productRemove',
-  async ({data}: ProductData, thunkAPI) => {
-    try { 
-          // Get the token from localStorage
-      const token = localStorage.getItem('token'); 
-    const response = await axios.delete(`https://talented-wig-goat.cyclic.app/api/product/${data.productId}`,{
-      data,
-       headers: {
-          Authorization: `Bearer ${token}`,
-        },
-    });
-      return response.data; 
-
-      
+  async ({ data }: ProductData, thunkAPI) => {
+    try {
+      // Get the token from localStorage
+      const token = localStorage.getItem('token');
+      const response = await axios.delete(
+        `https://talented-wig-goat.cyclic.app/api/product/${data.productId}`,
+        {
+          data,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
   }
 );
 
-
-
 export const addProduct = createAsyncThunk(
-  "products/addProduct",
+  'products/addProduct',
   async (product: any, thunkAPI) => {
     try {
       // Get the token from localStorage
@@ -59,8 +57,36 @@ export const addProduct = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.post("https://talented-wig-goat.cyclic.app/api/product", product, config);
+      const response = await axios.post(
+        'https://talented-wig-goat.cyclic.app/api/product',
+        product,
+        config
+      );
       return response.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+ 
+export const fetchProductById = createAsyncThunk(
+  "products/fetchProductById",
+  async (id: any, thunkAPI) => {
+    try {
+      // Get the token from localStorage
+      const token = localStorage.getItem('token');
+
+      // Set the headers
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+       
+      
+      const response = await axios.get(` https://ecommercepredators.onrender.com/api/product/${id}`, config);
+      return response.data;
+      //console.log(data)
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
