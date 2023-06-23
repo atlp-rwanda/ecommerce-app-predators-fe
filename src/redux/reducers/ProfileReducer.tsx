@@ -19,7 +19,6 @@ const profileSlice = createSlice({
             .addCase(updateProfile.fulfilled, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.status = "success";
-                console.log(action.payload.data)
                 toast.success(`User updated Successfully!`);
             })
             .addCase(updateProfile.rejected, (state) => {

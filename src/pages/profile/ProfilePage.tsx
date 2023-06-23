@@ -6,6 +6,7 @@ import profilePhoto from "./../../assets/dashboard/account_photo.jpg";
 import {Sidebar} from '../../components';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import Notification from '../../components/notification/Notification';
 
 interface profileData {
     name: string,
@@ -283,7 +284,7 @@ export default function ProfilePage() {
                     <div className='flex mb-10 justify-end gap-10 items-center flex-wrap'>
                         <div className="dashboard__notification flex gap-7 text-blue-500 justify-self-end">
                             <i className="material-symbols-rounded cursor-pointer">message</i>
-                            <i className="material-symbols-rounded cursor-pointer">notifications</i>
+                            <Notification />
                         </div>
                         <div className=" dashboard__photo hidden lg:block rounded-full overflow-hidden w-10 h-10">
                             <img src={profilePhoto} alt="profile_photo" className='object-cover' />

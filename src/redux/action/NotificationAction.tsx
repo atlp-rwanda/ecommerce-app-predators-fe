@@ -10,7 +10,7 @@ export const GetAllNotifications = async () => {
       },
     };
     const response = await axios.get(
-      `https://talented-wig-goat.cyclic.app/api/notification`,
+      `https://ecommercepredators.onrender.com/api/notification`,
       config
     );
     return response.data;

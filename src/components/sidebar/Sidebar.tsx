@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
 import electron from '../../assets/sidebar/Electron.svg';
 import { useState } from 'react';
- 
+
 export default function Sidebar() {
-      
-    const [isOpen, menu] = useState(false); 
+    const [isOpen, menu] = useState(false);
+
     const handleCloseMenu = () => {
         menu(!isOpen)
-    } 
+    }
+
   return (
     <>
-        <div className={`${ isOpen ? "block" : "hidden" } lg:block z-40 transition-transform ease-in-out duration-500 flex sticky top-0 sidebar h-screen flex-col justify-between min-w-[200px] bg-customBlue p-5 pb-18 text-sm`} >
-            <div className='flex-1 min-h-[80%]'>
+        <div className={`${ isOpen ? "translate-x-0" : "-translate-x-52" } md:translate-x-0 z-40 transition-transform ease-in-out duration-500 flex fixed sidebar h-screen flex-col justify-between w-52 bg-customBlue p-5 pb-18 text-sm`} >
+            <div>
                 <div className="sidebar__logo flex items-center gap-2 text-white mb-9">
                     <img className="logo__image" src={electron} alt="Electron logo"/><i className="logo__dropdown material-symbols-rounded">arrow_drop_down_circle</i>
                 </div>
@@ -60,17 +61,16 @@ export default function Sidebar() {
                 </ul>
             </div>
         </div>
-        <div className="md:hidden p-3 bg-primary text-white">
-            <div className="">
-                <div onClick={() => handleCloseMenu()} className={`${isOpen? "translate-x-0": "translate-x-0"} transition-transform ease-in-out duration-500  cursor-pointer`}>
+        <div className={`${isOpen? "translate-x-52": "translate-x-0  bg-primary p-2"} transition-transform ease-in-out duration-500 close_icon flex justify-center pt-5 md:hidden`}>
+            <div className="w-[90%]">
+                <div onClick={() => handleCloseMenu()}  className={isOpen? 'text-black flex gap-2 w-[73px] cursor-pointer' : 'flex gap-2 w-[73px] cursor-pointer text-white'}>
                     {isOpen?
-                        <i className='material-symbols-rounded'>close</i> :
-                        <i className='material-symbols-rounded'>menu</i>
+                        <><i className='material-symbols-rounded'>close</i><span>Close</span></> :
+                        <><i className='material-symbols-rounded'>menu</i><span>Menu</span></>
                     }
                 </div>
             </div>
         </div>
-
     </>
     
   )

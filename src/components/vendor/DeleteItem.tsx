@@ -27,7 +27,6 @@ const DeleteItem  = (props:Item) => {
     const handleDelete = async (e: { preventDefault: () => void }) => {
        e.preventDefault();
        
-      console.log(data);
         setLoading(true);
         try {
          if(reason == 'delete'){  
