@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -13,7 +14,7 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        'https://talented-wig-goat.cyclic.app/api/product'
+        'https://talented-wig-goat.cyclic.app/api/Product'
       ); //URL HERE
       return response.data;
     } catch (error) {
@@ -84,7 +85,7 @@ export const fetchProductById = createAsyncThunk(
       };
        
       
-      const response = await axios.get(` https://ecommercepredators.onrender.com/api/product/${id}`, config);
+      const response = await axios.get(`https://talented-wig-goat.cyclic.app/api/product/${id}`, config);
       return response.data;
       //console.log(data)
     } catch (error: any) {

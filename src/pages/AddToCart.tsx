@@ -52,7 +52,7 @@ function AddToCart() {
   return (
     <>
       <PlayGame />
-      <div className="lg:mt-[16em] lg:ml-[6em] md:relative md:bottom-60 md:left-[40em] md:w-80 xs:relative xs:bottom-40 xs:left-[40em] xs:w-80">
+      <div className=" lg:ml-[60em]   lg:w-80 lg:my-80 lg:mt-[-10em] md:ml-[30em]   md:w-80 md:my-80 md:mt-[-15em]  xs:ml-[30em]   xs:w-80 xs:my-60 xs:mt-[-9.5em]">
         {/* Quantity selection */}
         <div className="py-3 mt-3">
           <label>Quantity:</label>
