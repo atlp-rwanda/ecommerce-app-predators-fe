@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchProducts } from '../../redux/action/ProductAction';
