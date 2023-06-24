@@ -12,13 +12,10 @@ interface UpdateData {
   instock: number;
 }
 
-
-
 // Get product data by ID from the API_URL
 export const getProductById = createAsyncThunk(
   'product/getProductById',
   async (id: number, thunkAPI) => {
-
     try {
       // Get the token from localStorage
       const token = localStorage.getItem('token');
@@ -46,8 +43,19 @@ export const getProductById = createAsyncThunk(
 // Update product data by ID using the API_URL
 export const updateProduct = createAsyncThunk(
   'product/updateProduct',
-  async ({ id, name, description, price, available, picture_urls, expiryDate, instock }: UpdateData, thunkAPI) => {
-
+  async (
+    {
+      id,
+      name,
+      description,
+      price,
+      available,
+      picture_urls,
+      expiryDate,
+      instock,
+    }: UpdateData,
+    thunkAPI
+  ) => {
     try {
       // Get the token from localStorage
       const token = localStorage.getItem('token');

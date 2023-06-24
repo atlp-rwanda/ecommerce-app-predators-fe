@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://ecommerce-4aqm.onrender.com/api';
 
 interface setData {
   id: number;

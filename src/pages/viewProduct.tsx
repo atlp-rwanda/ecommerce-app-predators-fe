@@ -23,8 +23,6 @@ function ViewProduct() {
   }
   return (
     <>
-      
-
       <div className="flex flex-col ">
         <div className="flex-1 p-3 font-semibold text-md">
           <div className="flex gap-2 justify-start">

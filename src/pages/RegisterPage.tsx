@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { registerUser } from '../redux/action/UserAction';
 import store from '../../src/assets/store.svg';
 
-
 /**
  * RegisterPage component for user registration
  */

@@ -39,7 +39,6 @@ export const resetPassword = createAsyncThunk<ResetPasswordResponse, string>(
   }
 );
 
-
 interface ResetData {
   password: string;
   confirm_password: string;
@@ -57,11 +56,15 @@ export const updatePassword = createAsyncThunk<any, ResetData>(
         throw new Error('Token not found');
       }
 
-      const response = await axios.put(`${API_URL}user/reset-password`, resetData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.put(
+        `${API_URL}user/reset-password`,
+        resetData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       return response.data;
     } catch (error) {
