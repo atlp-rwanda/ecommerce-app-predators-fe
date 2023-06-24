@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../redux/action/ProductAction';
@@ -44,7 +45,7 @@ function ProductListing() {
 
   return (
     <>
-      {products?.data?.products.slice(0, 1).map((product: Product) => (
+      {products?.slice(0, 1).map((product: Product) => (
         <div className="flex" key={product.id}>
           <h2>{product.name}</h2>
           <p>{product.id}</p>

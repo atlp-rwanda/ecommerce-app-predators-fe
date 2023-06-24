@@ -5,13 +5,13 @@ import RegisterPage from './pages/RegisterPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import PasswordComfirmPage from './pages/PasswordConfirminationPage.';
 import TwoFactorAuth from '../src/pages/SellerLogin/twoFactorAuth';
-import VendorPage from './dashboard/vendor/VendorPage';
-import Admin from './dashboard/admin/admin';
-import PopupMessage from './pages/PasswordExpirationPage';
+import VendorPage from "./dashboard/vendor/VendorPage";
+import Admin from "./dashboard/admin/admin";
+import SearchProduct from '../src/pages/SearchProductPage';
+import PopupMessage from "./pages/PasswordExpirationPage";
 import UpdateProduct from '../src/pages/UpdateProduct';
 import ProfilePage from './pages/profile/ProfilePage';
-import AdminViewUsersPage from './pages/AdminViewUsersPage';
-import SearchProduct from '../src/pages/SearchProductPage';
+import ViewProduct from './pages/viewProduct';
 
 function App() {
   return (
@@ -26,13 +26,18 @@ function App() {
           element={<PasswordComfirmPage />}
         />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/search-product" element={<SearchProduct />} />
+        <Route path="/reset-password-page" element={<ResetPasswordPage />} />
+        <Route path="/confirm-password-page" element={<PasswordComfirmPage />} />
         <Route path="/two-factor" element={<TwoFactorAuth />} />
         <Route path="/PopupMessage" element={<PopupMessage />} />
         <Route path="/vendor" element={<VendorPage />} />
         <Route path="/search-product" element={<SearchProduct />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/product/:id" element={<UpdateProduct />} />
-        <Route path="/admin/users" element={<AdminViewUsersPage />} />
+        <Route path="/viewProduct/:id" element={<ViewProduct/>} />
+        
+
       </Routes>
     </Router>
   );

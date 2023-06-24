@@ -1,10 +1,19 @@
 // import React from 'react'
 
-//import AddToCart from "./AddToCart"
+//import { useSelector } from "react-redux";
+import NotDashboardFooter from '../components/NotDashboardFooter';
+import NavHeader from '../components/HeaderNav';
+
+import ProductListing from '../components/ProductListing';
 
 function productPage() {
   return (
-    <div className="text-3xl font-bold underline text-center">productPage</div>
+    <>
+      <NavHeader />
+      <ProductListing />
+
+      <NotDashboardFooter />
+    </>
   );
 }
 
