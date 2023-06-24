@@ -19,7 +19,8 @@ import imageSlice from '../reducers/imageSlice';
 import authReducer from "../reducers/authSlice";
 import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
-import notificationSlice from '../reducers/NotificationSlice';
+import NotificationReducer from '../reducers/NotificationReducer';
+import WishlistSlice from '../reducers/WishlistSlice';
 
 const store = configureStore({
   reducer: {
@@ -42,7 +43,8 @@ const store = configureStore({
     imageStore: imageSlice,
     auth: authReducer,
     cart: cartReducer,    
-    notification: notificationSlice,
+    notification: NotificationReducer,
+    wishlist: WishlistSlice,
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });

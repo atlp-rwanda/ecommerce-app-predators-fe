@@ -74,4 +74,3 @@ const AdminSideBar = () => {
 }
 
 export default AdminSideBar
-// console.log('fixing')

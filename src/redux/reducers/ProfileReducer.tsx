@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { updateProfile, getProfile } from "../action/profileAction";
-import { toast } from "react-toastify";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { updateProfile, getProfile } from '../action/profileAction';
+import { toast } from 'react-toastify';
 
 const profileSlice = createSlice({
     name: 'profile',

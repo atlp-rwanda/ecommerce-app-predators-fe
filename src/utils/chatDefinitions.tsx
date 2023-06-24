@@ -10,7 +10,7 @@ export const UserEvent = {
   ROOM_MESSAGE: 'private-message',
   JOIN_EVENT: 'join',
   JOINED_NOTIFICATION: 'joined',
-}
+};
 
 export interface Message {
   text: string;
@@ -39,13 +39,15 @@ function getRandomName(): string {
   return 'random' + randomNumber;
 }
 
-
 function getTokenFromLocalStorage(targetName: string): string | null {
   const token = localStorage.getItem(targetName);
   return token ? token : null;
 }
 
-function decodeToken(getToken: (tokenName: string) => string | null, tokenName: string): DecodedToken | null {
+function decodeToken(
+  getToken: (tokenName: string) => string | null,
+  tokenName: string
+): DecodedToken | null {
   const token = getToken(tokenName);
 
   if (token) {
@@ -63,11 +65,14 @@ function decodeToken(getToken: (tokenName: string) => string | null, tokenName: 
 
 export function getUserCredentials(): UserCredentials {
   const JWT_NAME = 'token';
-  const decodedToken: DecodedToken | null = decodeToken(getTokenFromLocalStorage, JWT_NAME);
-  
+  const decodedToken: DecodedToken | null = decodeToken(
+    getTokenFromLocalStorage,
+    JWT_NAME
+  );
+
   const userName: string | null = decodedToken?.name || getRandomName();
   const dbId: string | number | null = decodedToken?.id || 1;
-  
+
   return { userName, dbId };
 }
 

@@ -62,4 +62,3 @@ export default function VendorPage() {
   </Layout>
   );
 }
-// console.log('fixing')

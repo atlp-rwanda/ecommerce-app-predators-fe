@@ -45,7 +45,6 @@ const UserTable = () => {
     }));
   };
 
-  
   const handleSetRoleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = parseInt(e.target.value, 10); // Parse e.target.value as a number
     setSetRole(value);
@@ -71,8 +70,6 @@ const UserTable = () => {
         setIsLoading(false);
       });
   };
-  
-  
 
   return (
     <div className="relative mt-10 mb-6 shadow-lg w-[90%]">
