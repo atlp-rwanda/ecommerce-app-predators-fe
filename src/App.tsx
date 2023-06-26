@@ -12,6 +12,7 @@ import PopupMessage from "./pages/PasswordExpirationPage";
 import UpdateProduct from '../src/pages/UpdateProduct';
 import ProfilePage from './pages/profile/ProfilePage';
 import ViewProduct from './pages/viewProduct';
+import Review from './components/review/review';
 
 function App() {
   return (
@@ -35,8 +36,9 @@ function App() {
         <Route path="/search-product" element={<SearchProduct />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/product/:id" element={<UpdateProduct />} />
-        <Route path="/viewProduct/:id" element={<ViewProduct/>} />
-        
+        <Route path="/viewProduct/:id" element={<ViewProduct />} />
+        <Route path="/review" element={<Review />} />
+
 
       </Routes>
     </Router>

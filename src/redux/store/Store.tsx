@@ -17,6 +17,8 @@ import SetRolesSlice from '../reducers/SetRolesSlice';
 import searchReducer from '../reducers/Searchslice';
 import NotificationReducer from '../reducers/NotificationReducer';
 import cartReducer from '../reducers/CartReducer';
+import addReview from '../reducers/ReviewSlice';
+import getOrder from '../reducers/OrderSlice';
 
 
 const store = configureStore({
@@ -38,8 +40,9 @@ const store = configureStore({
     Admin: SetRolesSlice,
     notifications: NotificationReducer,
     cart: cartReducer,
-        
-        
+    review: addReview,
+    order: getOrder,
+
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });

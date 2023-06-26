@@ -29,8 +29,8 @@ function ViewProduct() {
     <>
       <NavHeader onSearchText={function (_text: string): void {
         throw new Error('Function not implemented.');
-      } } />
-      <div  className=''>
+      }} />
+      <div className=''>
         <div className="">
           <h2>{selectedProduct?.data?.item?.name}</h2>
         </div>
@@ -43,9 +43,9 @@ function ViewProduct() {
       {/* Other product details */}
 
       <AddToCart />
-    
+
       <StaticReview src={selectedProduct?.data?.item?.picture_urls} />
-      
+
       <NotDashboardFooter />
     </>
   );

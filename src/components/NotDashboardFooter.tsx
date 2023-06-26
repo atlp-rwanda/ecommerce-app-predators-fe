@@ -5,8 +5,8 @@ import { IoLogoWhatsapp } from 'react-icons/io';
 
 function NotDashboardFooter() {
   return (
-    <footer className="bg-[#E2F4FF] lg:w-screen  h-80 flex flex-col  xs: w-max">
-      <div className="footer-section flex bg-white mt-6 py-5 px-8 ml-32 rounded-lg xs: w-max gap-x-20">
+    <footer className="bg-[#E2F4FF] w-21  h-80 flex flex-col">
+      <div className="footer-section flex ml-20 gap-10 ">
         <h2 className="font-bold text-sky-700 ">Subscribe to Our Newsletter</h2>
         <div className="subscribe-form flex bg-[#EDA415] rounded-full text-white ">
           <input
@@ -24,17 +24,17 @@ function NotDashboardFooter() {
       <div className="footer-content flex mt-2.5 gap-72 xs: gap-x-40 ">
         <div className="ml-20 pt-2 ">
           <div className="flex">
-            <img src={logo} alt="" className="w-5 ml-10 h-fit" />
+            <img src={logo} alt="" className="w-5 ml-5 h-fit" />
             <label className="uppercase Poppins font-semibold">predator</label>
           </div>
-          <div className="text-xs text-sky-800 ml-10 mt-3">
+          <div className="text-xs text-sky-800 ml-5 mt-3">
             <ul>
               <li>1 KN 78 St, Kigali</li>
               <li>Rwanda Country</li>
             </ul>
           </div>
-          <hr className="border-t-1 border-gray-500 ml-10 mt-6" />
-          <div className="flex gap-5 ml-10 mt-2 text-gray-500">
+          <hr className="border-t-1 border-gray-500 ml-5 mt-6" />
+          <div className="flex gap-5 ml-5 mt-2 text-gray-500">
             <FaGoogle />
             <FaFacebook />
             <IoLogoWhatsapp />
@@ -51,7 +51,7 @@ function NotDashboardFooter() {
             <li>Payment Policy</li>
           </ul>
         </div>
-        <div className="footer-section ml-10 text-sky-800 text-xs flex-col">
+        <div className="footer-section ml-5 text-sky-800 text-xs flex-col">
           <h2 className="font-bold mt-1 py-2">About Us</h2>
           <ul className="space-y-2">
             <li>News</li>
@@ -62,7 +62,7 @@ function NotDashboardFooter() {
           </ul>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 }
 
