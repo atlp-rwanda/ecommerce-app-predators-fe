@@ -5,7 +5,7 @@ import { IoLogoWhatsapp } from 'react-icons/io';
 
 function NotDashboardFooter() {
   return (
-    <footer className="bg-[#E2F4FF] lg:w-screen  h-80 flex flex-col  xs: w-max">
+    <footer className="bg-[#E2F4FF] lg:w-[90em] h-80 flex flex-col  xs: w-max">
       <div className="footer-section flex bg-white mt-6 py-5 px-8 ml-32 rounded-lg xs: w-max gap-x-20">
         <h2 className="font-bold text-sky-700 ">Subscribe to Our Newsletter</h2>
         <div className="subscribe-form flex bg-[#EDA415] rounded-full text-white ">
