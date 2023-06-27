@@ -1,14 +1,25 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-export const searchProducts = createAsyncThunk(
-  'products/search',
-  async (searchTerm: string) => {
+import { SearchCriteria } from '../searchCriterira/SearchCriteria';
+export const searchProductsByFilter = createAsyncThunk(
+  'products/searchByFilter',
+  async (searchCriteria: SearchCriteria) => {
     try {
-      const response = await axios.get(
-        `https://talented-wig-goat.cyclic.app/api/products/search?keyword=${searchTerm}`
-      );
+      let url = `https://talented-wig-goat.cyclic.app/api/products/search?`;
 
+      if (searchCriteria.name) {
+        url += `name=${searchCriteria.name}&limit=10`;
+      }
+
+      if (searchCriteria.price) {
+        url += `price=${searchCriteria.price}&limit=10`;
+      }
+
+      if (searchCriteria.keyword) {
+        url += `keyword=${searchCriteria.keyword}&limit=10`;
+      }
+
+      const response = await axios.get(url);
       return response.data;
     } catch (error) {
       throw new Error('Error searching for products');

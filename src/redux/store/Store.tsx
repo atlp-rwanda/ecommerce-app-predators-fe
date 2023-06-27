@@ -1,19 +1,20 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
-import productReducer from "../reducers/ProductSlice";
-import UserReducer from "../reducers/UserSlice";
-import ResetPasswordSlice from "../reducers/ResetPasswordSlice";
-import UpdatePasswordSlice from "../reducers/UpdatePasswordSlice";
+import productReducer from '../reducers/ProductSlice';
+import UserReducer from '../reducers/UserSlice';
+import ResetPasswordSlice from '../reducers/ResetPasswordSlice';
+import UpdatePasswordSlice from '../reducers/UpdatePasswordSlice';
 import addProductReducer from '../reducers/vendorSlice';
 import OtpReducer from '../reducers/otpSlice';
-import disableUserReducer from "../reducers/UserSlice"
-import getAllUsersReducer from '../reducers/usersSlice'
+import disableUserReducer from '../reducers/UserSlice';
+import getAllUsersReducer from '../reducers/usersSlice';
 import popupReducer from '../reducers/PasswordExpirationReduce';
 import updateProduct from '../reducers/UpdateProdSlice';
 import getProductByIdSlice from '../reducers/GetProdSlice';
 import profileReducer from '../reducers/ProfileReducer';
-import productCollectionReducer from '../reducers/productReducer'
-import SetRolesSlice from "../reducers/SetRolesSlice";
+import productCollectionReducer from '../reducers/productReducer';
+import SetRolesSlice from '../reducers/SetRolesSlice';
+import searchReducer from '../reducers/Searchslice';
 import NotificationReducer from '../reducers/NotificationReducer';
 
 const store = configureStore({
@@ -32,9 +33,10 @@ const store = configureStore({
     getProductById: getProductByIdSlice,
     updateProfile: profileReducer,
     Admin: SetRolesSlice,
-    notifications:NotificationReducer
+    notifications: NotificationReducer,
+    search: searchReducer,
   },
-   middleware: [...getDefaultMiddleware(), thunk],
+  middleware: [...getDefaultMiddleware(), thunk],
 });
 
 export default store;

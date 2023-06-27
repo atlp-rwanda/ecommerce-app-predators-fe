@@ -79,9 +79,9 @@ const UserTable = (): JSX.Element => {
       });
   };
   return (
-    <div>
+    <div className="w-[100%]">
       <ToastContainer />
-      <div className="relative mt-10 mb-6 shadow-lg w-[90%]">
+      <div className="relative mt-10 mb-6 shadow-lg">
         <p className="font-medium mb-2 inline-block">Recent Users</p>
         <div className="w-full pb-2 overflow-x-auto">
           <table className="font-light w-full">
