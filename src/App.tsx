@@ -13,7 +13,11 @@ import ProfilePage from './pages/profile/ProfilePage';
 import AdminViewUsersPage from './pages/AdminViewUsersPage';
 import SearchProduct from '../src/pages/SearchProductPage';
 import NotFound from './pages/error/NotFound';
+<<<<<<< HEAD
 import FetchCarts from '../src/pages/cart/cartData';
+=======
+import FetchCarts from '../src/pages/cart/FetchCart';
+>>>>>>> 9951397 (fetch cart Items)
 
 function App() {
   return (
