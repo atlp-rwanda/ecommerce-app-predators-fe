@@ -17,8 +17,6 @@ type ItemData = {
 }
 const Notification =  ()=> {     const NotificationData = useAppSelector((state): { data: null } | { data: { notifications: ItemData[] } } => state.notifications);
 
-    // 
-
     const dispatch = useAppDispatch();
     const [isPaneOpen, setIsPaneOpen] = useState(false); 
     let [loading, setLoading] = useState(true);  
@@ -117,7 +115,7 @@ const Notification =  ()=> {     const NotificationData = useAppSelector((state)
                       ))
                     ) : (
                       <div className="border hover:bg-gray-200 hover:shadow-sm cursor-pointer rounded-md p-4 break-words">
-                        <p className="text-gray-800">No notifications</p>
+                       No notifications
                       </div>
                     )
                   )}
