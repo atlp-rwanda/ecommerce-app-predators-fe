@@ -14,7 +14,7 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        'https://talented-wig-goat.cyclic.app/api/Product'
+        'https://ecommercepredators.onrender.com/api/Product'
       ); //URL HERE
       return response.data;
     } catch (error) {

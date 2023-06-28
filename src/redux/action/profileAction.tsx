@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// const API_URL = 'https://talented-wig-goat.cyclic.app';
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://talented-wig-goat.cyclic.app';
+// const API_URL = 'http://localhost:3000';
 
 interface profileData {
   name: string,

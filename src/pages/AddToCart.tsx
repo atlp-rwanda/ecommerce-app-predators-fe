@@ -56,10 +56,20 @@ function AddToCart() {
           </button>
         </div>
         <button
-          className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5"
+          className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5 gap-2"
           onClick={handleAddToCart}
         >
           Add to Cart
+        </button>
+        <button
+          className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5  ml-6"
+        >
+            Buy it Now
+        </button>
+        <button
+          className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5  ml-6"
+        >
+          Add to wishlist
         </button>
         <p>{confirmation}</p>
         <hr className="mt-4" />

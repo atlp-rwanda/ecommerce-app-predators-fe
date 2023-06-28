@@ -7,7 +7,6 @@ import { useParams } from 'react-router-dom';
 import { fetchProductById } from '../redux/action/ProductAction';
 import AddToCart from '../pages/AddToCart';
 //import NotDashboardFooter from '../components/NotDashboardFooter';
-import NavHeader from '../components/Buyer/HeaderNav';
 import StaticReview from '../components/StaticReview';
 import { FaCheck } from 'react-icons/fa';
 function ViewProduct() {
@@ -24,11 +23,9 @@ function ViewProduct() {
   }
   return (
     <>
-        <NavHeader onSearchText={function (_text: string): void {
-        throw new Error('Function not implemented.');
-      } } />  
+      
 
-      <div className="flex flex-col py-[16em]">
+      <div className="flex flex-col ">
         <div className="flex-1 p-3 font-semibold text-md">
           <div className="flex gap-2 justify-start">
             <div className="">Home</div>
