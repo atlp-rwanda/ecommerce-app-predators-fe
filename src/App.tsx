@@ -15,9 +15,13 @@ import UpdateProduct from '../src/pages/UpdateProduct';
 import ProfilePage from './pages/profile/ProfilePage';
 import AdminViewUsersPage from './pages/AdminViewUsersPage';
 import SearchProduct from '../src/pages/SearchProductPage';
+
 import LoginPage from "./pages/LoginPage";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/ReactToastify.css';
+
+import NotFound from './pages/error/NotFound';
+
 
 function App() {
   return (
@@ -43,6 +47,7 @@ function App() {
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route path="/login/fail" element={<LoginError />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
       <ModalButton />
       <ToastContainer />
