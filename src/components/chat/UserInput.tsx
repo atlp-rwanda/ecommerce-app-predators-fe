@@ -4,7 +4,7 @@ import useChatSender from '../../utils/useChatSender';
 
 interface Props {
   activeRoom: User;
-}z
+}
 
 const UserInput = ({ activeRoom }: Props) => {
   const { sendMessage, msgProcessing } = useChatSender(activeRoom);
