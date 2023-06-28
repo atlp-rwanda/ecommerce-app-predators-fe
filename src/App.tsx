@@ -40,9 +40,9 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/product/:id" element={<UpdateProduct />} />
         <Route path="/admin/users" element={<AdminViewUsersPage />} />
+        <Route path="/login/success" element={<LoginSuccess />} />
+        <Route path="/login/fail" element={<LoginError />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/signin/success" element={<LoginSuccess />} />
-        <Route path="/signin/fail" element={<LoginError />} />
       </Routes>
       <ModalButton />
       <ToastContainer />
