@@ -82,7 +82,7 @@ const ChatModal = ({ closeModal }: Props) => {
       <div className="fixed inset-0 flex items-center justify-center z-1000">
         <div className="h-4/5  lg:w-2/6 w-4/5 pb-2.5 flex flex-col bg-white rounded-xl shadow-lg">
           {/* Close */}
-          <div className="flex justify-end h-8 bg-black bg-opacity-20 ">
+          <div className="flex justify-end h-8 bg-black bg-opacity-5 ">
             <button
               className="order-last h-full w-fit hover:bg-red w-1/7 text-white self-end align-self-end justify-self-end"
               onClick={closeModal}
@@ -107,7 +107,7 @@ const ChatModal = ({ closeModal }: Props) => {
               onClick={() => joinPublic()}
               className={`flex-1  ${
                 activeRoom === PUBLIC_SPACE
-                  ? 'bg-blue-500 text-white'
+                  ? 'bg-yellow-500 text-white'
                   : 'text-blue-600 bg-slate-300'
               } text-slate-50 capitalize font-bold text-2xl leading-12`}
             >
@@ -117,14 +117,14 @@ const ChatModal = ({ closeModal }: Props) => {
               onClick={() => joinRoom()}
               className={`flex-1  ${
                 activeRoom === CUSTOMER_SUPPORT
-                  ? 'bg-blue-500 text-white '
+                  ? 'bg-yellow-500 text-white '
                   : 'text-blue-600 bg-slate-300 '
               } text-slate-50 capitalize font-bold text-2x1 leading-12`}
             >
               customer support
             </button>
           </div>
-          {/* Messages */}
+          {/* Messages section */}
           <Chats activeRoom={activeRoom} />
           {/* Input */}
           <UserInput activeRoom={activeRoom}/>

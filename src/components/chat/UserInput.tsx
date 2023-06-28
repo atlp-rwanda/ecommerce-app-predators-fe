@@ -39,7 +39,7 @@ const UserInput = ({ activeRoom }: Props) => {
       <button
         type="submit"
         disabled={msgProcessing || !disable}
-        className="h-full bg-yellow-400 text-white px-4 py-2 rounded-r ring-1 ring-blue-500 font-bold"
+        className="h-full bg-blue-400 hover:bg-blue-600 text-white px-4 py-2 rounded-r ring-1 ring-blue-500 font-bold"
       >
         {msgProcessing ? 'Sending..' : 'SEND'}
       </button>
