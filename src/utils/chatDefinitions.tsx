@@ -61,8 +61,13 @@ function decodeToken(getToken: (tokenName: string) => string | null, tokenName: 
   return null;
 }
 
+<<<<<<< HEAD
 export function getUserCredentials(): UserCredentials {
   const JWT_NAME = 'token';
+=======
+function getUserCredentials(): UserCredentials {
+  const JWT_NAME = 'jwt';
+>>>>>>> fb7896adc82a244180dd145ffb8a4715a30021e2
   
   const decodedToken: DecodedToken | null = decodeToken(getTokenFromLocalStorage, JWT_NAME);
   
