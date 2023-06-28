@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const API_URL = 'http://localhost:3000/api/';
+const API_URL = 'https://talented-wig-goat.cyclic.app/api/';
 
 interface ResetPasswordResponse {
   token: string;
