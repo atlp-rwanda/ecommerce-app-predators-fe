@@ -16,9 +16,14 @@ import productCollectionReducer from '../reducers/productReducer';
 import SetRolesSlice from '../reducers/SetRolesSlice';
 import searchReducer from '../reducers/Searchslice';
 import NotificationReducer from '../reducers/NotificationReducer';
+import authReducer from "../reducers/authSlice";
+import chatReducer from '../reducers/chatSlice';
+import cartReducer from '../reducers/CartReducer';
+
 
 const store = configureStore({
   reducer: {
+    chat: chatReducer,
     products: productReducer,
     user: OtpReducer,
     UserReducer,
@@ -35,6 +40,10 @@ const store = configureStore({
     Admin: SetRolesSlice,
     notifications: NotificationReducer,
     search: searchReducer,
+    auth: authReducer,
+    cart: cartReducer,
+        
+        
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });
