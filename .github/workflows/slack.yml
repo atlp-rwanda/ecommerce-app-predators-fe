@@ -5,7 +5,7 @@ name: slack
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 
 jobs:
   slack:
