@@ -35,11 +35,11 @@ const store = configureStore({
     passwordExpiration: popupReducer,
     CollectionProducts: productCollectionReducer,
     product: updateProduct,
+    search: searchReducer,
     getProductById: getProductByIdSlice,
     updateProfile: profileReducer,
     Admin: SetRolesSlice,
     notifications: NotificationReducer,
-    search: searchReducer,
     auth: authReducer,
     cart: cartReducer,
         
