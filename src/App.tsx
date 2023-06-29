@@ -14,9 +14,7 @@ import SearchProduct from '../src/pages/SearchProductPage';
 import PopupMessage from './pages/PasswordExpirationPage';
 import UpdateProduct from '../src/pages/UpdateProduct';
 import ProfilePage from './pages/profile/ProfilePage';
-
 import ViewProduct from './pages/viewProduct';
-
 import AdminViewUsersPage from './pages/AdminViewUsersPage';
 
 import LoginPage from './pages/LoginPage';
@@ -55,16 +53,13 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/product/:id" element={<UpdateProduct />} />
 
-        <Route path="/viewProduct/:id" element={<ViewProduct />} />
-
+        <Route path="/viewProduct/:id" element={<ViewProduct/>} /> 
         <Route path="/admin/users" element={<AdminViewUsersPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route path="/login/fail" element={<LoginError />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<NotFound/>} />
-
-        <Route path="*" element={<NotFound/>} />
+        <Route path="*" element={<NotFound/>} /> 
       </Routes>
       <ModalButton />
       <ToastContainer />

@@ -120,7 +120,7 @@ export default function UpdateProduct() {
 
     <Layout> 
 
-      <div>
+      <div className='md:ml-52'>
         <div
           id="container_form"
           className="flex justify-center m-10 items-center"

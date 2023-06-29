@@ -21,7 +21,8 @@ import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
 import NotificationReducer from '../reducers/NotificationReducer';
 import WishlistSlice from '../reducers/WishlistSlice';
-
+import OrdersSlice from "../reducers/OrdersSlice"
+ import addReview from '../reducers/ReviewSlice';
 const store = configureStore({
   reducer: {
     chat: chatReducer,
@@ -43,10 +44,14 @@ const store = configureStore({
     imageStore: imageSlice,
     auth: authReducer,
     cart: cartReducer,    
-    notification: NotificationReducer,
+    notification: NotificationReducer, 
+    orders: OrdersSlice,
+    review: addReview,
     wishlist: WishlistSlice,
+        
+        
   },
-  middleware: [...getDefaultMiddleware(), thunk],
+  middleware: [...getDefaultMiddleware(),thunk],
 });
 
 export default store;

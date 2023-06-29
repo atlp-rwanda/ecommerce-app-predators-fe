@@ -27,7 +27,7 @@ const Notification = () => {
   }, [dispatch]);
 
   // Selector to get notifications from Redux state
-  const notifications = useSelector((state: { notification: { Notifications: { notifications: Notification[] } } }) => state.notification.Notifications.notifications);
+  const notifications = useSelector((state: { notification: { Notifications: { notifications: Notification[] } } }) => state.notification?.Notifications?.notifications);
 
   // Calculate the count of unread notifications
   const unreadCount = notifications?.filter((notification: Notification) => !notification.is_read).length;

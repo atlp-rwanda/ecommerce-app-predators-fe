@@ -2,12 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 
-const URL = 'http://localhost:5000/api'
-
-type order= {
-  orderId:number
-}
-
+const URL = 'https://ecommerce-4aqm.onrender.com/api'
 
 export const  OrdersAction = createAsyncThunk(
   "products/fetchOrders", 
@@ -23,19 +18,18 @@ export const  OrdersAction = createAsyncThunk(
         },
       };
       const response = await axios.get(`${URL}/my/orders/`,config); 
-      return response.data
-    } catch (error) {
-      console.log(error);
+      
+      return response.data.data
+    } catch (error) { 
       throw new Error('Something went wrong!');
     }
   }
 );
 
 
- 
-export const  getByIdOrdersAction = createAsyncThunk(
+export const getByIdOrdersAction = createAsyncThunk(
   "products/fetchOrdersById",
-  async (orderId, thunkAPI) => {
+  async ({ orderId }: { orderId: number }, thunkAPI) => {
     try {
       // Get the token from localStorage
       const token = localStorage.getItem('token');
@@ -46,11 +40,13 @@ export const  getByIdOrdersAction = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.get(`${URL}/status/${orderId}`,config); 
-      return response.data
-
+      const response = await axios.get(`${URL}/status/${orderId}`, config); 
+    
+      return response.data;
     } catch (error: any) { 
-        return thunkAPI.rejectWithValue(error.response.data);
+      
+      throw new Error('Something went wrong!');
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );

@@ -11,8 +11,7 @@ const OrdersSlice = createSlice({
     error: ''
   },
 
-    reducers: {},
-    
+    reducers: {},    
       extraReducers: (builder) => {
     builder
       .addCase(OrdersAction.pending, (state) => {
@@ -37,8 +36,7 @@ const OrdersSlice = createSlice({
       })
       .addCase(getByIdOrdersAction.fulfilled, (state, action: PayloadAction<any>) => {
         state.loading = false; 
-        state.data = action.payload; 
-         toast.error('Error'); 
+        state.data = action.payload;  
       }) 
       .addCase(getByIdOrdersAction.rejected, (state,action) => {
         state.loading = true;
