@@ -30,7 +30,7 @@ export const productRemove = createAsyncThunk(
       // Get the token from localStorage
       const token = localStorage.getItem('token');
       const response = await axios.delete(
-        `https://talented-wig-goat.cyclic.app/api/product/${data.productId}`,
+        `https://ecommercepredators.onrender.com/api/product/${data.productId}`,
         {
           data,
           headers: {
@@ -59,7 +59,7 @@ export const addProduct = createAsyncThunk(
         },
       };
       const response = await axios.post(
-        'https://talented-wig-goat.cyclic.app/api/product',
+        'https://ecommercepredators.onrender.com/api/product',
         product,
         config
       );
@@ -85,7 +85,7 @@ export const fetchProductById = createAsyncThunk(
       };
        
       
-      const response = await axios.get(` https://ecommercepredators.onrender.com/api/product/${id}`, config);
+      const response = await axios.get(`https://ecommercepredators.onrender.com/api/product/${id}`, config);
       return response.data;
       //console.log(data)
     } catch (error: any) {

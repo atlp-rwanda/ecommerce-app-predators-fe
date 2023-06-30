@@ -5,8 +5,8 @@ import { IoLogoWhatsapp } from 'react-icons/io';
 
 function NotDashboardFooter() {
   return (
-    <footer className="bg-[#E2F4FF] lg:w-[90em] h-80 flex flex-col  xs: w-max">
-      <div className="footer-section flex bg-white mt-6 py-5 px-8 ml-32 rounded-lg xs: w-max gap-x-20">
+    <footer className="bg-[#E2F4FF]  h-screen flex flex-col   ">
+      <div className="footer-section flex bg-white mt-40 py-5 px-8 mx-60 rounded-lg xs: w-max gap-x-20">
         <h2 className="font-bold text-sky-700 ">Subscribe to Our Newsletter</h2>
         <div className="subscribe-form flex bg-[#EDA415] rounded-full text-white ">
           <input
@@ -21,7 +21,7 @@ function NotDashboardFooter() {
         <p className="grin">Call Us 24/7: (+250) 785 7676 47</p>
       </div>
 
-      <div className="footer-content flex mt-2.5 gap-72 xs: gap-x-40 ">
+      <div className="footer-content flex mt-10 gap-72 xs: gap-x-40 mx-40">
         <div className="ml-20 pt-2 ">
           <div className="flex">
             <img src={logo} alt="" className="w-5 ml-10 h-fit" />
