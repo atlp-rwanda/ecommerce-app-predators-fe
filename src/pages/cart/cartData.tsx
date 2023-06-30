@@ -39,7 +39,7 @@ const ResponsiveTable = () => {
       };
     }) => state.cart.carts
   );
-
+  console.log(quantities);
   useEffect(() => {
     if (cart?.data?.data) {
       const initialQuantities = Array(cart.data.data.length).fill(0);
@@ -189,8 +189,8 @@ const ResponsiveTable = () => {
               </button>
               <div className="flex flex-col">
                 <div className="flex justify-between text-lg mx-5 font-semibold">
-                  <label className="">Total Amount: </label>
-                  <label className="mx-4">{cart?.data?.data[4].total}</label>
+                  {/*   <label className="">Total Amount: </label>
+                  <label className="mx-4">{cart?.data?.data[4].total}</label> */}
                 </div>
               </div>
               <button
@@ -208,7 +208,7 @@ const ResponsiveTable = () => {
             </div>
             <div className="flex justify-between mx-5 font-semibold">
               <label>Subtotal</label>
-              <label>$11.70</label>
+              <label>{}</label>
             </div>
             <hr className="mx-5 mt-4" />
             <div>
@@ -289,5 +289,6 @@ const ResponsiveTable = () => {
 
 export default ResponsiveTable;
 function setCart(updatedCart: { [x: string]: any; cart: CartItem[] }) {
+  console.log(updatedCart);
   throw new Error('Function not implemented.');
 }

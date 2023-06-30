@@ -1,16 +1,32 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../redux/action/ProductAction';
 
+export interface Product {
+  id: number;
+  name: string;
+  description: string;
+  category_id: number;
+  price: string;
+  picture_urls: string[];
+  instock: number;
+  expiryDate: string;
+  available: boolean;
+  vendor_id: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
 function ProductListing() {
   const products = useSelector(
-    (state: { products: { data: any } }) => state.products.data
+    (state: { products: { data: Product[] } }) => state.products.data
   );
   const loading = useSelector(
-    (state: { products: { loading: any } }) => state.products.loading
+    (state: { products: { loading: boolean } }) => state.products.loading
   );
   const error = useSelector(
-    (state: { products: { error: any } }) => state.products.error
+    (state: { products: { error: string } }) => state.products.error
   );
   const dispatch = useDispatch();
 
@@ -28,14 +44,13 @@ function ProductListing() {
 
   return (
     <>
-      {products?.data?.products
-        .slice(0, 1)
-        .map((product: { id: any; name: any; description: any }) => (
-          <div key={product.id}>
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-          </div>
-        ))}
+      {products?.slice(0, 1).map((product: Product) => (
+        <div className="flex" key={product.id}>
+          <h2>{product.name}</h2>
+          <p>{product.id}</p>
+          <p>{product.picture_urls[2]}</p>
+        </div>
+      ))}
     </>
   );
 }

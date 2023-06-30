@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -13,11 +14,7 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-<<<<<<< HEAD
-        'https://ecommerce-4aqm.onrender.com/api/product'
-=======
         'https://ecommerce-4aqm.onrender.com/api/Product'
->>>>>>> c933ed9f2b328122870b7852d26851ae4681dc36
       ); //URL HERE
       return response.data;
     } catch (error) {
@@ -33,7 +30,7 @@ export const productRemove = createAsyncThunk(
       // Get the token from localStorage
       const token = localStorage.getItem('token');
       const response = await axios.delete(
-        `https://ecommerce-4aqm.onrender.com/api/product/${data.productId}`,
+        `https://ecommercepredators.onrender.com/api/product/${data.productId}`,
         {
           data,
           headers: {
@@ -62,11 +59,37 @@ export const addProduct = createAsyncThunk(
         },
       };
       const response = await axios.post(
-        'https://ecommerce-4aqm.onrender.com/api/product',
+        'https://ecommercepredators.onrender.com/api/product',
         product,
         config
       );
       return response.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const fetchProductById = createAsyncThunk(
+  'products/fetchProductById',
+  async (id: any, thunkAPI) => {
+    try {
+      // Get the token from localStorage
+      const token = localStorage.getItem('token');
+
+      // Set the headers
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const response = await axios.get(
+        `https://ecommercepredators.onrender.com/api/product/${id}`,
+        config
+      );
+      return response.data;
+      //console.log(data)
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
