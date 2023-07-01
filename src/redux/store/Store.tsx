@@ -20,6 +20,8 @@ import authReducer from "../reducers/authSlice";
 import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
 import notificationSlice from '../reducers/NotificationSlice';
+import addReview from '../reducers/ReviewSlice';
+import OrdersSlice from "../reducers/OrdersSlice"
 
 const store = configureStore({
   reducer: {
@@ -41,8 +43,10 @@ const store = configureStore({
     Admin: SetRolesSlice,
     imageStore: imageSlice,
     auth: authReducer,
-    cart: cartReducer,    
+    cart: cartReducer,
     notification: notificationSlice,
+    review: addReview,
+    orders: OrdersSlice
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });

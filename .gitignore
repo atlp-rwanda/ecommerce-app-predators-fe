@@ -26,3 +26,5 @@ coverage
 *.sln
 *.sw?
 .env
+.github/workflows/slack.yml
+```

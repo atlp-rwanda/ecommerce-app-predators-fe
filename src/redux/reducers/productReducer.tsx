@@ -1,6 +1,6 @@
 import { createSlice} from "@reduxjs/toolkit";
 import {  fetchProductsCollection } from "../action/productActions";
-
+import {fetchProductById} from "../action/ProductAction"
 export interface Product {
   product: any;
   data: any;
@@ -61,7 +61,27 @@ const productCollectionSlice = createSlice({
         state.loading = false;
         state.status = "error";
         
-      });
+      })
+      // ...
+
+.addCase(fetchProductById.pending, (state) => {
+  state.loading = true;
+  state.status = "pending";
+  state.error = null;
+})
+.addCase(fetchProductById.fulfilled, (state, action) => {
+  state.loading = false;
+  state.status = "success";
+  state.selectedProduct = action.payload; // Assign to selectedProduct instead of data
+  state.error = null;
+})
+.addCase(fetchProductById.rejected, (state) => {
+  state.loading = false;
+  state.status = "error";
+});
+
+// ...
+
   },
 });
 

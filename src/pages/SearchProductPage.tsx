@@ -97,8 +97,10 @@ function SearchProductPage() {
         </div>
         <div className="col-span-1 md:col-span-6 mx-4 md:ml-6 mt-10">
           {filteredProducts.length > 0 ? (
+            
             <div className="grid grid-cols-3 gap-3 mt-8 mx-20">
               {filteredProducts.map((product: Product) => (
+               <Link  to={`/viewProduct/${product.id}`} key={product.id}>
                 <Card
                   key={product.id}
                   name={product.name}
@@ -107,7 +109,11 @@ function SearchProductPage() {
                   id={product.id}
                   rating={undefined}
                 />
+                </Link>
               ))}
+              <Routes>
+               <Route path="/viewProduct/:id" element={<ViewProduct />} />
+               </Routes>
             </div>
           ) : (
             <p className="text-tertiary text-3xl font-Poppins text-center mt-10">

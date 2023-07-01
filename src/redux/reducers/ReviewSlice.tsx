@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { addProduct } from "../action/ProductAction";
+import { addReview } from "../action/reviewAction";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -9,23 +8,23 @@ const initialState = {
     loading: false,
 }
 
-const addProdictSlice = createSlice({
-    name: "product/addProduct",
+const addReviewSlice = createSlice({
+    name: "review",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(addProduct.pending, (state) => {
+            .addCase(addReview.pending, (state) => {
                 state.loading = true;
                 state.status = "pending";
             })
-            .addCase(addProduct.fulfilled, (state, action: PayloadAction<any>) => {
+            .addCase(addReview.fulfilled, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.status = "success";
                 state.data = action.payload;
-                toast.success(`${action.payload.data.message}`);
+                toast.error(`${action.payload.data.message}`);
             })
-            .addCase(addProduct.rejected, (state, action: PayloadAction<any>) => {
+            .addCase(addReview.rejected, (state, action: PayloadAction<any>) => {
                 state.loading = false;
                 state.status = "error";
                 toast.error(`${action.payload.data.message}`);
@@ -34,6 +33,4 @@ const addProdictSlice = createSlice({
 })
 
 
-export default addProdictSlice.reducer
-
-// console.log('fixing')
+export default addReviewSlice.reducer

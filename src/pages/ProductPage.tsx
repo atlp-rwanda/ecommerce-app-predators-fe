@@ -1,9 +1,19 @@
 // import React from 'react'
-
+import NavHeader from "../components/HeaderNav"
+import ProductListing from "../components/ProductListing"
+//import AddToCart from "./AddToCart"
+import NotDashboardFooter from '../components/NotDashboardFooter';
 function productPage() {
   return (
-    <div className="text-3xl font-bold underline text-center">productPage</div>
+    <>
+      <NavHeader />
+      <ProductListing />
+      <NotDashboardFooter />
+    </>
+
   );
+
+
 }
 
 export default productPage;
