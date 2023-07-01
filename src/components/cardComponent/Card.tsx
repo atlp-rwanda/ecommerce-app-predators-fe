@@ -1,4 +1,5 @@
-import { JSXElementConstructor, useEffect } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchProducts } from '../../redux/action/ProductAction';
 
@@ -32,13 +33,9 @@ export const Card = (product: Product) => {
     return stars;
   };
 
-  const empty_prod = () => {
-    return <div className='w-52 bg-gray h-[138px]'></div>
-  }
-
   return (
     <div className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between">
-      <div className='rounded-lg overflow-hidden w-52'>
+      <div className='rounded-lg overflow-hidden w-52 h-52'>
         <img src={product.picture_urls[0]} alt="" className='w-full min-h-[138px]'/>
       </div>
       <div>

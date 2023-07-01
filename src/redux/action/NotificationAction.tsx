@@ -21,13 +21,13 @@ export const GetAllNotifications = async () => {
 
 export const ToastNotificationAction = createAsyncThunk(
   'toastNotification/notification',
-  async () => {
+  async (_,thunkAPI) => {
     try {
       const notifications = await GetAllNotifications();
       const totalNotifications = notifications.length;
       return totalNotifications;
-    } catch (error) {
-      throw new Error('Something went wrong!');
+    } catch (error: any) { 
+        return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
@@ -35,12 +35,12 @@ export const ToastNotificationAction = createAsyncThunk(
 
 export const DisplayNotificationAction = createAsyncThunk(
   'Notification/diplaynotification',
-  async () => {
+  async (_,thunkAPI) => {
     try {
       const notifications = await GetAllNotifications();  
       return notifications.notifications;
-    } catch (error) {
-      throw new Error('Something went wrong!');
+    } catch (error: any) { 
+        return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );

@@ -6,7 +6,7 @@ function HeaderNav() {
       <div className=" sticky top-0 gap-7 bg-white pt-3 pb-3 pr-3 flex flex-row flex-wrap mb-3 md:justify-end  lg:justify-end  justify-center w-[90%] md:mx-auto">
         <div className='flex justify-end md:justify-end gap-10 items-center '>
           <div className="max-[1023px]:flex-1 flex md:gap-8 gap-2  lg:gap-8 justify-between items-end">
-            <div className="dashboard__search shadow-md border rounded-md flex gap-3 p-1">
+            <div className="dashboard__search shadow-md border rounded-md flex gap-3 p-1 items-center">
                 <i className='material-symbols-rounded text-gray-400'>search</i>
                 <input  className=" focus:outline-none placeholder:text-gray-400 outline-0 bg-inherit border-0 xs:w-64 md:w-72" type="text" placeholder='Search product ...' />
             </div>

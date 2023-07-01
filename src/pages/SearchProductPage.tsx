@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import NavHeader from '../components/buyerHeader/HeaderNav';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,6 +8,9 @@ import { searchProductsByFilter } from '../redux/action/SearchAction';
 import Sidebar from '../components/userSidebar/Sidebar';
 import { Card } from './../components/cardComponent/Card';
 import React from 'react';
+import { Routes, Route } from 'react-router';
+import { Link } from 'react-router-dom';
+import ViewProduct from './viewProduct';
 
 interface Product {
   id: number;
@@ -93,6 +97,7 @@ function SearchProductPage() {
           {filteredProducts.length > 0 ? (
             <div className="flex gap-5 justify-evenly flex-wrap mt-8 mx-20">
               {filteredProducts.map((product: Product) => (
+               <Link  to={`/viewProduct/${product.id}`} key={product.id}>
                 <Card
                   key={product.id}
                   name={product.name}
@@ -101,7 +106,11 @@ function SearchProductPage() {
                   id={product.id}
                   rating={undefined}
                 />
+                </Link>
               ))}
+              <Routes>
+               <Route path="/viewProduct/:id" element={<ViewProduct />} />
+               </Routes>
             </div>
           ) : (
             <p className="text-tertiary text-3xl font-Poppins text-center mt-10">

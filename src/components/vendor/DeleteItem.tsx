@@ -6,8 +6,8 @@ import { useAppDispatch } from '../../redux/store/hooks';
 import { productRemove } from '../../redux/action/ProductAction';
 
   type Item = { 
-    productId: number; 
-    reason: string;
+    productId: number,
+    reason: string
   } 
 
   
@@ -26,7 +26,6 @@ const DeleteItem  = (props:Item) => {
 
     const handleDelete = async (e: { preventDefault: () => void }) => {
        e.preventDefault();
-       
         setLoading(true);
         try {
          if(reason == 'delete'){  

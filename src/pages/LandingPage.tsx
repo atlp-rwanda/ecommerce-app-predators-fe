@@ -1,15 +1,19 @@
 
 // import PopupMessage from './PasswordExpirationPage'
-import { Navigation, Category, News, MainProduct, FlashSale, Testimony, Popular } from "../components";
+import { ComponentType, ReactElement } from "react";
+import { Navigation, Category, News, MainProduct, FlashSale, Testimony, Popular, Carousel } from "../components";
 import { FaCrown, FaCube } from "react-icons/fa"
 import {RiShieldKeyholeFill} from "react-icons/ri"
+
 
 function LandingPage() {
   return (
     <>
     <div>
       <Navigation  />
-      <MainProduct />
+      <div className="px-[7%]">
+        <Carousel/>
+      </div>
       <Category />
       <Popular />
       <FlashSale />

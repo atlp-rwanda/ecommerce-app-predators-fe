@@ -47,7 +47,7 @@ const RegisterPage: React.FC = () => {
     setName(e.target.value);
   };
 
-  // console.log(registrationStatus);
+  console.log(registrationStatus);
 
   /**
    * Handle email change event

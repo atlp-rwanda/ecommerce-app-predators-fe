@@ -16,13 +16,14 @@ export default function Sidebar() {
                 <div className="sidebar__logo flex items-center gap-2 text-white mb-9">
                     <img className="logo__image" src={electron} alt="Electron logo"/><i className="logo__dropdown material-symbols-rounded">arrow_drop_down_circle</i>
                 </div>
-                <div className="sidebar__menu">
-                    <ul className='flex flex-col gap-5'>
+                <div className="sidebar__menu" >
+                    <ul className='flex flex-col gap-5 '>
                         <li>
-                            <Link to="/product-page" className='flex items-center gap-3 text-inactive'>
+                            <Link to="/product-page" className='flex text-white items-center gap-3 text-inactive'>
                                 <i className="material-symbols-rounded">space_dashboard</i> <span className="menu__item">Dashboard</span>
                             </Link>
                         </li>
+                    
                         <li>
                             <Link to="/" className='flex items-center gap-3 text-inactive'>
                                 <i className="menu__icon material-symbols-rounded">signal_cellular_alt</i> <span className="menu__item">Statistics</span>

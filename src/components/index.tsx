@@ -9,4 +9,5 @@ export {default as FlashSale} from './flashSale/FlashSale';
 export {default as Category} from './category/Category';
 export {default as Popular} from './popular/Popular';
 export { Card} from './cardComponent/Card';
-export { MultipleFilesUpload, SingleFileUpload, UploadError, FileHeader} from './upload'
+export { default as Carousel} from "./carousel/Carousel";
+export { MultipleFilesUpload, SingleFileUpload, UploadError, FileHeader} from './upload';

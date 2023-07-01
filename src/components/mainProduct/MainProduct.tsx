@@ -9,11 +9,6 @@ export default function MainProduct() {
           <button type="button" className='h-[40px] px-5 rounded-xl bg-tertiary text-white text-sm'>Shop now</button>
           <button type="button" className='h-[40px] px-5 rounded-xl border border-customBlue text-customBlue text-sm'>View more</button>
         </div>
-        <div className='Pagination flex gap-3 self-center'>
-          <div className='h-3 w-3 rounded-full bg-tertiary cursor-pointer'></div>
-          <div className='h-3 w-3 rounded-full border border-gray cursor-pointer'></div>
-          <div className='h-3 w-3 rounded-full border border-gray cursor-pointer'></div>
-        </div>
       </div>
       <div className="relative h-60 w-60 sm:h-80 sm:w-80 self-center">
         <img src={canon} className=" object-fill" alt=""/>
