@@ -22,7 +22,7 @@ function HeaderNav() {
                 </div>
              
         </div>
-    </div>
+      </div>
   );
 }
 
