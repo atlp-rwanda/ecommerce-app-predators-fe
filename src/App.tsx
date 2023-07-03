@@ -57,6 +57,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="*" element={<NotFound/>} />
 
+        <Route path="*" element={<NotFound/>} />
       </Routes>
       <ModalButton />
       <ToastContainer />
