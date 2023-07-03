@@ -14,7 +14,7 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        'https://ecommercepredators.onrender.com/api/Product'
+        'https://ecommerce-4aqm.onrender.com/api/Product'
       ); //URL HERE
       return response.data;
     } catch (error) {

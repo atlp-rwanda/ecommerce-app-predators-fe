@@ -5,7 +5,7 @@ export const searchProductsByFilter = createAsyncThunk(
   'products/searchByFilter',
   async (searchCriteria: SearchCriteria) => {
     try {
-      let url = `https://talented-wig-goat.cyclic.app/api/products/search?`;
+      let url = `https://ecommerce-4aqm.onrender.com/api/products/search?`;
 
       if (searchCriteria.name) {
         url += `name=${searchCriteria.name}&limit=10`;
