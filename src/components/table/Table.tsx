@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import { fetchProductsCollection } from '../../redux/action/productActions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -149,4 +148,6 @@ export default function Table() {
       }
 
     </div >
-  )}
+
+  );
+}
