@@ -32,7 +32,7 @@ export const getProductById = createAsyncThunk(
 
       // Make the API request to fetch the product by ID
       const response = await axios.get(
-        `https://talented-wig-goat.cyclic.app/api/product/${id}`,
+        `https://ecommerce-4aqm.onrender.com/api/product/${id}`,
         config
       );
 
