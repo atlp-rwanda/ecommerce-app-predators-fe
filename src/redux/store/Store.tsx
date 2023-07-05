@@ -15,12 +15,11 @@ import profileReducer from '../reducers/ProfileReducer';
 import productCollectionReducer from '../reducers/productReducer';
 import SetRolesSlice from '../reducers/SetRolesSlice';
 import searchReducer from '../reducers/Searchslice';
-import NotificationReducer from '../reducers/NotificationReducer';
 import imageSlice from '../reducers/imageSlice';
 import authReducer from "../reducers/authSlice";
 import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
-
+import notificationSlice from '../reducers/NotificationSlice';
 
 const store = configureStore({
   reducer: {
@@ -40,10 +39,10 @@ const store = configureStore({
     getProductById: getProductByIdSlice,
     updateProfile: profileReducer,
     Admin: SetRolesSlice,
-    notifications: NotificationReducer,
     imageStore: imageSlice,
     auth: authReducer,
-    cart: cartReducer,
+    cart: cartReducer,    
+    notification: notificationSlice,
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });

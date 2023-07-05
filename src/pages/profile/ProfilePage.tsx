@@ -263,17 +263,17 @@ export default function ProfilePage() {
                 <ul className='sm:fixed flex sm:flex-col sm:px-10 justify-between sm:justify-center sm:h-full sm:gap-10'>
                     <li className="update-profile">
                         <Link to={''} className='flex gap-5 justify-between text-primary'>
-                            <div className='flex gap-5'><i className='material-symbols-rounded hidden sm:inline-block'>account_circle</i><span className='text-sm sm:text-[16px]'>Update Profile</span></div><i className='material-symbols-rounded hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
+                            <div className='flex gap-5'><i className='material-symbols-rounded cursor-pointer hidden sm:inline-block'>account_circle</i><span className='text-sm sm:text-[16px]'>Update Profile</span></div><i className='material-symbols-rounded cursor-pointer hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
                         </Link>
                     </li>
                     <li className="security-update">
                         <Link to={''} className='flex gap-5 justify-between text-primary'>
-                            <div className='flex gap-5'><i className='material-symbols-rounded hidden sm:inline-block'>security</i><span className='text-sm sm:text-[16px]'>Security</span></div><i className='material-symbols-rounded hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
+                            <div className='flex gap-5'><i className='material-symbols-rounded cursor-pointer hidden sm:inline-block'>security</i><span className='text-sm sm:text-[16px]'>Security</span></div><i className='material-symbols-rounded cursor-pointer hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
                         </Link>
                     </li>
                     <li className="change-password">
                         <Link to={''} className='flex gap-5 justify-between text-primary'>
-                            <div className='flex gap-5'><i className='material-symbols-rounded hidden sm:inline-block'>key</i><span className='text-sm sm:text-[16px]'>Change password</span></div><i className='material-symbols-rounded hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
+                            <div className='flex gap-5'><i className='material-symbols-rounded cursor-pointer hidden sm:inline-block'>key</i><span className='text-sm sm:text-[16px]'>Change password</span></div><i className='material-symbols-rounded cursor-pointer hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
                         </Link>
                     </li>
                 </ul>
@@ -283,7 +283,7 @@ export default function ProfilePage() {
                 <div className="main-content pt-5">
                     <div className='flex mb-10 justify-end gap-10 items-center flex-wrap'>
                         <div className="dashboard__notification flex gap-7 text-blue-500 justify-self-end">
-                            <i className="material-symbols-rounded cursor-pointer">message</i>
+                            <i className="material-symbols-rounded cursor-pointer cursor-pointer">message</i>
                             <Notification />
                         </div>
                         <div className=" dashboard__photo hidden lg:block rounded-full overflow-hidden w-10 h-10">
@@ -337,7 +337,7 @@ export default function ProfilePage() {
                 </div>
                 <div className='flex justify-center mb-10'>
                     <Link to={''} className=' text-tertiary flex items-center gap-3 text-sm'>
-                        <i className='material-symbols-rounded'>arrow_back</i><span>Home</span>
+                        <i className='material-symbols-rounded cursor-pointer'>arrow_back</i><span>Home</span>
                     </Link>
                 </div>
             </div>

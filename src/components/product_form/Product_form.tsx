@@ -137,7 +137,7 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
     <div id='container_form' onClick={handleOnClose} className="container_form bg-black/30 h-screen w-full fixed inset-0 backdrop-blur-sm flex justify-center z-50 overflow-auto">
         <div className="add_product_form bg-white max-w-lg px-10 py-5 rounded-xl m-10 absolute">
             <div className="form__header flex flex-col">
-                <i onClick={handleOnClose} id='cancel_btn' className="cancel_btn cursor-pointer material-symbols-rounded self-end">cancel</i>
+                <i onClick={handleOnClose} id='cancel_btn' className="cancel_btn cursor-pointer material-symbols-rounded cursor-pointer self-end">cancel</i>
                 <p className="title font-light text-center mb-8 text-xl">New Product</p>
             </div>
             <form className='flex flex-col gap-5 font-light'>

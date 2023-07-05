@@ -10,4 +10,5 @@ export {default as Category} from './category/Category';
 export {default as Popular} from './popular/Popular';
 export { Card} from './cardComponent/Card';
 export { default as Carousel} from "./carousel/Carousel";
+export {default as GridProducts} from "./gridProducts/GridProducts";
 export { MultipleFilesUpload, SingleFileUpload, UploadError, FileHeader} from './upload';

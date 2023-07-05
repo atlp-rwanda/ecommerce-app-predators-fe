@@ -89,7 +89,7 @@ export default function Table() {
                     <td className="w-32 text-start px-6 py-1 border">
                       <div className="symbols flex justify-between">
                         <i
-                          className="material-symbols-rounded text-blue-500 cursor-pointer"
+                          className="material-symbols-rounded cursor-pointer text-blue-500 cursor-pointer"
                           onClick={() => handleVisibilityClick(product)}
                         >
                           {' '}
@@ -98,7 +98,7 @@ export default function Table() {
                         <Link to={`/product/${product.id}`} >
                           <i
                             // onClick={handleEditClick}
-                            className="update material-symbols-rounded text-orange-500"
+                            className="update material-symbols-rounded cursor-pointer text-orange-500"
                           >
                             edit
                           </i>

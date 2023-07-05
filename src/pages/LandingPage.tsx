@@ -1,7 +1,6 @@
 
 // import PopupMessage from './PasswordExpirationPage'
-import { ComponentType, ReactElement } from "react";
-import { Navigation, Category, News, MainProduct, FlashSale, Testimony, Popular, Carousel } from "../components";
+import { Navigation, Category, News, FlashSale, Testimony, Popular, Carousel, GridProducts } from "../components";
 import { FaCrown, FaCube } from "react-icons/fa"
 import {RiShieldKeyholeFill} from "react-icons/ri"
 
@@ -17,6 +16,7 @@ function LandingPage() {
       <Category />
       <Popular />
       <FlashSale />
+      <GridProducts />
       <div className="mx-[7%] mt-10 bg-blue-100 rounded-lg flex items-center justify-evenly py-7 flex-wrap gap-2">
         <div className="flex items-center gap-10">
           <FaCube className="scale-[250%] text-tertiary" />

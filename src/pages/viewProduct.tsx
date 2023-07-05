@@ -30,11 +30,11 @@ function ViewProduct() {
           <div className="flex gap-2 justify-start">
             <div className="">Home</div>
             <div className="text-center mt-1">
-              <i className="material-symbols-rounded">arrow_forward_ios</i>
+              <i className="material-symbols-rounded cursor-pointer">arrow_forward_ios</i>
             </div>
             <div className="">All categories</div>
             <div className="text-center mt-1">
-              <i className="material-symbols-rounded">arrow_forward_ios</i>
+              <i className="material-symbols-rounded cursor-pointer">arrow_forward_ios</i>
             </div>
             <div className="">{selectedProduct?.data?.item?.name}</div>​
           </div>

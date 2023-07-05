@@ -5,11 +5,11 @@ export default function News() {
   return (
     <div className="px-[7%] mt-10 flex flex-col mb-10">
       <div className="flex justify-between mb-5">
-        <h3 className="font-Poppins text-customBlue font-semibold text-2xl whitespace-nowrap">Lates News</h3>
+        <h3 className="font-Poppins text-customBlue font-semibold text-2xl whitespace-nowrap">Latest News</h3>
         <Link to={""} className="text-customBlue font-Poppins">View all</Link>
       </div>
-      <div className="news font-Poppins flex gap-3">
-        <div className="border rounded-lg py-5 px-3 w-[50%] flex items-center gap-2">
+      <div className="news font-Poppins flex gap-3 max-[560px]:items-center max-[560px]:flex-col">
+        <div className="border rounded-lg py-5 px-3 flex items-center gap-2 max-[766px]:flex-col">
           <div className=" flex-1 w-40 overflow-hidden rounded-md">
             <img src={product} alt="" />
           </div>
@@ -22,7 +22,7 @@ export default function News() {
             </div>
           </div>
         </div>
-        <div className="border rounded-lg py-5 px-3 w-[50%] flex items-center gap-2">
+        <div className="border rounded-lg py-5 px-3  flex items-center gap-2 max-[766px]:flex-col">
           <div className=" flex-1 w-40 overflow-hidden rounded-md">
             <img src={product} alt="" />
           </div>

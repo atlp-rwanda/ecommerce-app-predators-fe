@@ -6,7 +6,7 @@ export const searchProducts = createAsyncThunk(
   async (searchTerm) => {
     try {
       const response = await axios.get(
-        `https://ecommercepredators.onrender.com/api/products/search${searchTerm}`
+        `https://ecommerce-4aqm.onrender.com/api/products/search${searchTerm}`
       );
 
       return response.data;

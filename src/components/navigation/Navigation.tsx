@@ -33,10 +33,10 @@ export default function Navigation() {
         </div>
         <div className="flex gap-5">
           <div className="flex gap-2">
-            <i className="material-symbols-rounded">location_on</i><span className="text-sm">Our store</span>
+            <i className="material-symbols-rounded cursor-pointer">location_on</i><span className="text-sm">Our store</span>
           </div>
           <div className="flex gap-2">
-            <i className="material-symbols-rounded">local_shipping</i><span className="text-sm">Track your Order</span>
+            <i className="material-symbols-rounded cursor-pointer">local_shipping</i><span className="text-sm">Track your Order</span>
           </div>
         </div>
         <div className="language absolute bottom-0 right-[7%]">
@@ -56,10 +56,10 @@ export default function Navigation() {
           </div>
           <div className="flex gap-8 sm:gap-5 grow-[1] justify-end text-white">
             <div className="flex gap-2 hover:text-tertiary">
-              <i className="material-symbols-rounded">person</i><span className="text-sm max-[640px]:hidden">Sign in</span>
+              <i className="material-symbols-rounded cursor-pointer">person</i><span className="text-sm max-[640px]:hidden">Sign in</span>
             </div>
             <div className="flex gap-2 hover:text-tertiary">
-              <i className="material-symbols-rounded">shopping_cart</i><span className="text-sm max-[640px]:hidden">Cart</span>
+              <i className="material-symbols-rounded cursor-pointer">shopping_cart</i><span className="text-sm max-[640px]:hidden">Cart</span>
             </div>
             <div className="flex gap-2 items-center hover:text-tertiary cursor-pointer md:hidden" onClick={handleMenu}>
               <RiMenuFill className="scale-[150%]"/><span className="text-sm max-[640px]:hidden">Menu</span>

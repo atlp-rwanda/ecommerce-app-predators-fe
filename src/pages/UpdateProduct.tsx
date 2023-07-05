@@ -137,7 +137,7 @@ export default function UpdateProduct() {
                 >
                   <i
                     id="cancel_btn"
-                    className="material-symbols-rounded"
+                    className="material-symbols-rounded cursor-pointer"
                   >
                     close
                   </i>
