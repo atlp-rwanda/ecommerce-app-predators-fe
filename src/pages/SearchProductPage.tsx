@@ -96,7 +96,7 @@ function SearchProductPage() {
           </div>
           <Sidebar />
         </div>
-        <div className="col-span-6 ml-6 mt-44">
+        <div className="col-span-1 md:col-span-6 mx-4 md:ml-6 mt-10">
           {filteredProducts.length > 0 ? (
             <div className="grid grid-cols-3 gap-3 mt-8 mx-20">
               {filteredProducts.map((product: Product) => (

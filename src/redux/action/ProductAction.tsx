@@ -13,7 +13,11 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
+<<<<<<< HEAD
         'https://ecommerce-4aqm.onrender.com/api/product'
+=======
+        'https://ecommerce-4aqm.onrender.com/api/Product'
+>>>>>>> c933ed9f2b328122870b7852d26851ae4681dc36
       ); //URL HERE
       return response.data;
     } catch (error) {
