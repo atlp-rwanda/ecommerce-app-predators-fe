@@ -15,7 +15,7 @@ export const  fetchProductsCollection = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.get(`https://hoodie-capybara.cyclic.app/api/vendor/collection`,config);
+      const response = await axios.get(`https://ecommerce-4aqm.onrender.com/api/vendor/collection`,config);
       //console.log("Fetched products:", response.data.data.products);
       return response.data
     } catch (error) {
