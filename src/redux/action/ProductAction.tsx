@@ -14,7 +14,7 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        'https://ecommercepredators.onrender.com/api/Product'
+        'https://ecommerce-4aqm.onrender.com/api/Product'
       ); //URL HERE
       return response.data;
     } catch (error) {
@@ -69,9 +69,9 @@ export const addProduct = createAsyncThunk(
     }
   }
 );
- 
+
 export const fetchProductById = createAsyncThunk(
-  "products/fetchProductById",
+  'products/fetchProductById',
   async (id: any, thunkAPI) => {
     try {
       // Get the token from localStorage
@@ -83,13 +83,15 @@ export const fetchProductById = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       };
-       
-      
-      const response = await axios.get(`https://ecommercepredators.onrender.com/api/product/${id}`, config);
+
+      const response = await axios.get(
+        `https://ecommercepredators.onrender.com/api/product/${id}`,
+        config
+      );
       return response.data;
       //console.log(data)
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
-)
+);

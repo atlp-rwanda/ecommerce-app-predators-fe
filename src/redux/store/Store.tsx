@@ -16,14 +16,10 @@ import productCollectionReducer from '../reducers/productReducer';
 import SetRolesSlice from '../reducers/SetRolesSlice';
 import searchReducer from '../reducers/Searchslice';
 import NotificationReducer from '../reducers/NotificationReducer';
-import authReducer from "../reducers/authSlice";
-import chatReducer from '../reducers/chatSlice';
-import cartReducer from '../reducers/CartReducer';
-
+import cartSlice from '../reducers/cartSlice';
 
 const store = configureStore({
   reducer: {
-    chat: chatReducer,
     products: productReducer,
     user: OtpReducer,
     UserReducer,
@@ -35,15 +31,12 @@ const store = configureStore({
     passwordExpiration: popupReducer,
     CollectionProducts: productCollectionReducer,
     product: updateProduct,
-    search: searchReducer,
     getProductById: getProductByIdSlice,
     updateProfile: profileReducer,
     Admin: SetRolesSlice,
     notifications: NotificationReducer,
-    auth: authReducer,
-    cart: cartReducer,
-        
-        
+    search: searchReducer,
+    cart: cartSlice,
   },
   middleware: [...getDefaultMiddleware(), thunk],
 });
