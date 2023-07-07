@@ -26,3 +26,4 @@ export const searchProductsByFilter = createAsyncThunk(
     }
   }
 );
+// console.log('fixing')

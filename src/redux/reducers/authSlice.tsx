@@ -48,3 +48,5 @@ export const selectError = (state: RootState) => state.auth.error;
 export const { reset } = authSlice.actions;
 
 export default authSlice.reducer;
+
+// console.log('fixing')

@@ -35,3 +35,5 @@ export const addToCart = createAsyncThunk(
     }
   }
 );
+
+// console.log('fixing')

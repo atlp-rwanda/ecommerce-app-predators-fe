@@ -54,3 +54,5 @@ export default function staticReview(props: { src: string | undefined }) {
     </>
   );
 }
+
+// console.log('fixing')

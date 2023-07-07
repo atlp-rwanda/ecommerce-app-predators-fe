@@ -139,3 +139,5 @@ function SearchProductPage() {
 }
 
 export default SearchProductPage;
+
+// console.log('fixing')

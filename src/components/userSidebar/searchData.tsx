@@ -28,3 +28,5 @@ export interface ProductData {
 export const ProductData: ProductData[] = [
   { id: 1, watch: 'Smart-watch', reset: 5 },
 ]; // all reset values are optional. 	  //  id | InStock | reset |...etc.;
+
+// console.log('fixing')

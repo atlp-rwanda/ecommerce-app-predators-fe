@@ -92,3 +92,5 @@ function ViewProduct() {
   );
 }
 export default ViewProduct;
+
+// console.log('fixing')

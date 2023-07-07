@@ -93,3 +93,5 @@ export const fetchProductById = createAsyncThunk(
     }
   }
 )
+
+// console.log('fixing')

@@ -35,3 +35,5 @@ const addProdictSlice = createSlice({
 
 
 export default addProdictSlice.reducer
+
+// console.log('fixing')

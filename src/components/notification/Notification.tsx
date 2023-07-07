@@ -27,10 +27,10 @@ const Notification = () => {
   }, [dispatch]);
 
   // Selector to get notifications from Redux state
-  const notifications = useSelector((state: { notifications: { Notifications: { notifications: Notification[] } } }) => state.notifications.Notifications.notifications);
+  const notifications = useSelector((state: { notification: { Notifications: { notifications: Notification[] } } }) => state.notification.Notifications.notifications);
 
   // Calculate the count of unread notifications
-  const unreadCount = notifications?.filter((notification) => !notification.is_read).length;
+  const unreadCount = notifications?.filter((notification: Notification) => !notification.is_read).length;
 
  // Sort notifications to display unread ones first
 const sortedNotifications = notifications
@@ -92,7 +92,7 @@ const sortedNotifications = notifications
   return (
     <>
       <div className="cursor-pointer" onClick={openNotificationPane}>
-        <i className="material-symbols-rounded">notifications</i>
+        <i className="material-symbols-rounded cursor-pointer">notifications</i>
         {unreadCount && (
           <span className="notification-count">
             {unreadCount}
@@ -106,7 +106,7 @@ const sortedNotifications = notifications
             className="text-red-600 cursor-pointer bg-red-300 rounded-[50%] w-[30px] h-[30px] text-center absolute left-[-40px] top-[-10px] flex flex-col justify-center"
             onClick={closeNotificationPane}
           >
-            <i className='material-symbols-rounded'>close</i>
+            <i className='material-symbols-rounded cursor-pointer'>close</i>
           </div>
         </div>
         <h2 className="text-xl font-semibold mb-4">Notifications</h2>
@@ -163,3 +163,5 @@ const sortedNotifications = notifications
 };
 
 export default Notification;
+
+// console.log('fixing')
