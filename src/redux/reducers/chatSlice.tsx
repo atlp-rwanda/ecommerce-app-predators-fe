@@ -41,3 +41,5 @@ export const selectPublicMessages = (state: RootState) => state.chat.publicMessa
 export const selectCsMessages = (state: RootState) => state.chat.csMessages;
 
 export default chatSlice.reducer;
+
+// console.log('fixing')

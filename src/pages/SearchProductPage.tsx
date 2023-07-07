@@ -87,8 +87,8 @@ function SearchProductPage() {
   return (
     <div className="font-Poppins">
       <NavHeader onSearchText={handleSearchText} />
-      <div className="grid grid-cols-1 md:grid-cols-7 container mx-auto">
-        <div className="col-span-1 md:col-span-1 ml-2 mt-5">
+      <div className="grid grid-cols-7 container">
+        <div className="col-span-1 ml-2 mt-5">
           <div className="flex justify-between">
             <div className="text-primary font-semibold">Categories</div>
             <div className="text-gray-500">Reset</div>
@@ -97,7 +97,7 @@ function SearchProductPage() {
         </div>
         <div className="col-span-1 md:col-span-6 mx-4 md:ml-6 mt-10">
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-3 mt-8 mx-20">
               {filteredProducts.map((product: Product) => (
                 <Card
                   key={product.id}
@@ -115,10 +115,11 @@ function SearchProductPage() {
             </p>
           )}
         </div>
-        {isSearchPerformed && searchProduct?.related && (
-          <div className="col-span-1 md:col-span-6 mx-4 md:mx-20 mt-10">
-            <h2 className="text-2xl font-bold text-center mb-4">You may also like</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div className="col-span-6 ml-6 mt-44">
+          {isSearchPerformed && searchProduct?.related && (
+            <div className="grid grid-cols-3 gap-3 mt-8 mx-20 ml-72 ">
+              <h2 className="text-2xl font-bold mb-4">You may also like</h2>
               {searchProduct.related.map((product: Product) => (
                 <Card
                   key={product.id}
@@ -130,11 +131,13 @@ function SearchProductPage() {
                 />
               ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
 export default SearchProductPage;
+
+// console.log('fixing')

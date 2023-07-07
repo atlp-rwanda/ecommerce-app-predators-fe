@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -73,3 +72,5 @@ export const updatePassword = createAsyncThunk<any, ResetData>(
 );
 
 
+
+// console.log('fixing')

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { addProduct } from "../action/ProductAction";
 import { toast } from "react-toastify";
@@ -35,3 +34,5 @@ const addProdictSlice = createSlice({
 
 
 export default addProdictSlice.reducer
+
+// console.log('fixing')

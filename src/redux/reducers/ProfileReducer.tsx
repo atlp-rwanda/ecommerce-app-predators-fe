@@ -44,3 +44,4 @@ const profileSlice = createSlice({
 })
 
 export default profileSlice.reducer;
+// console.log('fixing')

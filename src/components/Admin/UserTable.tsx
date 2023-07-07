@@ -196,3 +196,5 @@ const UserTable = () => {
 };
 
 export default UserTable;
+
+// console.log('fixing')

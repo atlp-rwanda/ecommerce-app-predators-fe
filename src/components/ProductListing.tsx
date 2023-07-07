@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../redux/action/ProductAction';
 
-
 export interface Product {
   id: number;
   name: string;
@@ -50,7 +49,6 @@ function ProductListing() {
           <h2>{product.name}</h2>
           <p>{product.id}</p>
           <p>{product.picture_urls[2]}</p>
-
         </div>
       ))}
     </>
@@ -58,3 +56,4 @@ function ProductListing() {
 }
 
 export default ProductListing;
+// console.log('fixing')

@@ -22,7 +22,7 @@ export const addToCart = createAsyncThunk(
 
       // Make your API call or perform any other async logic here
       const response = await axios.post(
-        'https://ecommercepredators.onrender.com/api/cart',
+        'https://ecommerce-4aqm.onrender.com/api/cart',
         { product_id, quantity },
         config
       );

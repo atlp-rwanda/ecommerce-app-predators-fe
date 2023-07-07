@@ -3,3 +3,5 @@ export interface SearchCriteria {
   price?: string;
   keyword?: string;
 }
+
+// console.log('fixing')

@@ -73,7 +73,7 @@ export function getUserCredentials(): UserCredentials {
 
 const { userName, dbId }: UserCredentials = getUserCredentials();
 
-const CHAT_SERVER = 'https://ecommercepredators.onrender.com';
+const CHAT_SERVER = 'https://ecommerce-4aqm.onrender.com';
 
 export const socket: Socket = io(CHAT_SERVER, {
   autoConnect: false,
@@ -83,3 +83,5 @@ export const socket: Socket = io(CHAT_SERVER, {
     id: dbId,
   },
 });
+
+// console.log('fixing')

@@ -15,7 +15,7 @@ interface NavHeaderProps {
 function NavHeader({ onSearchText }: NavHeaderProps) {
   return (
     <div className="w-full fixed">
-      <div className="bg-white ">
+      <div className="bg-white">
         <div className="flex justify-between mx-5">
           <div>
             <label>Need help? call us: (+25) 0785 7676 47</label>
@@ -82,3 +82,5 @@ function NavHeader({ onSearchText }: NavHeaderProps) {
 }
 
 export default NavHeader;
+
+// console.log('fixing')
