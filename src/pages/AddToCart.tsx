@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../redux/action/CartAction';
+import { addToCart } from '../redux/action/CartActions';
 //import PlayGame from '../components/PlayGame';
 import { useParams } from 'react-router';
 interface Item {

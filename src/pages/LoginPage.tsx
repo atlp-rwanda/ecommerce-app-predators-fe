@@ -43,7 +43,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     let timer: NodeJS.Timeout | null = null;
-    const googleURI = 'https://ecommercepredators.onrender.com/api/login/google';
+    const googleURI = 'https://ecommerce-4aqm.onrender.com/api/login/google';
     const newWindow = window.open(googleURI, '_blank', 'width=500,height=600');
     if (newWindow) {
       timer = setInterval(() => {
