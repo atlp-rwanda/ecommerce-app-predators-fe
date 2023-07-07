@@ -67,3 +67,5 @@ const productCollectionSlice = createSlice({
 
 
 export default productCollectionSlice.reducer;
+
+// console.log('fixing')

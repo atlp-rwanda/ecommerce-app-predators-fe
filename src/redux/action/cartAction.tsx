@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const API_URL = "https://ecommercepredators.onrender.com/api";
+const API_URL = "https://ecommerce-4aqm.onrender.com/api";
 // all user carts
 
 export const getAllCarts = createAsyncThunk(
@@ -81,4 +81,3 @@ export const updateCartQuantity = createAsyncThunk(
       }
     }
   );
-

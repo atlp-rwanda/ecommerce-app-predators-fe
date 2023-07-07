@@ -51,3 +51,4 @@ export const Card = (product: Product) => {
     </div>
   );
 };
+// console.log('fixing')

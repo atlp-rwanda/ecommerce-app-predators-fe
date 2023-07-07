@@ -235,3 +235,5 @@ export default function UpdateProduct() {
 
 }
 
+
+// console.log('fixing')
