@@ -20,12 +20,12 @@ export default function VendorPage() {
             <div className='flex justify-between md:justify-end gap-10 items-center flex-wrap'>
               <div className="max-[1023px]:flex-1 flex flex-wrap gap-8 justify-between items-end">
                 <div className="dashboard__search shadow-md border rounded-md flex gap-3 p-1">
-                  <i className='material-symbols-rounded text-gray-400'>search</i>
+                  <i className='material-symbols-rounded cursor-pointer text-gray-400'>search</i>
                   <input  className=" focus:outline-none placeholder:text-gray-400 outline-0 bg-inherit border-0 xs:w-64 md:w-72" type="text" placeholder='Search product ...' />
                 </div>
                 <div className="dashboard__notification flex gap-7 text-blue-500">
-                  <i className="material-symbols-rounded">message</i>
-                  <i className="material-symbols-rounded">notifications</i>
+                  <i className="material-symbols-rounded cursor-pointer">message</i>
+                  <i className="material-symbols-rounded cursor-pointer">notifications</i>
                 </div>
               </div>
               <div className=" dashboard__photo hidden lg:block rounded-full overflow-hidden w-20 h-20">

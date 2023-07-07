@@ -1,8 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addProduct } from '../../redux/action/ProductAction';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState, ChangeEvent } from 'react';
+import { MultipleFilesUpload } from '..';
+import { setImages } from '../../redux/reducers/imageSlice';
 
 
 interface ProductData {
@@ -18,10 +20,10 @@ interface ProductData {
 
 export default function Product_form({ visible, onClose }: { visible: boolean, onClose: () => void }) {
   const dispatch = useDispatch();
+  const images = useSelector((state: {imageStore: {images: string[]}}) => state.imageStore.images)
   const [name, setName] = useState('');
   const [description, setDescr] = useState('');
   const [instock, setStock] = useState('');
-  const [images, setImages] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
   const [available, setAvailabe] = useState(false);
@@ -38,10 +40,6 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
   
   function handleStockChange(e: ChangeEvent<HTMLInputElement>) {
     setStock(e.target.value);
-  }
-  
-  function handleImageChange(e: ChangeEvent<HTMLInputElement>) {
-    setImages(e.target.value);
   }
   
   function handlePriceChange(e: ChangeEvent<HTMLInputElement>) {
@@ -64,7 +62,7 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
     name: name,
     description: description,
     category_id: Number(category),
-    picture_urls: images.split(' | '),
+    picture_urls: images,
     expiryDate: date,
     price: Number(price),
     instock: Number(instock) | 0,
@@ -99,7 +97,7 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
       return;
     }
 
-    if (images === '') {
+    if (images.length === 0 || "") {
       toast.error('Please enter Product Images.');
       setLoading(false);
       return;
@@ -119,7 +117,7 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
         setDate('');
         setAvailabe(false);
         setPrice('');
-        setImages('');
+        dispatch(setImages([]))
         setStock('');
         setLoading(false);
         onClose();
@@ -136,17 +134,17 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
 
     if(!visible) return null
   return (
-    <div id='container_form' onClick={handleOnClose} className="container_form bg-black/30 h-full w-full fixed inset-0 backdrop-blur-sm flex justify-center items-center z-50">
-        <div className="add_product_form bg-white max-w-lg px-10 py-5 rounded-xl m-2">
+    <div id='container_form' onClick={handleOnClose} className="container_form bg-black/30 h-screen w-full fixed inset-0 backdrop-blur-sm flex justify-center z-50 overflow-auto">
+        <div className="add_product_form bg-white max-w-lg px-10 py-5 rounded-xl m-10 absolute">
             <div className="form__header flex flex-col">
-                <i onClick={handleOnClose} id='cancel_btn' className="cancel_btn cursor-pointer material-symbols-rounded self-end">cancel</i>
+                <i onClick={handleOnClose} id='cancel_btn' className="cancel_btn cursor-pointer material-symbols-rounded cursor-pointer self-end">cancel</i>
                 <p className="title font-light text-center mb-8 text-xl">New Product</p>
             </div>
             <form className='flex flex-col gap-5 font-light'>
                 <input className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 placeholder:font-light placeholder:text-gray-600/80 p-2 pl-4' type="text" onChange={handleNameChange} value={name} placeholder='Product Name' name="name" id="" />
                 
                 <textarea className='focus:outline-none shadow-md h-26 border border-black/10 rounded-lg outline-0 placeholder:font-light placeholder:text-gray-600/80 p-2 pl-4' onChange={handleDescriptionChange} value={description} placeholder='Product Description' name="description" id="" />
-                <input className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 placeholder:font-light placeholder:text-gray-600/80 p-2 pl-4' type="text" onChange={handleImageChange} value={images} placeholder='Product Image' name="image_link" id="" />
+                <MultipleFilesUpload/>
                 <div className='flex justify-between flex-wrap gap-5'>
                     <input className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 placeholder:font-light placeholder:text-gray-600/80 p-2 pl-4' type="number" onChange={handlePriceChange} value={price} placeholder='Product Price' name="price" id="" />
                     <input className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 placeholder:font-light placeholder:text-gray-600/80 p-2 pl-4' type="number" onChange={handleStockChange} value={instock} placeholder='Instock' name="stock" id="" />
@@ -157,7 +155,7 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
                     <option value="true">Available</option>
                     <option value="false">Not Available</option>
                 </select>
-                <button type='button' className='text-white bg-customBlue w-fit py-3 px-8 rounded-xl font-extralight self-center' onClick={handleSubmit}> {isLoading? "Loading ..." : "Save"}</button>
+                <button type='button' className='text-white bg-customBlue w-fit py-3 px-8 rounded-xl font-extralight self-center disabled:cursor-no-drop disabled:bg-customBlue/50' onClick={handleSubmit}> {isLoading? "Loading ..." : "Save"}</button>
             </form>
         </div>
     </div>

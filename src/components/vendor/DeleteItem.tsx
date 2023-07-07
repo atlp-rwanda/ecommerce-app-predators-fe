@@ -25,7 +25,7 @@ const DeleteItem  = (props:Item) => {
  
 
     const handleDelete = async (e: { preventDefault: () => void }) => {
-       e.preventDefault(); 
+       e.preventDefault();
         setLoading(true);
         try {
          if(reason == 'delete'){  
@@ -58,7 +58,7 @@ const DeleteItem  = (props:Item) => {
   
   return (
     <div> 
-        <i onClick={() => setIsOpen(true)} className='material-symbols-rounded text-red-500 cursor-pointer'>delete</i>
+        <i onClick={() => setIsOpen(true)} className='material-symbols-rounded cursor-pointer text-red-500 cursor-pointer'>delete</i>
         <ToastContainer />
            <Dialog open={isOpen} onClose={() => setIsOpen(false)} as="div" className="relative z-10">
             <div className="fixed inset-0   backdrop-blur-sm bg-opacity-75 transition-opacity"></div>
@@ -79,7 +79,7 @@ const DeleteItem  = (props:Item) => {
                   <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                   <div className="sm:flex sm:items-start">
                       <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 text-red-600 sm:mx-0 sm:h-10 sm:w-10">
-                        <i  className="material-symbols-rounded">warning</i>
+                        <i  className="material-symbols-rounded cursor-pointer">warning</i>
                       </div>
                       <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <h3 className="text-base font-semibold leading-6 text-gray-900" id="modal-title">Remove item</h3>

@@ -1,46 +1,47 @@
 import { Link } from 'react-router-dom';
 import electron from '../../assets/sidebar/Electron.svg';
 import { useState } from 'react';
- 
+
 export default function Sidebar() {
-       
-    const [isOpen, menu] = useState(false); 
+    const [isOpen, menu] = useState(false);
+
     const handleCloseMenu = () => {
         menu(!isOpen)
-    } 
+    }
+
   return (
     <>
-        <div className={`${ isOpen ? "block" : "hidden" } text-gray-400 lg:block lg:sticky lg:top-0 min-w-[210px] fixed flex flex-col z-50 bg-customBlue p-5 pb-18 h-screen justify-between  transition-transform ease-in-out duration-500 scroll-auto`} >
-            <div className='flex-1 lg:h-[90%]'>
+        <div className={`${ isOpen ? "translate-x-0" : "-translate-x-52" } md:translate-x-0 z-40 transition-transform ease-in-out duration-500 flex fixed sidebar h-screen flex-col justify-between w-52 bg-customBlue p-5 pb-18 text-sm`} >
+            <div>
                 <div className="sidebar__logo flex items-center gap-2 text-white mb-9">
-                    <img className="logo__image" src={electron} alt="Electron logo"/><i className="logo__dropdown material-symbols-rounded">arrow_drop_down_circle</i>
+                    <img className="logo__image" src={electron} alt="Electron logo"/><i className="logo__dropdown material-symbols-rounded cursor-pointer">arrow_drop_down_circle</i>
                 </div>
                 <div className="sidebar__menu" >
                     <ul className='flex flex-col gap-5 '>
                         <li>
                             <Link to="/product-page" className='flex text-white items-center gap-3 text-inactive'>
-                                <i className="material-symbols-rounded">space_dashboard</i> <span className="menu__item">Dashboard</span>
+                                <i className="material-symbols-rounded cursor-pointer">space_dashboard</i> <span className="menu__item">Dashboard</span>
                             </Link>
                         </li>
                     
                         <li>
                             <Link to="/" className='flex items-center gap-3 text-inactive'>
-                                <i className="menu__icon material-symbols-rounded">signal_cellular_alt</i> <span className="menu__item">Statistics</span>
+                                <i className="menu__icon material-symbols-rounded cursor-pointer">signal_cellular_alt</i> <span className="menu__item">Statistics</span>
                             </Link>
                         </li>
                         <li>
                             <Link to="/" className='flex items-center gap-3 text-inactive'>
-                                <i className="menu__icon material-symbols-rounded">attach_money</i> <span className="menu__item">Payment</span>
+                                <i className="menu__icon material-symbols-rounded cursor-pointer">attach_money</i> <span className="menu__item">Payment</span>
                             </Link>
                         </li>
                         <li>
                             <Link to="/" className='flex items-center gap-3 text-inactive'>
-                                <i className="menu__icon material-symbols-rounded">shopping_bag</i> <span className="menu__item">Products</span>
+                                <i className="menu__icon material-symbols-rounded cursor-pointer">shopping_bag</i> <span className="menu__item">Products</span>
                             </Link>
                         </li>
                         <li>
                             <Link to="/" className='flex items-center gap-3 text-inactive'>
-                                <i className="menu__icon material-symbols-rounded">message</i> <span className="menu__item">Messages</span>
+                                <i className="menu__icon material-symbols-rounded cursor-pointer">message</i> <span className="menu__item">Messages</span>
                             </Link>
                         </li>
                     </ul>
@@ -50,28 +51,27 @@ export default function Sidebar() {
                 <ul className='flex flex-col gap-5'>
                     <li>
                         <Link to="/" className='flex items-center gap-3 text-inactive'>
-                            <i className="settings__icon material-symbols-rounded">settings</i><span className="settings__item">Settings</span>
+                            <i className="settings__icon material-symbols-rounded cursor-pointer">settings</i><span className="settings__item">Settings</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/" className='flex items-center gap-3 text-inactive'>
-                            <i className="settings__icon material-symbols-rounded">logout</i><span className="settings__item">Logout</span>
+                            <i className="settings__icon material-symbols-rounded cursor-pointer">logout</i><span className="settings__item">Logout</span>
                         </Link>
                     </li>
                 </ul>
             </div>
         </div>
-        <div className="md:hidden p-3 z-50 bg-primary text-white">
-            <div className="">
-                <div onClick={() => handleCloseMenu()} className={`${isOpen? "translate-x-0": "translate-x-0"} transition-transform ease-in-out duration-500  cursor-pointer`}>
+        <div className={`${isOpen? "translate-x-52": "translate-x-0  bg-primary p-2"} transition-transform ease-in-out duration-500 close_icon flex justify-center pt-5 md:hidden`}>
+            <div className="w-[90%]">
+                <div onClick={() => handleCloseMenu()}  className={isOpen? 'text-black flex gap-2 w-[73px] cursor-pointer' : 'flex gap-2 w-[73px] cursor-pointer text-white'}>
                     {isOpen?
-                        <i className='material-symbols-rounded'>close</i> :
-                        <i className='material-symbols-rounded'>menu</i>
+                        <><i className='material-symbols-rounded cursor-pointer'>close</i><span>Close</span></> :
+                        <><i className='material-symbols-rounded cursor-pointer'>menu</i><span>Menu</span></>
                     }
                 </div>
             </div>
         </div>
-
     </>
     
   )

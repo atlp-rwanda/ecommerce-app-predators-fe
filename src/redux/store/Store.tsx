@@ -15,6 +15,7 @@ import profileReducer from '../reducers/ProfileReducer';
 import productCollectionReducer from '../reducers/productReducer';
 import SetRolesSlice from '../reducers/SetRolesSlice';
 import searchReducer from '../reducers/Searchslice';
+import imageSlice from '../reducers/imageSlice';
 import authReducer from "../reducers/authSlice";
 import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
@@ -38,6 +39,7 @@ const store = configureStore({
     getProductById: getProductByIdSlice,
     updateProfile: profileReducer,
     Admin: SetRolesSlice,
+    imageStore: imageSlice,
     auth: authReducer,
     cart: cartReducer,    
     notification: notificationSlice,

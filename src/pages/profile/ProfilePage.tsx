@@ -2,10 +2,11 @@ import { useState, ChangeEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProfile, getProfile } from '../../redux/action/profileAction';
 import { toast } from 'react-toastify';
-import profilePhoto from "./../../assets/dashboard/account_photo.jpg"; 
+import profilePhoto from "./../../assets/dashboard/account_photo.jpg";
+import {Sidebar} from '../../components';
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import Layout from '../../Layout';
+import Notification from '../../components/notification/Notification';
 
 interface profileData {
     name: string,
@@ -37,6 +38,7 @@ export default function ProfilePage() {
     const [Loading, setLoading] = useState<boolean | null>(false);
     const [initialProfile, setInitialProfile] = useState<profileData | null>(null);
 
+    
 
     const setInitialValues = (profile: profileData) => {
         setName(profile?.name);
@@ -253,34 +255,43 @@ export default function ProfilePage() {
     }
 
   return (
-    <Layout>
-    <div className="profile h-full w-[100%] ">
-        <ToastContainer /> 
-        <div className=' relative flex flex-col sm:flex-row sm:h-full'>
-            <div className="sm:relative flex-1 w-[100%] sm:w-full self-center sm:self-start secondary-menu mt-5 sm:mt-0 sm:max-w-xs sm:min-w-[280px] sm:h-screen">
-                <ul className='sm:sticky top-0 flex sm:flex-col sm:px-10 justify-between sm:justify-center sm:h-full sm:gap-10'>
+    <div className="profile h-full">
+        <ToastContainer />
+        <Sidebar />
+        <div className=' relative md:ml-52 flex flex-col sm:flex-row sm:h-full'>
+            <div className="sm:relative flex-1 w-[90%] sm:w-full self-center sm:self-start secondary-menu mt-5 sm:mt-0 sm:max-w-xs sm:min-w-[280px] sm:h-screen">
+                <ul className='sm:fixed flex sm:flex-col sm:px-10 justify-between sm:justify-center sm:h-full sm:gap-10'>
                     <li className="update-profile">
                         <Link to={''} className='flex gap-5 justify-between text-primary'>
-                            <div className='flex gap-5'><i className='material-symbols-rounded hidden sm:inline-block'>account_circle</i><span className='text-sm sm:text-[16px]'>Update Profile</span></div><i className='material-symbols-rounded hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
+                            <div className='flex gap-5'><i className='material-symbols-rounded cursor-pointer hidden sm:inline-block'>account_circle</i><span className='text-sm sm:text-[16px]'>Update Profile</span></div><i className='material-symbols-rounded cursor-pointer hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
                         </Link>
                     </li>
                     <li className="security-update">
                         <Link to={''} className='flex gap-5 justify-between text-primary'>
-                            <div className='flex gap-5'><i className='material-symbols-rounded hidden sm:inline-block'>security</i><span className='text-sm sm:text-[16px]'>Security</span></div><i className='material-symbols-rounded hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
+                            <div className='flex gap-5'><i className='material-symbols-rounded cursor-pointer hidden sm:inline-block'>security</i><span className='text-sm sm:text-[16px]'>Security</span></div><i className='material-symbols-rounded cursor-pointer hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
                         </Link>
                     </li>
                     <li className="change-password">
                         <Link to={''} className='flex gap-5 justify-between text-primary'>
-                            <div className='flex gap-5'><i className='material-symbols-rounded hidden sm:inline-block'>key</i><span className='text-sm sm:text-[16px]'>Change password</span></div><i className='material-symbols-rounded hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
+                            <div className='flex gap-5'><i className='material-symbols-rounded cursor-pointer hidden sm:inline-block'>key</i><span className='text-sm sm:text-[16px]'>Change password</span></div><i className='material-symbols-rounded cursor-pointer hidden min-[480px]:inline-block rotate-90 sm:rotate-0 '>keyboard_arrow_right</i>
                         </Link>
                     </li>
                 </ul>
                 <hr className='min-[639px]:hidden'/>
             </div>
             <div className='flex-1 px-16 flex flex-col h-full justify-between items-center gap-8 sm:border-l'>
-                <div className="main-content pt-5"> 
+                <div className="main-content pt-5">
+                    <div className='flex mb-10 justify-end gap-10 items-center flex-wrap'>
+                        <div className="dashboard__notification flex gap-7 text-blue-500 justify-self-end">
+                            <i className="material-symbols-rounded cursor-pointer cursor-pointer">message</i>
+                            <Notification />
+                        </div>
+                        <div className=" dashboard__photo hidden lg:block rounded-full overflow-hidden w-10 h-10">
+                            <img src={profilePhoto} alt="profile_photo" className='object-cover' />
+                        </div>
+                    </div>
                     <h1 className='font-semibold text-xl mb-5'>Profile</h1>
-                    <p className=' text-gray-500 '>This information will be displayed publicly be careful what you share.</p>
+                    <p className=' text-gray-500 text-xs font-light'>This information will be displayed publicly be careful what you share.</p>
                     <div className="profile_image flex justify-center my-5">
                         <div className=" dashboard__photo rounded-full overflow-hidden w-20 h-20">
                             <img src={profilePhoto} alt="profile_photo" className='object-cover' />
@@ -289,7 +300,7 @@ export default function ProfilePage() {
                     <div className="personal_information mt-10">
                         <form>
                             <div className='flex flex-col gap-3 sm:gap-5'>
-                                <p className=' text-gray-500 '>Personal Information</p>
+                                <p className=' text-gray-500 text-xs font-light'>Personal Information</p>
                                 <div className='flex flex-wrap gap-3 sm:gap-8'>
                                     <input type="text" defaultValue={Profile?.name} onChange={handleNameChange} className='focus:outline-none focus:border-tertiary border border-black/10 rounded-lg outline-0 text-sm placeholder:font-light placeholder:text-sm placeholder:text-primary p-2 pl-4' placeholder='Name'/>
                                     <input type="text" defaultValue={Profile?.email} onChange={handleEmailChange} className='focus:outline-none focus:border-tertiary border border-black/10 rounded-lg outline-0 text-sm placeholder:font-light placeholder:text-sm placeholder:text-primary p-2 pl-4' placeholder='Email'/>
@@ -304,7 +315,7 @@ export default function ProfilePage() {
                                 </div>
                             </div>
                             <div className='flex flex-col gap-3 sm:gap-5 mt-10'>
-                                <p className=' text-gray-500 '>Personal Address</p>
+                                <p className=' text-gray-500 text-xs font-light'>Personal Address</p>
                                 <div className='flex flex-wrap gap-3 sm:gap-8'>
                                     <input type="text" defaultValue={Profile?.country} onChange={handleCountryChange} className='focus:outline-none focus:border-tertiary border border-black/10 rounded-lg outline-0 text-sm placeholder:font-light placeholder:text-sm placeholder:text-primary p-2 pl-4' placeholder='Country'/>
                                     <input type="text" defaultValue={Profile?.province} onChange={handleProvinceChange} className='focus:outline-none focus:border-tertiary border border-black/10 rounded-lg outline-0 text-sm placeholder:font-light placeholder:text-sm placeholder:text-primary p-2 pl-4' placeholder='Province'/>
@@ -326,13 +337,12 @@ export default function ProfilePage() {
                 </div>
                 <div className='flex justify-center mb-10'>
                     <Link to={''} className=' text-tertiary flex items-center gap-3 text-sm'>
-                        <i className='material-symbols-rounded'>arrow_back</i><span>Home</span>
+                        <i className='material-symbols-rounded cursor-pointer'>arrow_back</i><span>Home</span>
                     </Link>
                 </div>
             </div>
         </div>
     </div>
-    </Layout>
   )
 }
 
