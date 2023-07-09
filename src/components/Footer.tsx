@@ -7,13 +7,13 @@ import headphone from '../assets/headphone.svg';
 function Footer() {
   return (
     <div className="bg-blue-200 pos">
-      <div className="flex bg-white py-4 px-20 mx-6 rounded-lg xs:w-max gap-x-20 mt-10">
-        <h4 className="text-2xl font-bold text-customBlue mt-4">
+      <div className="flex flex-col bg-white py-4 px-6 xs:px-2 sm:px-6 md:px-8 lg:px-20 mx-auto rounded-lg xs:w-full sm:w-full md:w-4/5 gap-x-2 mt-10">
+        <h4 className="text-2xl font-bold text-customBlue mt-4 text-center xs:text-left">
           Subscribe Newsletter
         </h4>
         <div className="relative flex mt-3">
           <input
-            className="bg-[#EDA415] text-sm rounded-lg text-white px-4 py-2 w-80 h-10 placeholder-white"
+            className="bg-[#EDA415] text-sm rounded-lg text-white px-4 py-2 w-full sm:w-80 h-10 placeholder-white"
             type="email"
             placeholder="Enter your email"
           />
@@ -24,13 +24,14 @@ function Footer() {
             <AiOutlineSend />
           </button>
         </div>
-        <div className="flex bg-white py-4 px-8 mx-6 rounded-lg xs:w-max gap-x-4 items-center mt-1">
+        <div className="flex bg-white py-4 px-6 xs:px-2 sm:px-8 mx-6 rounded-lg xs:w-full sm:w-full md:w-4/5 gap-x-4 items-center mt-1">
           <img src={headphone} alt="" className="h-6" />
-          <h6>
+          <h6 className="text-center xs:text-left">
             Call Us: <span>(+25) 0785 7676 47</span>
           </h6>
         </div>
       </div>
+
       <footer className="flex flex-wrap justify-between py-2 px-20 my-4">
         <div className="col flex flex-col items-start mb-5">
           <img src={logo} alt="" />
