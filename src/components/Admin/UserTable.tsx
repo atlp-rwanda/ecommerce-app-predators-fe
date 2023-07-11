@@ -132,17 +132,17 @@ const UserTable = () => {
                 </td>
                 <td className="w-32 text-start font-light px-6 py-1">
                   <div className="symbols flex justify-between">
-                    <i className="material-symbols-rounded text-customBlue-500">
+                    <i className="material-symbols-rounded cursor-pointer text-customBlue-500">
                       visibility
                     </i>
-                    <i className="update material-symbols-rounded text-orange-500 cursor-pointer">
+                    <i className="update material-symbols-rounded cursor-pointer text-orange-500 cursor-pointer">
                       edit
                     </i>
-                    <i className="material-symbols-rounded text-red-500 cursor-pointer">
+                    <i className="material-symbols-rounded cursor-pointer text-red-500 cursor-pointer">
                       delete_forever
                     </i>
                     <i
-                      className="material-symbols-rounded cursor-pointer"
+                      className="material-symbols-rounded cursor-pointer cursor-pointer"
                       onClick={() => handleIconClick(user.id)}
                     >
                       manage_accounts
@@ -196,3 +196,5 @@ const UserTable = () => {
 };
 
 export default UserTable;
+
+// console.log('fixing')

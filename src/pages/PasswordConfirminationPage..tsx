@@ -113,3 +113,5 @@ const PasswordConfirminationPage: React.FC = () => {
 };
 
 export default PasswordConfirminationPage;
+
+// console.log('fixing')

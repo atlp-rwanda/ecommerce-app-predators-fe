@@ -59,7 +59,7 @@ export const updateProduct = createAsyncThunk(
         },
       };
 
-      const response = await axios.put(`https://talented-wig-goat.cyclic.app/api/product/${id}`, {
+      const response = await axios.put(`https://ecommercepredators.onrender.com/api/product/${id}`, {
         name,
         description,
         price,
@@ -79,3 +79,5 @@ export const updateProduct = createAsyncThunk(
   }
 );
 
+
+// console.log('fixing')

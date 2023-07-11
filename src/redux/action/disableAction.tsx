@@ -1,7 +1,7 @@
 //Admin should be able to disable an account for various reasons
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://ecommercepredators.onrender.com/api';
 
 interface disableData {
     id: number;
@@ -56,3 +56,4 @@ export const getAllUsers = createAsyncThunk(
         }
     }
 );
+// console.log('fixing')

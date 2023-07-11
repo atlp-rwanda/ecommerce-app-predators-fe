@@ -12,7 +12,7 @@ interface Product {
   name: string;
   price: string;
   aggregate_rating: undefined;
-  picture_urls: string;
+  picture_urls: string[];
 }
 
 interface SearchCriteria {
@@ -49,7 +49,6 @@ function SearchProductPage() {
   );
 
   const dispatch = useDispatch<Dispatch<any>>();
-
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -140,3 +139,5 @@ function SearchProductPage() {
 }
 
 export default SearchProductPage;
+
+// console.log('fixing')

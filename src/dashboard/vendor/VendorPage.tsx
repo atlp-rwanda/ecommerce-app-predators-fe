@@ -21,11 +21,11 @@ export default function VendorPage() {
   const handleClose = () => showForm(false)
   return (
     <Layout>
-    <div className="lg:mx-5">
+    <div className="md:ml-52">
       <ToastContainer /> 
       <div className=''>
         <div className='p-3 md:p-1  flex flex-col items-center '>
-          <div className="dashboard flex flex-col gap-8 flex-wrap w-[100%]"> 
+          <div className="dashboard flex flex-col gap-8 flex-wrap w-[90%]"> 
             <div className="cards flex gap-5 flex-wrap justify-between items-end">
               <div className="pending_orders bg-customBlue text-white rounded-xl w-64 h-24 relative overflow-hidden p-3 -z-10">
                 <div className="absolute -bottom-2 -left-3 scale-75">
@@ -46,7 +46,7 @@ export default function VendorPage() {
             </div >
           </div >
           <Table />
-          <div className="buttons_pagination flex text-sm font-light">
+          <div className="buttons_pagination flex text-sm font-light self-center">
             <button className='border p-2 text-center rounded-l-lg h-10'>Prev</button>
             <button className='border-t border-b p-2 text-center h-10 w-10 current bg-slate-500'>1</button>
             <button className='border p-2 text-center h-10 w-10'>2</button>
@@ -62,3 +62,4 @@ export default function VendorPage() {
   </Layout>
   );
 }
+// console.log('fixing')

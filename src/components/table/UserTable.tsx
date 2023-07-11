@@ -104,7 +104,7 @@ const UserTable = (): JSX.Element => {
                   <td className="w-32 text-start px-6 py-1">
                     <div className="symbols flex justify-between">
                       <i
-                        className="material-symbols-rounded text-blue-500 cursor-pointer"
+                        className="material-symbols-rounded cursor-pointer text-blue-500 cursor-pointer"
                         onClick={() => handleIconClick(user.id)}
                       >
                         disabled_visible
@@ -153,8 +153,8 @@ const UserTable = (): JSX.Element => {
                           </div>
                         </>
                       )}
-                      <i className="update material-symbols-rounded text-orange-500">enable</i>
-                      <i className="material-symbols-rounded text-red-500">delete</i>
+                      <i className="update material-symbols-rounded cursor-pointer text-orange-500">enable</i>
+                      <i className="material-symbols-rounded cursor-pointer text-red-500">delete</i>
                     </div>
                   </td>
                 </tr>
@@ -168,3 +168,5 @@ const UserTable = (): JSX.Element => {
 };
 
 export default UserTable;
+
+// console.log('fixing')

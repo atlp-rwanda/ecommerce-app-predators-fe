@@ -26,3 +26,5 @@ export const fetchProductsCollection = createAsyncThunk(
     }
   }
 );
+
+// console.log('fixing')

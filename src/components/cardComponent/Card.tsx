@@ -6,7 +6,7 @@ interface Product {
   id: number;
   name: string;
   price: string;
-  picture_urls: string;
+  picture_urls: string[];
   rating: any;
 }
 
@@ -33,21 +33,20 @@ export const Card = (product: Product) => {
   };
 
   return (
-    <div className="border border-gray-300 p-4 mb-4 rounded-lg hover:shadow-lg cursor-pointer">
-      <div className="md:grid-cols-2">
-        <div className="w-fit h-2/3 mx-auto">
-          <img src={product.picture_urls} alt="" className="w-full h-44" />
-        </div>
-        <div className="w-full mt-4 md:mt-0 md:pl-4 mx-auto">
-          <label className="block text-primary font-semibold text-left">
-            {product.name}
-          </label>
-          <label className="block text-left">{product.price}</label>
-          <div className="flex justify-center md:justify-start">
-            {renderRatingStars(parseInt(product.rating))}
-          </div>
-        </div>
+    <div className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between">
+      <div className='rounded-lg overflow-hidden w-52 h-52'>
+        <img src={product.picture_urls[0]} alt="" className='w-full min-h-[138px]'/>
+      </div>
+      <div>
+        <p className=" break-words text-primary font-semibold text-left">
+          {product.name}
+        </p>
+        <p className=" break-words text-left">{product.price}</p>
+      </div>
+      <div className="flex justify-center md:justify-start">
+        {renderRatingStars(parseInt(product.rating))}
       </div>
     </div>
   );
 };
+// console.log('fixing')

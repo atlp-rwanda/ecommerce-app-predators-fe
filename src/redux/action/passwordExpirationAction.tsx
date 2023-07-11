@@ -18,7 +18,7 @@ export const passwordExpirationAction = createAsyncThunk(
         'http://localhost:3000/api/usersRestrict',
         config
       ); //URL HERE
-      console.log('response from backend', response.data);
+      // console.log('response from backend', response.data);
 
       return response.data;
     } catch (error: any) {
@@ -29,3 +29,5 @@ export const passwordExpirationAction = createAsyncThunk(
     }
   }
 );
+
+// console.log('fixing')

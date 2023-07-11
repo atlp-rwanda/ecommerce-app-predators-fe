@@ -13,7 +13,7 @@ function PopupMessage() {
     dispatch(passwordExpirationAction() as any);
   }, [dispatch]);
 
-  console.log('this backend feedback', passwordExpiration);
+  // console.log('this backend feedback', passwordExpiration);
 
   if (passwordExpiration && passwordExpiration.expired === false) {
     return <div></div>;
@@ -47,3 +47,5 @@ function PopupMessage() {
 }
 
 export default PopupMessage;
+
+// console.log('fixing')
