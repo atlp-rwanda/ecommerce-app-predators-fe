@@ -3,6 +3,7 @@
 import { Navigation, Category, News, FlashSale, Testimony, Popular, Carousel, GridProducts } from "../components";
 import { FaCrown, FaCube } from "react-icons/fa"
 import {RiShieldKeyholeFill} from "react-icons/ri"
+import Footer from "../components/Footer";
 
 
 function LandingPage() {
@@ -42,6 +43,7 @@ function LandingPage() {
       </div>
       <Testimony />
       <News />
+      <Footer/>
     </div>
     {/* <PopupMessage/> */}
     </>

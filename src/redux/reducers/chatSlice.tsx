@@ -1,16 +1,16 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { Message } from "../../utils/chatDefinitions";
-import { RootState } from "../store/Store";
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { Message } from '../../utils/chatDefinitions';
+import { RootState } from '../store/Store';
 
 interface ChatState {
-  publicMessages: Message[],
-  csMessages: Message[],
+  publicMessages: Message[];
+  csMessages: Message[];
 }
 
 const initialState: ChatState = {
   publicMessages: [],
   csMessages: [],
-}
+};
 
 const chatSlice = createSlice({
   name: 'chat',
@@ -37,7 +37,8 @@ const chatSlice = createSlice({
 
 export const { addPublicMessage, addCSMessage } = chatSlice.actions;
 
-export const selectPublicMessages = (state: RootState) => state.chat.publicMessages;
+export const selectPublicMessages = (state: RootState) =>
+  state.chat.publicMessages;
 export const selectCsMessages = (state: RootState) => state.chat.csMessages;
 
 export default chatSlice.reducer;
