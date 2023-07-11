@@ -16,9 +16,10 @@ import productCollectionReducer from '../reducers/productReducer';
 import SetRolesSlice from '../reducers/SetRolesSlice';
 import searchReducer from '../reducers/Searchslice';
 import imageSlice from '../reducers/imageSlice';
-import authReducer from "../reducers/authSlice";
+import authReducer from '../reducers/authSlice';
 import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
+import CartCRUD from '../reducers/cartSlice';
 import NotificationReducer from '../reducers/NotificationReducer';
 import WishlistSlice from '../reducers/WishlistSlice';
 
@@ -42,7 +43,8 @@ const store = configureStore({
     Admin: SetRolesSlice,
     imageStore: imageSlice,
     auth: authReducer,
-    cart: cartReducer,    
+    cart: cartReducer,
+    carts: CartCRUD,
     notification: NotificationReducer,
     wishlist: WishlistSlice,
   },

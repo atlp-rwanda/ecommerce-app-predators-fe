@@ -50,7 +50,7 @@ const LoginPage = () => {
     e.preventDefault();
 
     let timer: NodeJS.Timeout | null = null;
-    const googleURI = 'https://ecommerce-4aqm.onrender.com/api/login/google';
+    const googleURI = 'https://ecommercepredators.onrender.com/api/login/google';
     const newWindow = window.open(googleURI, '_blank', 'width=500,height=600');
     if (newWindow) {
       timer = setInterval(() => {
@@ -70,7 +70,7 @@ const LoginPage = () => {
     if (role === 2) {
       return <Navigate to="/" />;
     } else if (role === 1) {
-      return <Navigate to="/product-page" />;
+      return <Navigate to="/vendor" />;
     }
   }
 
