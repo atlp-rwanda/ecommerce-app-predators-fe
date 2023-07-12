@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchProducts } from '../../redux/action/ProductAction';
+import { Link } from 'react-router-dom';
 
 interface Product {
   id: number;
@@ -33,7 +34,8 @@ export const Card = (product: Product) => {
   };
 
   return (
-    <div className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between">
+    <>    
+    <Link to={`/viewProduct/${product.id}`} className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between">
       <div className='rounded-lg overflow-hidden w-52 h-52'>
         <img src={product.picture_urls[0]} alt="" className='w-full min-h-[138px]'/>
       </div>
@@ -46,7 +48,9 @@ export const Card = (product: Product) => {
       <div className="flex justify-center md:justify-start">
         {renderRatingStars(parseInt(product.rating))}
       </div>
-    </div>
+    </Link>
+    </>
+
   );
 };
 // console.log('fixing')
