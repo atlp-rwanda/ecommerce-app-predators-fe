@@ -19,7 +19,7 @@ import imageSlice from '../reducers/imageSlice';
 import authReducer from "../reducers/authSlice";
 import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
-import NotificationReducer from '../reducers/NotificationReducer';
+import NotificationReducer from '../reducers/NotificationSlice';
 import WishlistSlice from '../reducers/WishlistSlice';
 import OrdersSlice from "../reducers/OrdersSlice"
  import addReview from '../reducers/ReviewSlice';
