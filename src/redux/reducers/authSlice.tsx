@@ -26,18 +26,18 @@ const authSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-    .addCase(login.pending, (state) => {
-      state.status = 'loading';
-    })
-    .addCase(login.fulfilled, (state, action) => {
-      state.status = 'succeeded';
-      state.role = action.payload;
-      state.error = null;
-    })
-    .addCase(login.rejected, (state) => {
-      state.status = 'failed';
-      state.error = 'Login failed.';
-    })
+      .addCase(login.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.role = action.payload;
+        state.error = null;
+      })
+      .addCase(login.rejected, (state) => {
+        state.status = 'failed';
+        state.error = 'Login failed.';
+      });
   },
 });
 

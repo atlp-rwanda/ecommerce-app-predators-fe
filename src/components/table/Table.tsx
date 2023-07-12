@@ -61,53 +61,56 @@ export default function Table() {
               </tr>
             </thead>
             <tbody>
-              {product?.data &&
-                product.data.map((product: Product) => (
-                  <tr className="" key={product.id}>
-                    <td className="w-32 text-start px-6 py-1 border">
-                      {product.name.slice(0, 10)}
-                    </td>
-                    <td className="w-32 text-start px-6 py-1 border">
-                      {product.id}
-                    </td>
-                    <td className="w-32 text-start px-6 py-1 border">
-                      {product.name.slice(0, 10)}
-                    </td>
-                    <td className="w-32 text-start px-6 py-1 border">
-                      {product.category_id}
-                    </td>
-                    <td className="w-32 text-start px-6 py-1 border">
-                      {product.description.slice(0, 10)}
-                    </td>
-                    <td className="w-32 text-start px-6 py-1 border">
-                      {product.price}
-                    </td>
-                    <td className="w-32 text-start px-6 py-1 border">
-                      {product.expiryDate.slice(0, 10)}
-                    </td>
-                    <td className="w-32 text-start px-6 py-1 border">
-                      <div className="symbols flex justify-between">
-                        <i
-                          className="material-symbols-rounded cursor-pointer text-blue-500 cursor-pointer"
-                          onClick={() => handleVisibilityClick(product)}
-                        >
-                          {' '}
-                          visibility
-                        </i>
-                        <Link to={`/product/${product.id}`} >
-                          <i
-                            // onClick={handleEditClick}
-                            className="update material-symbols-rounded cursor-pointer text-orange-500"
-                          >
-                            edit
-                          </i>
-                        </Link>
-                        <DeleteItem productId={product.id} reason='' />
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
+  {product?.data &&
+    product.data
+      .slice()
+      .reverse()
+      .map((product: Product) => (
+        <tr className="" key={product.id}>
+          <td className="w-32 text-start px-6 py-1 border">
+            {product.name.slice(0, 10)}
+          </td>
+          <td className="w-32 text-start px-6 py-1 border">
+            {product.id}
+          </td>
+          <td className="w-32 text-start px-6 py-1 border">
+            {product.name.slice(0, 10)}
+          </td>
+          <td className="w-32 text-start px-6 py-1 border">
+            {product.category_id}
+          </td>
+          <td className="w-32 text-start px-6 py-1 border">
+            {product.description.slice(0, 10)}
+          </td>
+          <td className="w-32 text-start px-6 py-1 border">
+            {product.price}
+          </td>
+          <td className="w-32 text-start px-6 py-1 border">
+            {product.expiryDate.slice(0, 10)}
+          </td>
+          <td className="w-32 text-start px-6 py-1 border">
+            <div className="symbols flex justify-between">
+              <i
+                className="material-symbols-rounded cursor-pointer text-blue-500 cursor-pointer"
+                onClick={() => handleVisibilityClick(product)}
+              >
+                visibility
+              </i>
+              <Link to={`/product/${product.id}`}>
+                <i
+                  // onClick={handleEditClick}
+                  className="update material-symbols-rounded cursor-pointer text-orange-500"
+                >
+                  edit
+                </i>
+              </Link>
+              <DeleteItem productId={product.id} reason="" />
+            </div>
+          </td>
+        </tr>
+      ))}
+</tbody>
+
           </table>
         </div>
 

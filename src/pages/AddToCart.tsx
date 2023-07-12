@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/action/CartActions';
 //import PlayGame from '../components/PlayGame';
 import { useParams } from 'react-router';
+import { addToWishList } from '../redux/action/WishlistAction';
 interface Item {
   product_id: number;
   quantity: number;
@@ -41,6 +42,12 @@ function AddToCart() {
         setConfirmation('Failed to add item to cart.');
       });
   };
+  const handleAddToWishlist = () => {
+    const productId = parseInt(id!);
+    dispatch(addToWishList(productId) as any)
+      .then((response: any) => console.log('Added To Wish List', response))
+      .catch(() => {});
+  };
   return (
     <>
       <div className="">
@@ -61,21 +68,21 @@ function AddToCart() {
         >
           Add to Cart
         </button>
-        <button
-          className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5  ml-6"
-        >
-            Buy it Now
+        <button className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5  ml-6">
+          Buy it Now
         </button>
         <button
           className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5  ml-6"
+          onClick={handleAddToWishlist}
         >
-          Add to wishlist
+          Add to Wishlist
         </button>
         <p>{confirmation}</p>
         <hr className="mt-4" />
       </div>
     </>
   );
+  
 }
 export default AddToCart;
 

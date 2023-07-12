@@ -7,24 +7,27 @@ const useFetch = (url: string) => {
 
   const handleGoogle = async (response: any) => {
     setLoading(true);
-    console.log(response)
+    console.log(response);
     fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-    }).then((res) => {
-      setLoading(false);
-      return res.json();
-    }).then((data) => {
-      if(data){
-        console.log(data);
-      }
-      throw new Error(data?.message || data);
-    }).catch((err) => {
-      setErr(err);
-      console.log(err);
     })
+      .then((res) => {
+        setLoading(false);
+        return res.json();
+      })
+      .then((data) => {
+        if (data) {
+          console.log(data);
+        }
+        throw new Error(data?.message || data);
+      })
+      .catch((err) => {
+        setErr(err);
+        console.log(err);
+      });
 
     try {
       const response = await axios.get('/api/auth/google');
@@ -32,7 +35,6 @@ const useFetch = (url: string) => {
     } catch (error) {
       console.error('Google authentication failed.', error);
     }
-
   };
 
   return { loading, err, handleGoogle };

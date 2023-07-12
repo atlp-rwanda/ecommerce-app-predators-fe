@@ -11,7 +11,6 @@ class ResizeObserverMock {
 }
 window.ResizeObserver = ResizeObserverMock;
 
-
 const mockStore = configureStore([]);
 
 test('clicking on the delete button opens the dialog', () => {

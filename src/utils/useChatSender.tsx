@@ -3,7 +3,7 @@ import { Message, User, UserEvent, socket } from './chatDefinitions';
 import { useDispatch } from 'react-redux';
 import { addCSMessage, addPublicMessage } from '../redux/reducers/chatSlice';
 
-export default function useChatSender (activeRoom: User) {
+export default function useChatSender(activeRoom: User) {
   const [msgProcessing, setMsgProcessing] = useState(false);
   const dispatch = useDispatch();
 
@@ -11,11 +11,11 @@ export default function useChatSender (activeRoom: User) {
     if (message) {
       setMsgProcessing(true);
       const currentTime = new Date();
-      const msg:Message = {
+      const msg: Message = {
         text: message,
         src: 'user',
         dateTime: currentTime.toISOString(),
-      }
+      };
 
       if (activeRoom === 'public') {
         socket.emit(UserEvent.GENERAL_MESSAGE, message);

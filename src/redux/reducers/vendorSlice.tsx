@@ -3,10 +3,10 @@ import { addProduct } from "../action/ProductAction";
 import { toast } from "react-toastify";
 
 const initialState = {
-    data: [],
-    status: "",
-    loading: false,
-}
+  data: [],
+  status: '',
+  loading: false,
+};
 
 const addProdictSlice = createSlice({
     name: "product/addProduct",

@@ -34,7 +34,6 @@ export default function staticReview(props: { src: string | undefined }) {
               20% Off, 49% Off Alex remote
             </span>
           </p>
-          
           ​
           <div className="py-6 flex flex-col gap-3 justify-stretch lg:flex-row md:flex-row">
             <button className=" border border-gray-500 rounded-md px-2 py-1 ">

@@ -73,8 +73,7 @@ export default function Sidebar() {
             </div>
         </div>
     </>
-    
-  )
+  );
 }
 
 // console.log('fixing')

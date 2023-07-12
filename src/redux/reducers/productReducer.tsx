@@ -4,7 +4,7 @@ import {  fetchProductsCollection } from "../action/productActions";
 export interface Product {
   product: any;
   data: any;
-  map(arg0: (product: Product) => void): import("react").ReactNode;
+  map(arg0: (product: Product) => void): import('react').ReactNode;
   id: number;
   name: string;
   description: string;
@@ -31,40 +31,38 @@ export interface ProductState {
 
 const initialState: ProductState = {
   data: [],
-  status: "",
+  status: '',
   loading: false,
   error: null,
   pagination: 5,
   selectedProduct: null,
-  products: undefined
+  products: undefined,
 };
 
 const productCollectionSlice = createSlice({
-  name: "CollectionProducts",
+  name: 'CollectionProducts',
   initialState,
-  reducers: {  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase( fetchProductsCollection.pending, (state) => {
+      .addCase(fetchProductsCollection.pending, (state) => {
         state.loading = true;
-        state.status = "pending";
+        state.status = 'pending';
         state.error = null;
-        
       })
-      .addCase( fetchProductsCollection.fulfilled, (state, action) => {
+      .addCase(fetchProductsCollection.fulfilled, (state, action) => {
         state.loading = false;
-        state.status = "success";
+        state.status = 'success';
         state.data = action.payload;
-        state.error = null;  
+        state.error = null;
       })
-      .addCase( fetchProductsCollection.rejected, (state) => {
+      .addCase(fetchProductsCollection.rejected, (state) => {
         state.loading = false;
         state.status = "error";
         
       });
   },
 });
-
 
 export default productCollectionSlice.reducer;
 

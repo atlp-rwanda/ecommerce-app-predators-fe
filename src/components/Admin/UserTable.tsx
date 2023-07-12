@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { getAllUsers } from '../../redux/action/disableAction';
 import profile from './../../assets/dashboard/account_circle.svg';
 import { setRoles } from '../../redux/action/AdminAction';
-import { ToastContainer } from 'react-toastify';
 
 interface User {
   id: number;
@@ -45,7 +44,6 @@ const UserTable = () => {
     }));
   };
 
-  
   const handleSetRoleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = parseInt(e.target.value, 10); // Parse e.target.value as a number
     setSetRole(value);
@@ -71,12 +69,9 @@ const UserTable = () => {
         setIsLoading(false);
       });
   };
-  
-  
 
   return (
     <div className="relative mt-10 mb-6 shadow-lg w-[90%]">
-      <ToastContainer />
       <p className="font-medium mb-2 inline-block">Admin User Management</p>
       <div className="w-full pb-2 overflow-x-auto">
         <table className="font-light w-full">

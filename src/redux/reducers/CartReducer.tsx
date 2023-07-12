@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Product } from '../../components/ProductListing';
 
-
 interface CartState {
   items: Product[];
   error: string | null;

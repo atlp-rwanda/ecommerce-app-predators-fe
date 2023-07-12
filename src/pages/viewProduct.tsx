@@ -12,7 +12,7 @@ import { FaCheck } from 'react-icons/fa';
 function ViewProduct() {
   const { id } = useParams(); // Get the product ID from the URL params
   const selectedProduct = useSelector(
-    (state: any) => state.CollectionProducts.selectedProduct
+    (state: any) => state.CollectionProducts.data
   );
   const dispatch = useDispatch();
   useEffect(() => {
@@ -23,8 +23,6 @@ function ViewProduct() {
   }
   return (
     <>
-      
-
       <div className="flex flex-col ">
         <div className="flex-1 p-3 font-semibold text-md">
           <div className="flex gap-2 justify-start">

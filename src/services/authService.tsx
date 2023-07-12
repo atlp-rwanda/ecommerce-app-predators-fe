@@ -12,7 +12,7 @@ interface DecodedToken {
   status: string;
 }
 
-const url = 'https://ecommerce-4aqm.onrender.com/api/login';
+const url = 'https://ecommercepredators.onrender.com/api/login';
 
 const login = async (usr: any) => {
   const response = await axios.post(url, usr);
@@ -30,11 +30,3 @@ const authService = {
 }
 
 export default authService;
-
-
-
-
-
-
-
-// console.log('fixing')

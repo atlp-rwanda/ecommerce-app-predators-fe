@@ -1,4 +1,3 @@
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import reset from '../../src/assets/reset-image.svg';
 import { SetStateAction, useState } from 'react';
@@ -10,10 +9,11 @@ const ResetPasswordPage = () => {
   const [email, setEmail] = useState('');
   const [isLoading, setLoading] = useState(false);
 
-  const handleEmailChange = (e: { target: { value: SetStateAction<string> } }) => {
+  const handleEmailChange = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setEmail(e.target.value);
   };
-
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const ResetPasswordPage = () => {
       })
       .catch((error: any) => {
         setLoading(false);
-        console.log(error)
+        console.log(error);
       });
   };
 
@@ -33,11 +33,17 @@ const ResetPasswordPage = () => {
     <div className="flex flex-col-reverse md:flex-row h-screen">
       <div className="w-full md:w-1/2 h-full bg-white">
         <div className="flex flex-col items-center justify-center h-full">
-          <ToastContainer />
           <div className="w-4/5 md:w-1/2">
-            <form className="mt-10 shadow-custom p-9 md:w-96 rounded-xl" onSubmit={handleSubmit}>
-              <h1 className="text-2xl font-bold text-customBlue mb-6">Forgot Password?</h1>
-              <h6 className="text-1xl font-light text-customBlue mb-8">Recover Your Password</h6>
+            <form
+              className="mt-10 shadow-custom p-9 md:w-96 rounded-xl"
+              onSubmit={handleSubmit}
+            >
+              <h1 className="text-2xl font-bold text-customBlue mb-6">
+                Forgot Password?
+              </h1>
+              <h6 className="text-1xl font-light text-customBlue mb-8">
+                Recover Your Password
+              </h6>
               <div className="flex flex-col mb-6">
                 <input
                   type="email"
@@ -74,9 +80,12 @@ const ResetPasswordPage = () => {
       </div>
       <div className="hidden md:block w-1/2 h-full bg-customBlue">
         <div className="flex flex-col items-center justify-center h-full">
-          <h1 className="text-3xl font-bold text-white mb-6">Predators E-commerce Web</h1>
+          <h1 className="text-3xl font-bold text-white mb-6">
+            Predators E-commerce Web
+          </h1>
           <h3 className="text-white text-sm sm:text-base text-center w-3/4 font-bold">
-            Forgot Your Password? Don't Worry!, We're here to help. Fill in the form to request a password reset!
+            Forgot Your Password? Don't Worry!, We're here to help. Fill in the
+            form to request a password reset!
           </h3>
           <img src={reset} alt="" className="w-1/2 h-1/2 mt-10" />
         </div>

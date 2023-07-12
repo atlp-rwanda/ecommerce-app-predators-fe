@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import AvatarAut from '../../assets/images/AvatarAuth.png';
 import { otpVerifyUser } from '../../redux/action/otpAction';
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const TwoFactorAuth: React.FC = () => {
@@ -121,11 +121,6 @@ const TwoFactorAuth: React.FC = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2">
       <div className="bg-white sm:col-span-1 flex items-center justify-center">
         <form className="flex flex-col items-center my-3 shadow-md mt-10 sm:mt-32 px-7 py-10 rounded-md w-full sm:max-w-md mx-4 border border-gray-200">
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            className="w-fit"
-          />
           <label className="font-semibold text-2xl mb-3">
             Two-factor Authentication
           </label>

@@ -1,9 +1,8 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import reset from '../../src/assets/reset-image.svg';
 import { useDispatch } from 'react-redux';
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 import { updatePassword } from '../redux/action/UserAction';
 
 const PasswordConfirminationPage: React.FC = () => {
@@ -21,30 +20,29 @@ const PasswordConfirminationPage: React.FC = () => {
   };
   const resetData = {
     password: password,
-    confirm_password: confirm_password
-  }
+    confirm_password: confirm_password,
+  };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (password !== confirm_password) {
       // Display an error message for password mismatch
-      toast.error("Please Enter Same Password")
+      toast.error('Please Enter Same Password');
     }
     dispatch(updatePassword(resetData) as any)
-    .then(() => {
-      setPassword('');
-      setConfirm_Password('')
-    })
-    .catch(() => {
-      setLoading(true);
-    })
+      .then(() => {
+        setPassword('');
+        setConfirm_Password('');
+      })
+      .catch(() => {
+        setLoading(true);
+      });
   };
 
   return (
     <div className="flex flex-col h-screen md:flex-row">
       <div className="w-full md:w-1/2 h-full bg-white">
         <div className="flex flex-col items-center justify-center h-full">
-          <ToastContainer />
           <div className="w-4/5 md:w-2/3">
             <form className="mt-10 shadow-custom p-9 mx-auto rounded-xl">
               <h1 className="text-2xl font-bold text-customBlue mb-6">
@@ -86,7 +84,7 @@ const PasswordConfirminationPage: React.FC = () => {
                 </button>
               </div>
               <h3 className="my-4 text-gray-500 font-bold text-sm sm:text-base tracking-wide">
-                Now You Can {' '}
+                Now You Can{' '}
                 <span className="cursor-pointer text-customBlue hover:text-red-700">
                   <a href="#" className="text-tertiary underline">
                     Sign in
@@ -102,8 +100,9 @@ const PasswordConfirminationPage: React.FC = () => {
           <h1 className="text-3xl font-bold text-white mb-6">
             Predators E-commerce Web
           </h1>
-          <h3 className="text-white text-sm sm:text-base text-center w-3/4 font-bold" >
-            Please enter your new password and confirm it to reset your password.
+          <h3 className="text-white text-sm sm:text-base text-center w-3/4 font-bold">
+            Please enter your new password and confirm it to reset your
+            password.
           </h3>
           <img src={reset} alt="" className="w-1/2 h-1/2 mt-10" />
         </div>
