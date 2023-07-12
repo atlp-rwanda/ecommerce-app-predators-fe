@@ -16,13 +16,20 @@ import UpdateProduct from '../src/pages/UpdateProduct';
 import ProfilePage from './pages/profile/ProfilePage';
 import ViewProduct from './pages/viewProduct';
 import AdminViewUsersPage from './pages/AdminViewUsersPage';
+
 import Cart from './pages/cart/cartData';
-import LoginPage from './pages/LoginPage';
-import { ToastContainer } from 'react-toastify';
+
+import LoginPage from "./pages/LoginPage";
+import CheckoutPage from './pages/checkout/CheckoutPage';
+import Payment_success from './pages/payment/Payment_success';
+import Payment_fail from './pages/payment/Payment_fail';
+import { ToastContainer } from "react-toastify";
 import 'react-toastify/ReactToastify.css';
 
 import NotFound from './pages/error/NotFound';
 import WishlistPage from './pages/WishlistPage';
+import Orders from './pages/buyer/Orders';
+
 
 function App() {
   return (
@@ -49,16 +56,24 @@ function App() {
         <Route path="/PopupMessage" element={<PopupMessage />} />
         <Route path="/vendor" element={<VendorPage />} />
         <Route path="/search-product" element={<SearchProduct />} />
+        <Route path="/my/orders" element={<Orders />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/product/:id" element={<UpdateProduct />} />
-        <Route path="/viewProduct/:id" element={<ViewProduct />} />
+
+        <Route path="/viewProduct/:id" element={<ViewProduct/>} /> 
+
         <Route path="/admin/users" element={<AdminViewUsersPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route path="/login/fail" element={<LoginError />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<NotFound />} />
-        <Route path="*" element={<NotFound />} />
+
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path='/payment/success' element={<Payment_success />} /> 
+        <Route path='/payment/fail' element={<Payment_fail />} /> 
+        <Route path="*" element={<NotFound/>} />
+
+
       </Routes>
       <ModalButton />
       <ToastContainer />
