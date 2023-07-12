@@ -179,5 +179,3 @@ const UserTable = (): JSX.Element => {
 };
 
 export default UserTable;
-
-// console.log('fixing')
