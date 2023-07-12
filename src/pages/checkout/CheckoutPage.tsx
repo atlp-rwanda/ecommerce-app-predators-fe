@@ -38,11 +38,9 @@ const CheckoutPage = () => {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault();
-    console.log('Billing address submitted');
     const checkoutURL = 'https://ecommercepredators.onrender.com/api/checkout';
     const token = getTokenFromLS('token');
     if (token) {
-      console.log(token);
       checkout(
         checkoutURL,
         address,
@@ -76,8 +74,6 @@ const CheckoutPage = () => {
       toast.error('Missing Login Token.');
       <Navigate to="/" />;
     }
-
-    return <div>Response: {response}</div>;
   }
 
   return (

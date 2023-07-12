@@ -1,27 +1,47 @@
-import axios, { AxiosResponse } from 'axios';
+import { toast } from "react-toastify";
+import axios, { AxiosResponse } from "axios";
 
-async function getStripeURL(token: string) {
-  const URL = 'https://ecommercepredators.onrender.com/api/pay/order';
-  const response: AxiosResponse = await axios.get(URL, {
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-  });
+interface PaymentURL {
+  data: {
+    url: string;
+  };
+}
 
-  const paymentURL = response?.data?.url;
-  return paymentURL;
+async function getStripeURL(token: string): Promise<string | undefined> {
+  const URL = "https://ecommercepredators.onrender.com/api/pay/order";
+
+  try {
+    const response: AxiosResponse<PaymentURL> = await axios.get(URL, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const paymentURL = response?.data?.data?.url;
+
+    return paymentURL;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      toast.error(`Request failed: ${error.message}`);
+    } else {
+      throw error;
+    }
+  }
 }
 
 export const redirectToPaymentPage = async (token: string): Promise<void> => {
-  const paymentURL = await getStripeURL(token);
-
-  if (paymentURL) {
-    console.log(paymentURL);
-    window.location.replace(paymentURL);
+  try {
+    const paymentURL = await getStripeURL(token);
+    if (paymentURL) {
+      window.location.replace(paymentURL);
+    } else {
+      toast.error("Payment URL not found");
+    }
+  } catch (error) {
+    if (error){
+       toast.error(`Failed to redirect to payment page: ${error}`);
+       throw error;
+    }
+   
   }
-  return;
 };
-
-

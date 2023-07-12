@@ -34,14 +34,11 @@ const useCheckout = () => {
         },
       });
       setResponse(JSON.stringify(response.status));
-      console.log(JSON.stringify(response.data));
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.log('Error message: ', error);
-        console.log('Error message: ', error.response?.data);
         setErr(error.response?.data.message);
       } else {
-        console.log('Unexpected error: ', error);
+        throw error;
       }
     } finally {
       setLoading(false);
