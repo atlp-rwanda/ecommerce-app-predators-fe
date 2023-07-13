@@ -2,7 +2,9 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 
-const URL = 'https://ecommerce-4aqm.onrender.com/api'
+// const URL = 'https://ecommerce-4aqm.onrender.com/api'
+
+const URL = 'http://localhost:5900/api/';
 
 export const  OrdersAction = createAsyncThunk(
   "products/fetchOrders", 

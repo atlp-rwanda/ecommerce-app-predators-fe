@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import electron from '../../assets/sidebar/Electron.svg';
+import Logo from '../Logo';
 import { useState } from 'react';
 
 export default function Sidebar() {
+console.log(Logo);
     const [isOpen, menu] = useState(false);
 
     const handleCloseMenu = () => {
@@ -14,7 +15,7 @@ export default function Sidebar() {
         <div className={`${ isOpen ? "translate-x-0" : "-translate-x-52" } md:translate-x-0 z-40 transition-transform ease-in-out duration-500 flex fixed sidebar h-screen flex-col justify-between w-52 bg-customBlue p-5 pb-18 text-sm`} >
             <div>
                 <div className="sidebar__logo flex items-center gap-2 text-white mb-9">
-                    <img className="logo__image" src={electron} alt="Electron logo"/><i className="logo__dropdown material-symbols-rounded cursor-pointer">arrow_drop_down_circle</i>
+                    <Logo/><i className="logo__dropdown material-symbols-rounded cursor-pointer">arrow_drop_down_circle</i>
                 </div>
                 <div className="sidebar__menu" >
                     <ul className='flex flex-col gap-5 '>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -6,6 +7,8 @@ import { searchProductsByFilter } from '../redux/action/SearchAction';
 import Sidebar from '../components/userSidebar/Sidebar';
 import { Card } from './../components/cardComponent/Card';
 import NavHeader from '../components/buyerHeader/HeaderNav';
+import { Link, Route, Routes } from 'react-router-dom';
+import ViewProduct from './viewProduct';
 
 interface Product {
   id: number;
@@ -97,18 +100,24 @@ function SearchProductPage() {
         </div>
         <div className="col-span-1 md:col-span-6 mx-4 md:ml-6 mt-10">
           {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-3 gap-3 mt-8 mx-20">
-              {filteredProducts.map((product: Product) => (
-                <Card
-                  key={product.id}
-                  name={product.name}
-                  price={product.price}
-                  picture_urls={product.picture_urls}
-                  id={product.id}
-                  rating={undefined}
-                />
-              ))}
-            </div>
+         <div className="grid grid-cols-3 gap-3 mt-8 mx-20">
+         {filteredProducts.map((product: Product) => (
+          <Link  to={`/viewProduct/${product.id}`} key={product.id}>
+           <Card
+             key={product.id}
+             name={product.name}
+             price={product.price}
+             picture_urls={product.picture_urls}
+             id={product.id}
+             rating={undefined}
+           />
+           </Link>
+         ))}
+         <Routes>
+          <Route path="/viewProduct/:id" element={<ViewProduct />} />
+          </Routes>
+       </div>
+
           ) : (
             <p className="text-tertiary text-3xl font-Poppins text-center mt-10">
               No results found.

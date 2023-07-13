@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-useless-escape */
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';

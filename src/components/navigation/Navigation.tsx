@@ -62,7 +62,7 @@ export default function Navigation() {
               </Link>
              </div>
             <div className="flex gap-2 hover:text-tertiary">
-               <Link to='/login' className="flex gap-2"> 
+               <Link to='/cart' className="flex gap-2"> 
                 <i className="material-symbols-rounded cursor-pointer">shopping_cart</i><span className="text-sm mt-1 max-[640px]:hidden">Cart</span>
             </Link>
               </div>

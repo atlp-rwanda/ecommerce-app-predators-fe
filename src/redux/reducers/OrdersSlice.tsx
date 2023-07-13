@@ -24,8 +24,7 @@ const OrdersSlice = createSlice({
         state.status = 'success'; 
       }) 
       .addCase(OrdersAction.rejected, (state,action) => {
-        state.loading = true;
-        toast.error('Error');
+        state.loading = true; 
         state.status = 'error';
         state.error =action.payload as string;
       })

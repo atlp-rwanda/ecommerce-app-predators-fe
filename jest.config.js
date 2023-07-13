@@ -2,7 +2,8 @@
 export default {
   preset: 'ts-jest',
   testMatch: ['<rootDir>/src/components/__tests__/**/*.(test|spec).(jsx|tsx)'],
-  testEnvironment: 'jsdom',
+   type: "module",
+  testEnvironment: "node",
   moduleNameMapper: {
     '\\.(css|less|scss)$': 'identity-obj-proxy',
   },

@@ -69,7 +69,7 @@ export const addToWishList = createAsyncThunk(
 
       // Make your API call or perform any other async logic here
       const response = await axios.post(
-        'http://localhost:3000/api/wishlist',
+        `${API_URL}/wishlist`,
         { productId },
         config
       );

@@ -22,12 +22,15 @@ import cartReducer from '../reducers/CartReducer';
 
 import CartCRUD from '../reducers/cartSlice';
 
-
 import NotificationReducer from '../reducers/NotificationSlice';
+
+
+
 
 import WishlistSlice from '../reducers/WishlistSlice';
 import OrdersSlice from "../reducers/OrdersSlice"
  import addReview from '../reducers/ReviewSlice';
+ import ClientVewProduct from '../reducers/ClientVewProduct';
 const store = configureStore({
   reducer: {
     chat: chatReducer,
@@ -51,12 +54,14 @@ const store = configureStore({
 
     carts: CartCRUD,
 
+
     cart: cartReducer,    
     notification: NotificationReducer, 
     orders: OrdersSlice,
     review: addReview,
 
     wishlist: WishlistSlice,
+    clientViewProd:ClientVewProduct
         
         
   },

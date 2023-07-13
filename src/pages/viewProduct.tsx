@@ -3,26 +3,42 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { fetchProductById } from '../redux/action/ProductAction';
+import { useParams } from 'react-router-dom'; 
+import { fetchProductByIdClient } from '../redux/action/ClientViewProduct';
 import AddToCart from '../pages/AddToCart';
-//import NotDashboardFooter from '../components/NotDashboardFooter';
+import NotDashboardFooter from '../components/NotDashboardFooter';
 import StaticReview from '../components/StaticReview';
 import { FaCheck } from 'react-icons/fa';
+import { Navigation } from "../components";
+
+  <Navigation />
 function ViewProduct() {
-  const { id } = useParams(); // Get the product ID from the URL params
+  const { id } = useParams(); 
+  
   const selectedProduct = useSelector(
-    (state: any) => state.CollectionProducts.selectedProduct
+    (state: any) => state.clientViewProd.data
   );
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchProductById(id) as any); // Dispatch the fetchProductById action with the product ID
-  }, [dispatch, id]);
-  if (!selectedProduct) {
-    return <p>Product loading....</p>;
-  }
+  
+ 
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(fetchProductByIdClient(id) as any); // Dispatch the fetchProductById action with the product ID
+    }, [dispatch, id]);
+    if (!selectedProduct) {
+      return (
+      <div className="flex flex-col ">
+        <div className="flex-1 p-3 font-semibold text-md">
+          <div className="flex gap-2 justify-start">
+            Nothing to show
+            </div>
+           </div>
+      </div>);
+    }
+
+
   return (
     <>
+    <Navigation/>
       <div className="flex flex-col ">
         <div className="flex-1 p-3 font-semibold text-md">
           <div className="flex gap-2 justify-start">
@@ -84,7 +100,7 @@ function ViewProduct() {
           ​ ​
           <StaticReview src={selectedProduct?.data?.item?.picture_urls} />​
         </div>
-        ​
+        ​<NotDashboardFooter/>
       </div>
     </>
   );

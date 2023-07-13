@@ -1,8 +1,12 @@
-import NavHeader from '../../components/buyerHeader/HeaderNav';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// import NavHeader from '../../components/buyerHeader/HeaderNav';
 import HeadPhones from '../../assets/images/headphone.png';
 import Send from '../../assets/images/send-2.png';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+import { Navigation } from "../../components";
 import {
   getAllCarts,
   deleteCart,
@@ -72,15 +76,16 @@ const ResponsiveTable = () => {
     handleQuantityChange(index, newQuantity);
     dispatch(updateCartQuantity({ id: cartId, quantity: newQuantity }) as any);
   };
-  console.log(carts);
+
+  const handleDeleteAllCarts = () => {
+    dispatch(deleteAllCarts() as any);
+  };
+
+ 
   return (
     <>
       <div className="fixed top-0 w-full z-10">
-        <NavHeader
-          onSearchText={function (_text: string): void {
-            throw new Error('Function not implemented.');
-          }}
-        />
+        <Navigation/>
       </div>
       <div className="container mx-auto mt-52">
         <div className="grid grid-cols-6 sm:grid-cols-2 lg:grid-cols-7 gap-2 mt-2">
@@ -194,7 +199,7 @@ const ResponsiveTable = () => {
               </div>
               <button
                 className="text-red-400 font-semibold border border-red-400 px-5 py-2 rounded-full"
-                onClick={() => dispatch(deleteAllCarts() as any)}
+                onClick={handleDeleteAllCarts}
               >
                 clean cart
               </button>

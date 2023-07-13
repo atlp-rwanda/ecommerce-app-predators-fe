@@ -48,8 +48,7 @@ export default function staticReview(props: { src: string | undefined }) {
       <div className=" lg:rounded lg:border lg:border-gray-300  lg:px-20 lg:mx-40 lg:my-10 md:h-32 md:rounded md:border md:border-gray-300  ">
         <h1 className="text-primary font-semibold mt-3">Customer Reviews</h1>
         <p className="text-sm text-gray-500 py-3">No Review yet</p>
-      </div>
-      {/* <NotDashboardFooter/> */}
+      </div> 
     </>
   );
 }

@@ -5,6 +5,7 @@ import moment, { Moment } from 'moment';
 import { OrdersAction, getByIdOrdersAction } from '../../redux/action/OrdersAction';
 import Review from '../../components/review/review';
 import { Navigation } from "../../components";
+import NotDashboardFooter from '../../components/NotDashboardFooter';
 
 interface Product {
   id:number;
@@ -40,12 +41,17 @@ interface Order {
 function Orders() {
   let [isOpen, setIsOpen] = useState(false);
   const [viewOrder, setViewOrder] = useState<Order | null>(null); 
-  const [orders, setOrders] = useState<Order[]>([]);
+  const [orders, setOrders] = useState<Order[]>([]); 
 
   const dispatch = useDispatch();
 
   const ordersListing = useSelector((state: Order[] | any) => state.orders.data.order);
- 
+  const loadingStatus = useSelector((state: Order[] | any) => state.orders.status);
+  // if(loadingStatus === 'loading'){
+  //   setLoading(true);
+  // }else{
+  //   setLoading(false)
+  // }
   useEffect(() => {
     setOrders(ordersListing || []);
   }, [ordersListing]);
@@ -71,7 +77,10 @@ function Orders() {
         setOrders(ordersListing);
       });
     };
+console.log(loadingStatus);
 
+if (ordersListing == 'loading')
+    return (<>Loading content</>)
   return (
     <>
     <Navigation />
@@ -190,7 +199,7 @@ function Orders() {
                                       Subtotal: {product?.subtotal} USD
                                     </p>
                                   </div>
-                                    {viewOrder?.status === 'pending' && (
+                                    {viewOrder?.status === 'completed' && (
                                       <Review id={product?.id} />
                                     )}
                                 </div>
@@ -246,7 +255,7 @@ function Orders() {
                                 <i className="material-symbols-rounded">done</i> Pending
                               </div>
                               <div className="bg-green-600 text-white px-3 rounded-full py-1 flex">
-                                <i className="material-symbols-rounded">done</i> Pending
+                                <i className="material-symbols-rounded">done</i> Completed
                               </div>
                             </>
                           )}
@@ -266,7 +275,7 @@ function Orders() {
             <h1>No orders found</h1>
           </div>
       }
-
+        ​<NotDashboardFooter/>
     </div>
     </>
   );

@@ -47,15 +47,10 @@ function App() {
 
         <Route path="/admin" element={<Admin />} />
         <Route path="/search-product" element={<SearchProduct />} />
-        <Route path="/reset-password-page" element={<ResetPasswordPage />} />
-        <Route
-          path="/confirm-password-page"
-          element={<PasswordComfirmPage />}
-        />
         <Route path="/two-factor" element={<TwoFactorAuth />} />
         <Route path="/PopupMessage" element={<PopupMessage />} />
         <Route path="/vendor" element={<VendorPage />} />
-        <Route path="/search-product" element={<SearchProduct />} />
+
         <Route path="/my/orders" element={<Orders />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/product/:id" element={<UpdateProduct />} />
@@ -68,10 +63,12 @@ function App() {
         <Route path="/login/fail" element={<LoginError />} />
         <Route path="/login" element={<LoginPage />} />
 
+        <Route path="*" element={<NotFound />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path='/payment/success' element={<Payment_success />} /> 
         <Route path='/payment/fail' element={<Payment_fail />} /> 
-        <Route path="*" element={<NotFound/>} />
+       
+        <Route path='/cart' element = {<Cart/>} />
 
 
       </Routes>
