@@ -33,6 +33,7 @@ const authSlice = createSlice({
         state.status = 'succeeded';
         state.role = action.payload;
         state.error = null;
+        
       })
       .addCase(login.rejected, (state) => {
         state.status = 'failed';

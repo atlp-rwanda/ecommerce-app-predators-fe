@@ -94,6 +94,6 @@ export const fetchProductById = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
-)
+);
 
 // console.log('fixing')

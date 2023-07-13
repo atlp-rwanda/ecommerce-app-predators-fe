@@ -16,7 +16,7 @@ export const fetchProductsCollection = createAsyncThunk(
         },
       };
       const response = await axios.get(
-        `https://ecommerce-4aqm.onrender.com/api/vendor/collection`,
+        `https://ecommercepredators.onrender.com/api/vendor/collection`,
         config
       );
       //console.log("Fetched products:", response.data.data.products);

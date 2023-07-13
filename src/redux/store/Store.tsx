@@ -16,10 +16,15 @@ import productCollectionReducer from '../reducers/productReducer';
 import SetRolesSlice from '../reducers/SetRolesSlice';
 import searchReducer from '../reducers/Searchslice';
 import imageSlice from '../reducers/imageSlice';
-import authReducer from "../reducers/authSlice";
+import authReducer from '../reducers/authSlice';
 import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
+
+import CartCRUD from '../reducers/cartSlice';
+
+
 import NotificationReducer from '../reducers/NotificationSlice';
+
 import WishlistSlice from '../reducers/WishlistSlice';
 import OrdersSlice from "../reducers/OrdersSlice"
  import addReview from '../reducers/ReviewSlice';
@@ -43,10 +48,14 @@ const store = configureStore({
     Admin: SetRolesSlice,
     imageStore: imageSlice,
     auth: authReducer,
+
+    carts: CartCRUD,
+
     cart: cartReducer,    
     notification: NotificationReducer, 
     orders: OrdersSlice,
     review: addReview,
+
     wishlist: WishlistSlice,
         
         

@@ -1,5 +1,5 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const API_URL = 'https://ecommercepredators.onrender.com/api/';
 
@@ -73,7 +73,5 @@ export const updatePassword = createAsyncThunk<any, ResetData>(
     }
   }
 );
-
-
 
 // console.log('fixing')

@@ -17,6 +17,8 @@ import ProfilePage from './pages/profile/ProfilePage';
 import ViewProduct from './pages/viewProduct';
 import AdminViewUsersPage from './pages/AdminViewUsersPage';
 
+import Cart from './pages/cart/cartData';
+
 import LoginPage from "./pages/LoginPage";
 import CheckoutPage from './pages/checkout/CheckoutPage';
 import Payment_success from './pages/payment/Payment_success';
@@ -34,6 +36,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/product-page" element={<ProductPage />} />
         <Route path="/register-page" element={<RegisterPage />} />
         <Route path="/reset-password-page" element={<ResetPasswordPage />} />
@@ -41,6 +44,7 @@ function App() {
           path="/confirm-password-page"
           element={<PasswordComfirmPage />}
         />
+
         <Route path="/admin" element={<Admin />} />
         <Route path="/search-product" element={<SearchProduct />} />
         <Route path="/reset-password-page" element={<ResetPasswordPage />} />
@@ -57,15 +61,18 @@ function App() {
         <Route path="/product/:id" element={<UpdateProduct />} />
 
         <Route path="/viewProduct/:id" element={<ViewProduct/>} /> 
+
         <Route path="/admin/users" element={<AdminViewUsersPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route path="/login/fail" element={<LoginError />} />
         <Route path="/login" element={<LoginPage />} />
+
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path='/payment/success' element={<Payment_success />} /> 
         <Route path='/payment/fail' element={<Payment_fail />} /> 
         <Route path="*" element={<NotFound/>} />
+
 
       </Routes>
       <ModalButton />
