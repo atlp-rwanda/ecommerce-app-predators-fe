@@ -88,8 +88,9 @@ export const fetchProductById = createAsyncThunk(
         `https://ecommercepredators.onrender.com/api/product/${id}`,
         config
       );
+      console.log(response)
       return response.data;
-      //console.log(data)
+      
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.response.data);
     }

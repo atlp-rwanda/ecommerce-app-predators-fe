@@ -22,8 +22,10 @@ import cartReducer from '../reducers/CartReducer';
 
 import CartCRUD from '../reducers/cartSlice';
 
-
 import NotificationReducer from '../reducers/NotificationSlice';
+
+
+
 
 import WishlistSlice from '../reducers/WishlistSlice';
 import OrdersSlice from "../reducers/OrdersSlice"
@@ -50,6 +52,7 @@ const store = configureStore({
     auth: authReducer,
 
     carts: CartCRUD,
+
 
     cart: cartReducer,    
     notification: NotificationReducer, 
