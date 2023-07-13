@@ -15,7 +15,7 @@ export const fetchProductsCollection = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       };
-      const response = await axios.get(
+      const response = await axios.post(
         `https://ecommercepredators.onrender.com/api/vendor/collection`,
         config
       );

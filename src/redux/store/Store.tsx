@@ -29,7 +29,10 @@ import NotificationReducer from '../reducers/NotificationSlice';
 
 import WishlistSlice from '../reducers/WishlistSlice';
 import OrdersSlice from "../reducers/OrdersSlice"
- import addReview from '../reducers/ReviewSlice';
+import addReview from '../reducers/ReviewSlice';
+import HomeProducts from '../reducers/homeProductSlice';
+
+
 const store = configureStore({
   reducer: {
     chat: chatReducer,
@@ -60,7 +63,7 @@ const store = configureStore({
     review: addReview,
 
     wishlist: WishlistSlice,
-        
+    HomeProducts: HomeProducts,
         
   },
   middleware: [...getDefaultMiddleware(),thunk],
