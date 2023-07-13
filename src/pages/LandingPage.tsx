@@ -4,9 +4,18 @@ import { Navigation, Category, News, FlashSale, Testimony, Popular, Carousel, Gr
 import { FaCrown, FaCube } from "react-icons/fa"
 import {RiShieldKeyholeFill} from "react-icons/ri"
 import Footer from "../components/Footer";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getHomeProducts } from '../redux/action/HomeProducts';
 
 
 function LandingPage() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getHomeProducts() as any)
+  }, [])
+
   return (
     <>
     <div>

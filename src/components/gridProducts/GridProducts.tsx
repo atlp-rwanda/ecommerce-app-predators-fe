@@ -1,30 +1,46 @@
+import { useSelector } from "react-redux";
+import { Product } from "../../utils/miscFunctions";
+import { useEffect, useState } from "react";
+
 export default function GridProducts() {
-    const renderRatingStars = (filledStars: number) => {
-        const maxStars = 5;
-        const stars = [];
+    const HomeProducts = useSelector((state: {HomeProducts: {data: {products: Product[]}}}) => state.HomeProducts.data.products);
+    const [products, setProducts] = useState<Product[]>([]);
 
-        for (let i = 1; i <= maxStars; i++) {
-            if (i <= filledStars) {
-            stars.push(<span key={i}>⭐️</span>);
-            } else {
-            stars.push(<span key={i}>☆</span>);
-            }
+    useEffect(() => {
+        if(HomeProducts?.length) {
+        const newProducts: Product[] = [];
+        for (let i = 0; i < 3; i++) {
+            let index = i % HomeProducts.length;
+            newProducts.push(HomeProducts[index]);
         }
+        setProducts(newProducts);
+        }
+    }, [HomeProducts]);
+        const renderRatingStars = (filledStars: number) => {
+            const maxStars = 5;
+            const stars = [];
 
-        return stars;
-    };
+            for (let i = 1; i <= maxStars; i++) {
+                if (i <= filledStars) {
+                stars.push(<span key={i}>⭐️</span>);
+                } else {
+                stars.push(<span key={i}>☆</span>);
+                }
+            }
 
+            return stars;
+        };
 
   return (
     <div className="mx-[7%] mt-10 flex gap-3 flex-col md:flex-row">
         <div className="flex gap-4 border border-gray-300 p-3 rounded-lg max-[640px]:flex-col hover:shadow-lg py-10 md:w-[65%]">
             <div className="rounded-lg overflow-hidden md:w-[50%]">
-                <img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" className="w-full h-full object-cover" alt="" />
+                <img src={products[2]?.picture_urls[0]} className="w-full h-full object-cover" alt="" />
             </div>
             <div className="flex flex-col gap-2 justify-between">
-                <p className=" font-Poppins font-semibold text-customBlue cursor-default">JBL bar 2.1 deep bass</p>
-                <p className="font-Poppins font-semibold text-gray-500 cursor-default">$1170</p>
-                <p className="cursor-default">☆☆☆☆☆</p>
+                <p className=" font-Poppins font-semibold text-customBlue cursor-default">{`${products[2]?.name}`}</p>
+                <p className="font-Poppins font-semibold text-gray-500 cursor-default">${`${products[2]?.price}`}</p>
+                <p className="cursor-default">{renderRatingStars(0)}</p>
                 <div className="flex gap-3">
                     <div className="rounded-full text-tertiary bg-blue-100 h-10 w-10 flex items-center justify-center font-bold cursor-pointer">57</div>
                     <div className="rounded-full text-tertiary bg-blue-100 h-10 w-10 flex items-center justify-center font-bold cursor-pointer">11</div>
@@ -42,30 +58,22 @@ export default function GridProducts() {
             </div>
         </div>
         <div className="flex flex-row md:flex-col gap-3 md:w-[35%] max-[580px]:flex-col">
-            <div className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between grow md:flex-row">
-                <div className='rounded-lg overflow-hidden w-52 h-32 self-center relative max-[580px]:w-[90%]'>
-                    <img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="" className=' h-full w-full object-cover'/>
-                </div>
-                <div className="flex flex-col gap-4 w-[50%] self-center">
-                    <p className=" break-words text-primary font-Poppins text-left">Play Game</p>
-                    <p className=" break-words text-left font-Poppins font-semibold text-gray-500">$1170</p>
-                    <div className="flex">
-                        {renderRatingStars(0)}
+            {products.slice(0,2).map((product, idx) => {
+                return (<div key={idx} className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between grow md:flex-row">
+                    <div className='rounded-lg overflow-hidden w-52 h-32 self-center relative max-[580px]:w-[90%]'>
+                        <img src={`${product.picture_urls[0]}`} alt="" className=' h-full w-full object-cover'/>
+                    </div>
+                    <div className="flex flex-col gap-4 w-[50%] self-center">
+                        <p className=" break-words text-primary font-Poppins text-left">{product.name}</p>
+                        <p className=" break-words text-left font-Poppins font-semibold text-gray-500">${product.price}</p>
+                        <div className="flex">
+                            {renderRatingStars(0)}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between grow md:flex-row">
-                <div className='rounded-lg overflow-hidden w-52 h-32 self-center relative max-[580px]:w-[90%]'>
-                    <img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="" className=' h-full w-full object-cover'/>
-                </div>
-                <div className="flex flex-col gap-4 w-[50%] self-center">
-                    <p className=" break-words text-primary font-Poppins text-left">Play Game</p>
-                    <p className=" break-words text-left font-Poppins font-semibold text-gray-500">$1170</p>
-                    <div className="flex">
-                        {renderRatingStars(0)}
-                    </div>
-                </div>
-            </div>
+                )
+            })
+            }
         </div>
     </div>
   )
