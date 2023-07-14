@@ -9,11 +9,14 @@ import AddToCart from '../pages/AddToCart';
 //import NotDashboardFooter from '../components/NotDashboardFooter';
 import StaticReview from '../components/StaticReview';
 import { FaCheck } from 'react-icons/fa';
+
+
 function ViewProduct() {
   const { id } = useParams(); // Get the product ID from the URL params
   const selectedProduct = useSelector(
-    (state: any) => state.CollectionProducts.selectedProduct
+    (state: any) => state.CollectionProducts.data
   );
+  console.log(selectedProduct)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProductById(id) as any); // Dispatch the fetchProductById action with the product ID
@@ -23,8 +26,6 @@ function ViewProduct() {
   }
   return (
     <>
-      
-
       <div className="flex flex-col ">
         <div className="flex-1 p-3 font-semibold text-md">
           <div className="flex gap-2 justify-start">

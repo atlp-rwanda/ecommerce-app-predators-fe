@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { disableAccount, getAllUsers } from "../../redux/action/disableAction";
-import { ToastContainer, toast } from "react-toastify";
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { disableAccount, getAllUsers } from '../../redux/action/disableAction';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 interface User {
   getAllUsers: any;
@@ -14,7 +14,7 @@ interface User {
 
 interface DisableData {
   id: number;
-  status: "active" | "inactive";
+  status: 'active' | 'inactive';
   reason: string;
 }
 
@@ -29,20 +29,20 @@ const UserTable = (): JSX.Element => {
   }, [dispatch]);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [status, setStatus] = useState<"active" | "inactive">("active");
-  const [reason, setReason] = useState("");
+  const [status, setStatus] = useState<'active' | 'inactive'>('active');
+  const [reason, setReason] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [disableData, setDisableData] = useState<DisableData>({
     id: 0,
-    status: "active",
-    reason: ""
+    status: 'active',
+    reason: '',
   });
 
   const handleIconClick = (id: number): void => {
     setIsPopupOpen(true);
     setDisableData((prevData) => ({
       ...prevData,
-      id: id
+      id: id,
     }));
   };
 
@@ -50,11 +50,15 @@ const UserTable = (): JSX.Element => {
     setIsPopupOpen(false);
   };
 
-  const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    setStatus(e.target.value as "active" | "inactive");
+  const handleStatusChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ): void => {
+    setStatus(e.target.value as 'active' | 'inactive');
   };
 
-  const handleReasonChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
+  const handleReasonChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ): void => {
     setReason(e.target.value);
   };
 
@@ -63,9 +67,9 @@ const UserTable = (): JSX.Element => {
     const updatedDisableData: DisableData = {
       ...disableData,
       status: status,
-      reason: reason
+      reason: reason,
     };
-    dispatch(disableAccount(updatedDisableData)as any)
+    dispatch(disableAccount(updatedDisableData) as any)
       .then(() => {
         setIsPopupOpen(false);
         setIsLoading(false);
@@ -98,7 +102,9 @@ const UserTable = (): JSX.Element => {
               {users?.data?.users?.map((user: User) => (
                 <tr key={user.id}>
                   <td className="w-32 text-start px-6 py-1">{user.id}</td>
-                  <td className="w-full text-start font-light py-4">{user.name}</td>
+                  <td className="w-full text-start font-light py-4">
+                    {user.name}
+                  </td>
                   <td className="w-32 text-start px-6 py-1">{user.email}</td>
                   <td className="w-32 text-start px-6 py-1">{user.status}</td>
                   <td className="w-32 text-start px-6 py-1">
@@ -113,9 +119,13 @@ const UserTable = (): JSX.Element => {
                         <>
                           <div className="fixed inset-0 flex items-center justify-center z-10 bg-black bg-opacity-10">
                             <div className="bg-white rounded-lg shadow-lg p-6 w-80">
-                              <h3 className="text-lg font-medium mb-4">Status and Reason</h3>
+                              <h3 className="text-lg font-medium mb-4">
+                                Status and Reason
+                              </h3>
                               <div className="mb-4">
-                                <label className="block text-sm font-medium mb-1">Status</label>
+                                <label className="block text-sm font-medium mb-1">
+                                  Status
+                                </label>
                                 <select
                                   value={status}
                                   onChange={handleStatusChange}
@@ -126,7 +136,9 @@ const UserTable = (): JSX.Element => {
                                 </select>
                               </div>
                               <div className="mb-4">
-                                <label className="block text-sm font-medium mb-1">Reason</label>
+                                <label className="block text-sm font-medium mb-1">
+                                  Reason
+                                </label>
                                 <textarea
                                   id="w3review"
                                   name="w3review"
@@ -140,7 +152,7 @@ const UserTable = (): JSX.Element => {
                                   onClick={handleSave}
                                   className="px-4 py-2 mr-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-blue-500 focus:ring-2"
                                 >
-                                  {isLoading ? "Loading" : "Save"}
+                                  {isLoading ? 'Loading' : 'Save'}
                                 </button>
                                 <button
                                   onClick={handleClosePopup}

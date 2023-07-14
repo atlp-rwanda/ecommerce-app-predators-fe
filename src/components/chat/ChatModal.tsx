@@ -32,7 +32,7 @@ const ChatModal = ({ closeModal }: Props) => {
     });
 
     function onSuccessfulConnection(server_msg: string) {
-      const cs:User = 'customer_support';
+      const cs: User = 'customer_support';
       socket.emit('join', cs);
       console.log(server_msg, '& accessing CUSTOMER SUPPORT');
     }
@@ -42,7 +42,7 @@ const ChatModal = ({ closeModal }: Props) => {
       dispatch(addPublicMessage(message));
     }
 
-    function onTargetedMessage(room: string ,message: Message) {
+    function onTargetedMessage(room: string, message: Message) {
       console.log(room, message);
       dispatch(addCSMessage(message));
     }
@@ -75,9 +75,7 @@ const ChatModal = ({ closeModal }: Props) => {
   return (
     <>
       {/* Dark background */}
-      <div
-        className="fixed top-0 bottom-0 left-0 right-0 bg-black opacity-75"
-      ></div>
+      <div className="fixed top-0 bottom-0 left-0 right-0 bg-black opacity-75"></div>
       {/* Pop up form */}
       <div className="fixed inset-0 flex items-center justify-center z-1000">
         <div className="h-4/5  lg:w-2/6 w-4/5 pb-2.5 flex flex-col bg-white rounded-xl shadow-lg">
@@ -127,7 +125,7 @@ const ChatModal = ({ closeModal }: Props) => {
           {/* Messages section */}
           <Chats activeRoom={activeRoom} />
           {/* Input */}
-          <UserInput activeRoom={activeRoom}/>
+          <UserInput activeRoom={activeRoom} />
         </div>
       </div>
     </>

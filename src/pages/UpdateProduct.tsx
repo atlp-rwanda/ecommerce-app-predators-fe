@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, SetStateAction, useEffect, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -120,7 +121,7 @@ export default function UpdateProduct() {
 
     <Layout> 
 
-      <div>
+      <div className='md:ml-52'>
         <div
           id="container_form"
           className="flex justify-center m-10 items-center"

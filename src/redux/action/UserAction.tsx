@@ -1,7 +1,7 @@
-import axios from "axios";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_URL = 'https://ecommerce-4aqm.onrender.com/api/';
+const API_URL = 'https://ecommercepredators.onrender.com/api/';
 
 interface ResetPasswordResponse {
   token: string;
@@ -39,7 +39,6 @@ export const resetPassword = createAsyncThunk<ResetPasswordResponse, string>(
   }
 );
 
-
 interface ResetData {
   password: string;
   confirm_password: string;
@@ -57,11 +56,15 @@ export const updatePassword = createAsyncThunk<any, ResetData>(
         throw new Error('Token not found');
       }
 
-      const response = await axios.put(`${API_URL}user/reset-password`, resetData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.put(
+        `${API_URL}user/reset-password`,
+        resetData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       return response.data;
     } catch (error) {
@@ -70,7 +73,5 @@ export const updatePassword = createAsyncThunk<any, ResetData>(
     }
   }
 );
-
-
 
 // console.log('fixing')

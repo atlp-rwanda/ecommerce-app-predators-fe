@@ -1,16 +1,18 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+/* eslint-disable @typescript-eslint/no-empty-function */
+import { render, screen, fireEvent,cleanup } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import DeleteButton from '../vendor/DeleteItem'; // Replace with the actual component name
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-
+afterEach(()=>{
+    cleanup();
+})
 class ResizeObserverMock {
   observe() {}
   unobserve() {}
   disconnect() {}
 }
 window.ResizeObserver = ResizeObserverMock;
-
 
 const mockStore = configureStore([]);
 

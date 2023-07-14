@@ -1,7 +1,10 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const API_URL = "https://ecommerce-4aqm.onrender.com/api";
+
+const API_URL = "https://ecommercepredators.onrender.com/api";
+
 
 // Interface for a single notification
 interface Notification {
@@ -34,10 +37,10 @@ interface MarkAllNotificationsAsReadResponse {
 
 // Thunk to fetch notifications from the API
 export const fetchNotifications = createAsyncThunk(
-  "notifications/fetchNotifications",
+  'notifications/fetchNotifications',
   async (_, thunkAPI) => {
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -58,10 +61,10 @@ export const fetchNotifications = createAsyncThunk(
 
 // Thunk to mark a notification as read
 export const markNotificationAsRead = createAsyncThunk(
-  "notifications/markNotificationAsRead",
+  'notifications/markNotificationAsRead',
   async (notificationId: number, thunkAPI) => {
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -85,10 +88,10 @@ export const markNotificationAsRead = createAsyncThunk(
 
 // Thunk to delete a notification
 export const deleteNotification = createAsyncThunk(
-  "notifications/deleteNotification",
+  'notifications/deleteNotification',
   async (notificationId: number, thunkAPI) => {
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -110,10 +113,10 @@ export const deleteNotification = createAsyncThunk(
 
 // Thunk to mark all notifications as read
 export const markAllNotificationsAsRead = createAsyncThunk(
-  "notifications/markAllNotificationsAsRead",
+  'notifications/markAllNotificationsAsRead',
   async (_, thunkAPI) => {
     try {
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -130,10 +133,16 @@ export const markAllNotificationsAsRead = createAsyncThunk(
     } catch (error: any) {
       console.log(error);
 
-      if (error.response && error.response.data && error.response.data.message) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
         return thunkAPI.rejectWithValue(error.response.data.message);
       } else {
-        return thunkAPI.rejectWithValue("Error marking all notifications as read");
+        return thunkAPI.rejectWithValue(
+          'Error marking all notifications as read'
+        );
       }
     }
   }

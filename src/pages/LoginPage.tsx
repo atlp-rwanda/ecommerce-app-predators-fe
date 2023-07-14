@@ -1,9 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-useless-escape */
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
-import { selectStatus, selectRole, selectError, reset } from '../redux/reducers/authSlice';
+import {
+  selectStatus,
+  selectRole,
+  selectError,
+  reset,
+} from '../redux/reducers/authSlice';
 import loginImg from '../assets/login.svg';
 import { login } from '../redux/action/authAction';
 
@@ -39,21 +45,23 @@ const LoginPage = () => {
       });
   };
 
-  const redirectToGoogleSSO = async(e: React.MouseEvent<HTMLButtonElement>) => {
+  const redirectToGoogleSSO = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
     e.preventDefault();
 
     let timer: NodeJS.Timeout | null = null;
-    const googleURI = 'https://ecommerce-4aqm.onrender.com/api/login/google';
+    const googleURI = 'https://ecommercepredators.onrender.com/api/login/google';
     const newWindow = window.open(googleURI, '_blank', 'width=500,height=600');
     if (newWindow) {
       timer = setInterval(() => {
         if (newWindow.closed) {
           console.log('User Authenticated. ');
-          if (timer) clearInterval(timer)
-          SetLoginWithGoogle(prev => !prev);
+          if (timer) clearInterval(timer);
+          SetLoginWithGoogle((prev) => !prev);
           // redirect to homepage here
         }
-      }, 500)
+      }, 500);
     }
   };
 
@@ -63,7 +71,7 @@ const LoginPage = () => {
     if (role === 2) {
       return <Navigate to="/" />;
     } else if (role === 1) {
-      return <Navigate to="/product-page" />;
+      return <Navigate to="/vendor" />;
     }
   }
 
@@ -86,16 +94,21 @@ const LoginPage = () => {
             </div>
           ) : (
             <>
-              <Link to="/" className="text-sm sm:text-base text-yellow-400 mb-2">
+              <Link
+                to="/"
+                className="text-sm sm:text-base text-yellow-400 mb-2"
+              >
                 Home
               </Link>
               <div className="flex flex-col gap-2">
-                <h1 className="capitalize text-sm sm:text-base font-bold">sign in</h1>
+                <h1 className="capitalize text-sm sm:text-base font-bold">
+                  sign in
+                </h1>
                 <p className="text-xs text-slate-400">
                   Sign up for the internal platform
                 </p>
                 <button
-                  type='submit'
+                  type="submit"
                   onClick={redirectToGoogleSSO}
                   className="text-sm sm:text-base bg-amber-500 text-white rounded-lg w-full py-1.5 hover:bg-amber-600 hover:shadow-md transition-colors duration-300"
                 >
@@ -139,7 +152,9 @@ const LoginPage = () => {
                   Sign In
                 </button>
                 <span className="flex gap-x-2">
-                  <p className="text-xs text-slate-400">Don't have an account?</p>
+                  <p className="text-xs text-slate-400">
+                    Don't have an account?
+                  </p>
                   <Link to="/signup" className="text-xs text-yellow-700">
                     Sign Up
                   </Link>

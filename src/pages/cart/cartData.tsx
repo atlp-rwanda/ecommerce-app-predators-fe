@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import NavHeader from '../../components/buyerHeader/HeaderNav';
 import HeadPhones from '../../assets/images/headphone.png';
 import Send from '../../assets/images/send-2.png';
@@ -24,31 +26,31 @@ interface CartItem {
 
 const ResponsiveTable = () => {
   const dispatch = useDispatch();
-  const [quantities, setQuantities] = useState<number[]>([]);
+  const [, setQuantities] = useState<number[]>([]);
   useEffect(() => {
     dispatch(getAllCarts() as any);
   }, [dispatch]);
 
-  const cart = useSelector(
+  const carts = useSelector(
     (state: {
-      cart: {
+      carts: {
         carts: {
           [x: string]: any;
-          cart: CartItem[];
+          carts: CartItem[];
         };
       };
-    }) => state.cart.carts
+    }) => state.carts.carts
   );
-  console.log(quantities);
+
   useEffect(() => {
-    if (cart?.data?.data) {
-      const initialQuantities = Array(cart.data.data.length).fill(0);
+    if (carts?.data?.data) {
+      const initialQuantities = Array(carts.data.data.length).fill(0);
       setQuantities(initialQuantities);
     }
-  }, [cart]);
+  }, [carts]);
 
   const handleQuantityChange = (index: number, newQuantity: number) => {
-    const updatedCart = { ...cart };
+    const updatedCart = { ...carts };
     const updatedData = [...updatedCart.data.data]; // Create a copy of the data array
 
     // Create a copy of the cart item and update the quantity property
@@ -58,22 +60,26 @@ const ResponsiveTable = () => {
     updatedData[index] = updatedCartItem; // Replace the cart item in the data array
     updatedCart.data.data = updatedData; // Replace the data array in the cart object
 
-    setCart(updatedCart);
+    /* setCart(updatedCart); */
   };
 
   const handleQuantityIncrement = (cartId: number, index: number) => {
-    const newQuantity = Math.max(0, cart.data.data[index].quantity + 1);
+    const newQuantity = Math.max(0, carts.data.data[index].quantity + 1);
     handleQuantityChange(index, newQuantity);
     dispatch(updateCartQuantity({ id: cartId, quantity: newQuantity }) as any);
   };
 
   const handleQuantityDecrement = (cartId: number, index: number) => {
-    const newQuantity = Math.max(0, cart.data.data[index].quantity - 1);
+    const newQuantity = Math.max(0, carts.data.data[index].quantity - 1);
     handleQuantityChange(index, newQuantity);
     dispatch(updateCartQuantity({ id: cartId, quantity: newQuantity }) as any);
   };
 
-  console.log(cart?.data?.data);
+  const handleDeleteAllCarts = () => {
+    dispatch(deleteAllCarts() as any);
+  };
+
+ 
   return (
     <>
       <div className="fixed top-0 w-full z-10">
@@ -108,7 +114,7 @@ const ResponsiveTable = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {cart?.data?.data
+                {carts?.data?.data
                   .slice(0, -1)
                   .map((cart: CartItem, index: number) => (
                     <tr key={cart.id}>
@@ -195,7 +201,7 @@ const ResponsiveTable = () => {
               </div>
               <button
                 className="text-red-400 font-semibold border border-red-400 px-5 py-2 rounded-full"
-                onClick={() => dispatch(deleteAllCarts() as any)}
+                onClick={handleDeleteAllCarts}
               >
                 clean cart
               </button>
@@ -288,7 +294,3 @@ const ResponsiveTable = () => {
 };
 
 export default ResponsiveTable;
-function setCart(updatedCart: { [x: string]: any; cart: CartItem[] }) {
-  console.log(updatedCart);
-  throw new Error('Function not implemented.');
-}

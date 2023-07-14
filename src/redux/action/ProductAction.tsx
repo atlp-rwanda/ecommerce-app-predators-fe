@@ -14,7 +14,7 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        'https://ecommerce-4aqm.onrender.com/api/Product'
+        'https://ecommercepredators.onrender.com/api/Product'
       ); //URL HERE
       return response.data;
     } catch (error) {
@@ -30,7 +30,7 @@ export const productRemove = createAsyncThunk(
       // Get the token from localStorage
       const token = localStorage.getItem('token');
       const response = await axios.delete(
-        `https://ecommerce-4aqm.onrender.com/api/product/${data.productId}`,
+        `https://ecommercepredators.onrender.com/api/product/${data.productId}`,
         {
           data,
           headers: {
@@ -59,7 +59,7 @@ export const addProduct = createAsyncThunk(
         },
       };
       const response = await axios.post(
-        'https://ecommerce-4aqm.onrender.com/api/product',
+        'https://ecommercepredators.onrender.com/api/product',
         product,
         config
       );
@@ -85,15 +85,16 @@ export const fetchProductById = createAsyncThunk(
       };
 
       const response = await axios.get(
-        `https://ecommerce-4aqm.onrender.com/api/product/${id}`,
+        `https://ecommercepredators.onrender.com/api/product/${id}`,
         config
       );
+      console.log(response)
       return response.data;
-      //console.log(data)
+      
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
-)
+);
 
 // console.log('fixing')
