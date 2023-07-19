@@ -1,5 +1,4 @@
 /* eslint-disable no-irregular-whitespace */
-//import NotDashboardFooter from './NotDashboardFooter';
 export default function staticReview(props: { src: string | undefined }) {
   return (
     <>
@@ -25,7 +24,7 @@ export default function staticReview(props: { src: string | undefined }) {
             alt="img"
           />
         </div>
-        ​
+
         <div className="space-y-3 ">
           <p className="">Sku: 01133-9-9</p>
           <p>
@@ -34,13 +33,10 @@ export default function staticReview(props: { src: string | undefined }) {
               20% Off, 49% Off Alex remote
             </span>
           </p>
-          ​
+
           <div className="py-6 flex flex-col gap-3 justify-stretch lg:flex-row md:flex-row">
             <button className=" border border-gray-500 rounded-md px-2 py-1 ">
               Description
-            </button>
-            <button className="text-white border border-gray-500 rounded-md px-6 py-1  bg-primary">
-              Reviews
             </button>
           </div>
         </div>
@@ -49,9 +45,7 @@ export default function staticReview(props: { src: string | undefined }) {
         <h1 className="text-primary font-semibold mt-3">Customer Reviews</h1>
         <p className="text-sm text-gray-500 py-3">No Review yet</p>
       </div>
-      {/* <NotDashboardFooter/> */}
+
     </>
   );
 }
-
-// console.log('fixing')

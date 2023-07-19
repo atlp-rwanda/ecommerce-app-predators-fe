@@ -1,15 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 import red_exclamation from '../../assets/images/red_exclamation.png'
-
+import { useEffect } from 'react';
 const Payment_fail = () => {
   const navigate = useNavigate();
-
+  useEffect(() => {
+    fetch(
+      'https://ecommercepredators.onrender.com/api/pay/cancel'
+    )
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, []);
   function handleSubmit(event: React.MouseEvent): void {
     event.preventDefault();
     console.log('Redirecting to checkout page...');
     navigate('/checkout');
   }
-
   return (
     <div>
       <div className="bg-gray-100">
@@ -29,5 +34,4 @@ const Payment_fail = () => {
     </div>
   );
 };
-
 export default Payment_fail;

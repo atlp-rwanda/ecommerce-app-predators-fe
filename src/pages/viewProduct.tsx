@@ -6,9 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchProductById } from '../redux/action/ProductAction';
 import AddToCart from '../pages/AddToCart';
-//import NotDashboardFooter from '../components/NotDashboardFooter';
 import StaticReview from '../components/StaticReview';
 import { FaCheck } from 'react-icons/fa';
+import Navigation from '../components/navigation/Navigation';
 
 
 function ViewProduct() {
@@ -26,6 +26,7 @@ function ViewProduct() {
   }
   return (
     <>
+      <Navigation />
       <div className="flex flex-col ">
         <div className="flex-1 p-3 font-semibold text-md">
           <div className="flex gap-2 justify-start">
@@ -37,7 +38,7 @@ function ViewProduct() {
             <div className="text-center mt-1">
               <i className="material-symbols-rounded cursor-pointer">arrow_forward_ios</i>
             </div>
-            <div className="">{selectedProduct?.data?.item?.name}</div>​
+            <div className="">{selectedProduct?.data?.item?.name}</div>
           </div>
         </div>
         <div className="w-full p-5">
@@ -82,12 +83,12 @@ function ViewProduct() {
               </div>
               <AddToCart />
             </div>
-            ​
+
           </div>
-          ​ ​
-          <StaticReview src={selectedProduct?.data?.item?.picture_urls} />​
+
+          <StaticReview src={selectedProduct?.data?.item?.review} />
         </div>
-        ​
+
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { registerUser} from '../../redux/action/UserAction';
+import { registerUser } from '../../redux/action/UserAction';
 import configureStore, { MockStoreEnhanced } from 'redux-mock-store';
 import thunk, { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
@@ -28,10 +28,10 @@ describe('registerUser', () => {
   });
 
   it('dispatches the correct actions on successful registration', async () => {
-    const userData = { 
-        "name" : 'Terence Faid JABO',
-        "email": 'terence@gmail.com',
-        "password": '1245'
+    const userData = {
+      "name": 'Terence Faid JABO',
+      "email": 'terence@gmail.com',
+      "password": '1245'
     };
     const expectedResponse = 'Registration Successfull';
 

@@ -1,6 +1,5 @@
 import jwt_decode from 'jwt-decode';
-
-interface DecodedToken {
+export interface DecodedToken {
   email: string;
   exp: number;
   iat: number;
@@ -10,15 +9,12 @@ interface DecodedToken {
   roleId: number;
   status: string;
 }
-
 export function getTokenFromLS(targetName: string): string | null {
   const token = localStorage.getItem(targetName);
   return token ? token : null;
 }
-
 export function decryptToken(getToken: (tokenName: string) => string | null, tokenName: string): DecodedToken | null {
   const token = getToken(tokenName);
-
   if (token) {
     try {
       const decoded: DecodedToken = jwt_decode(token);
@@ -28,7 +24,5 @@ export function decryptToken(getToken: (tokenName: string) => string | null, tok
       return null;
     }
   }
-
   return null;
 }
-

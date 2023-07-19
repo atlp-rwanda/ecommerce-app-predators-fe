@@ -34,12 +34,12 @@ export default function Review(props: ReviewProps) {
             rating: rating,
             feedback: feedback,
         };
- 
+
         dispatch(addReview(review) as any)
             .then(() => {
                 toast.success('Your review has been added.');
-                setRating(1);
-                setFeedback('');
+                setRating(rating);
+                setFeedback(feedback);
                 setShowForm(false);
             })
             .catch(() => {

@@ -21,7 +21,7 @@ export const addReview = createAsyncThunk(
             };
 
             const response = await axios.post(
-                `https://ecommerce-4aqm.onrender.com/api/review/${product_id}`,
+                `https://ecommercepredators.onrender.com/api/review/${product_id}`,
                 { rating, feedback },
                 config
             );
