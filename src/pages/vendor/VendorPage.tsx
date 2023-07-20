@@ -3,14 +3,12 @@ import { Sidebar, Table, Product_form } from '../../components';
 import cart from './../../assets/dashboard/cart.svg';
 import add from './../../assets/dashboard/plus.svg';
 import profile from './../../assets/dashboard/account_photo.jpg';
-import { ToastContainer } from 'react-toastify';
 
 export default function VendorPage() {
   const [visible, showForm] = useState(false);
   const handleClose = () => showForm(false);
   return (
     <div className="products">
-      <ToastContainer />
       <Sidebar />
       <div className="md:ml-52">
         <div className="pt-20 flex flex-col items-center lg:mx-20">

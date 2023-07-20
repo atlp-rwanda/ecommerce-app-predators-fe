@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { disableAccount, getAllUsers } from '../../redux/action/disableAction';
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 interface User {
   getAllUsers: any;
@@ -84,7 +84,6 @@ const UserTable = (): JSX.Element => {
   };
   return (
     <div className="w-[100%]">
-      <ToastContainer />
       <div className="relative mt-10 mb-6 shadow-lg">
         <p className="font-medium mb-2 inline-block">Recent Users</p>
         <div className="w-full pb-2 overflow-x-auto">

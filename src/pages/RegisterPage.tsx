@@ -1,9 +1,10 @@
 import { SetStateAction, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { registerUser } from '../redux/action/UserAction';
 import store from '../../src/assets/store.svg';
+import { Link } from 'react-router-dom';
 
 /**
  * RegisterPage component for user registration
@@ -179,10 +180,9 @@ const RegisterPage: React.FC = () => {
 
   // Perform custom validation
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div data-testid="registerPage" className="flex flex-col md:flex-row h-screen">
       <div className="w-full md:w-1/2 h-full bg-white">
         <div className="flex flex-col items-center justify-center h-full">
-          <ToastContainer />
 
           <div className="w-customWidth md:w-1/2 ">
             <form className="mt-10 shadow-custom p-9 w-customWidth md:w-96 rounded-xl">
@@ -307,9 +307,9 @@ const RegisterPage: React.FC = () => {
               <h3 className="my-4 text-gray-500 font-bold text-sm sm:text-base tracking-wide">
                 Already have an account?{' '}
                 <span className="cursor-pointer text-customBlue hover:text-red-700">
-                  <a href="#" className="text-tertiary">
+                  <Link to="/login" className="text-tertiary">
                     Sign in
-                  </a>
+                  </Link>
                 </span>
               </h3>
             </form>

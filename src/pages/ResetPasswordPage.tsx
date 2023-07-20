@@ -1,4 +1,3 @@
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import reset from '../../src/assets/reset-image.svg';
 import { SetStateAction, useState } from 'react';
@@ -34,7 +33,6 @@ const ResetPasswordPage = () => {
     <div className="flex flex-col-reverse md:flex-row h-screen">
       <div className="w-full md:w-1/2 h-full bg-white">
         <div className="flex flex-col items-center justify-center h-full">
-          <ToastContainer />
           <div className="w-4/5 md:w-1/2">
             <form
               className="mt-10 shadow-custom p-9 md:w-96 rounded-xl"

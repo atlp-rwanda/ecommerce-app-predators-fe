@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Table, Product_form } from '../../components';
 import cart from "./../../assets/dashboard/cart.svg";
 import add from "./../../assets/dashboard/plus.svg";
-import { ToastContainer } from 'react-toastify';
 import { fetchProductsCollection } from '../../redux/action/productActions';
 import { useDispatch } from 'react-redux';
 import Layout from '../../Layout'; 
@@ -22,7 +21,6 @@ export default function VendorPage() {
   return (
     <Layout>
     <div className="md:ml-52">
-      <ToastContainer /> 
       <div className=''>
         <div className='p-3 md:p-1  flex flex-col items-center '>
           <div className="dashboard flex flex-col gap-8 flex-wrap w-[90%]"> 

@@ -110,7 +110,6 @@ export const deleteNotification = createAsyncThunk(
     }
   }
 );
-
 // Thunk to mark all notifications as read
 export const markAllNotificationsAsRead = createAsyncThunk(
   'notifications/markAllNotificationsAsRead',

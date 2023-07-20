@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import profilePhoto from "./../../assets/dashboard/account_photo.jpg";
 import {Sidebar} from '../../components';
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import Notification from '../../components/notification/Notification';
 
 interface profileData {
@@ -256,7 +255,6 @@ export default function ProfilePage() {
 
   return (
     <div className="profile h-full">
-        <ToastContainer />
         <Sidebar />
         <div className=' relative md:ml-52 flex flex-col sm:flex-row sm:h-full'>
             <div className="sm:relative flex-1 w-[90%] sm:w-full self-center sm:self-start secondary-menu mt-5 sm:mt-0 sm:max-w-xs sm:min-w-[280px] sm:h-screen">
