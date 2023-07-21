@@ -61,23 +61,23 @@ export const deleteAllCarts = createAsyncThunk(
 );
 export const updateCartQuantity = createAsyncThunk(
     "cart/updateCartQuantity",
-    async ({ id, quantity }: { id: number; quantity: number }, thunkAPI) =>{
-      try {
-        const token = localStorage.getItem("token");
-        const config = {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        };
-        const response = await axios.put(
-          `${API_URL}/cart/${id}`,
-          { quantity },
-          config
-        );
-        return response.data;
-      } catch (error) {
-        console.log(error)
-        return thunkAPI.rejectWithValue(error);
-      }
+    async ({ id, quantity }: { id: number; quantity: number }, thunkAPI) => {
+        try {
+            const token = localStorage.getItem("token");
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
+            const response = await axios.put(
+                `${API_URL}/cart/${id}`,
+                { quantity },
+                config
+            );
+            return response.data;
+        } catch (error) {
+            console.log(error)
+            return thunkAPI.rejectWithValue(error);
+        }
     }
-  );
+);
