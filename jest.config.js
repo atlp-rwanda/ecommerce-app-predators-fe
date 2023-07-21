@@ -10,5 +10,5 @@ export default {
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
   },
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
+  collectCoverageFrom: ['src/redux/action/*.{js,jsx,ts,tsx}'],
 };

@@ -1,6 +1,6 @@
 import  {useState,Fragment } from 'react'
 import { Dialog,Transition  } from '@headlessui/react'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
 import { useAppDispatch } from '../../redux/store/hooks';
 import { productRemove } from '../../redux/action/ProductAction';
@@ -59,7 +59,6 @@ const DeleteItem  = (props:Item) => {
   return (
     <div> 
         <i onClick={() => setIsOpen(true)} className='material-symbols-rounded cursor-pointer text-red-500 cursor-pointer'>delete</i>
-        <ToastContainer />
            <Dialog open={isOpen} onClose={() => setIsOpen(false)} as="div" className="relative z-10">
             <div className="fixed inset-0   backdrop-blur-sm bg-opacity-75 transition-opacity"></div>
               <Transition

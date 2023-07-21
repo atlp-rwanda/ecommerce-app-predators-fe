@@ -11,6 +11,7 @@ import {
   deleteAllCarts,
   updateCartQuantity,
 } from '../../redux/action/cartAction';
+import { Link } from 'react-router-dom';
 
 interface CartItem {
   [x: string]: any;
@@ -253,12 +254,14 @@ const ResponsiveTable = () => {
                 <label>$23.20</label>
               </div>
               <div className="flex mx-5">
+                <Link to="/checkout">
                 <button
                   type="submit"
                   className="bg-tertiary w-full text-white py-3 rounded-2xl mb-5 font-semibold"
                 >
                   Proceed to checkout
                 </button>
+                </Link>
               </div>
             </div>
           </div>

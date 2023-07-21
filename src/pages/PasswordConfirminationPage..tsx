@@ -1,5 +1,4 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import reset from '../../src/assets/reset-image.svg';
 import { useDispatch } from 'react-redux';
@@ -44,7 +43,6 @@ const PasswordConfirminationPage: React.FC = () => {
     <div className="flex flex-col h-screen md:flex-row">
       <div className="w-full md:w-1/2 h-full bg-white">
         <div className="flex flex-col items-center justify-center h-full">
-          <ToastContainer />
           <div className="w-4/5 md:w-2/3">
             <form className="mt-10 shadow-custom p-9 mx-auto rounded-xl">
               <h1 className="text-2xl font-bold text-customBlue mb-6">

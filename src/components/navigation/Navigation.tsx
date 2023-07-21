@@ -3,10 +3,18 @@ import { Link } from "react-router-dom";
 import { RiMenuFill } from "react-icons/ri";
 import {IoClose} from "react-icons/io5"
 import { useEffect, useState } from "react";
+import { getProfile } from "../../redux/action/profileAction";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Navigation() {
+  const Dispatch = useDispatch();
   const [isOpen, setMenu] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const Profile = useSelector((state: any) => state.updateProfile.data.data )
+
+  useEffect(() => {
+    Dispatch(getProfile() as any)
+}, [])
 
   useEffect(() => {
     window.addEventListener('resize', () => setWidth(window.innerWidth))
@@ -57,12 +65,15 @@ export default function Navigation() {
           </div>
           <div className="flex gap-8 sm:gap-5 grow-[1] justify-end text-white">
             <div className="flex gap-2 hover:text-tertiary">
-              <Link to='/login' className="flex gap-2"> 
+              {Profile== undefined? <Link to='/login' className="flex gap-2"> 
                 <i className="material-symbols-rounded cursor-pointer">person</i><span className="text-sm mt-1 max-[640px]:hidden">Sign in</span>
-              </Link>
+              </Link> :
+              <Link to="/" className="flex gap-2">
+                <i className="material-symbols-rounded cursor-pointer">person</i><span className="text-sm mt-1 max-[640px]:hidden">{Profile?.name.split(" ")[0]}</span>
+              </Link>}
              </div>
             <div className="flex gap-2 hover:text-tertiary">
-               <Link to='/login' className="flex gap-2"> 
+               <Link to='/cart' className="flex gap-2"> 
                 <i className="material-symbols-rounded cursor-pointer">shopping_cart</i><span className="text-sm mt-1 max-[640px]:hidden">Cart</span>
             </Link>
               </div>

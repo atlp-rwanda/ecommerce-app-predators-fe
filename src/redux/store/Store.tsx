@@ -19,17 +19,14 @@ import imageSlice from '../reducers/imageSlice';
 import authReducer from '../reducers/authSlice';
 import chatReducer from '../reducers/chatSlice';
 import cartReducer from '../reducers/CartReducer';
-
 import CartCRUD from '../reducers/cartSlice';
-
 import NotificationReducer from '../reducers/NotificationSlice';
-
-
-
-
 import WishlistSlice from '../reducers/WishlistSlice';
 import OrdersSlice from "../reducers/OrdersSlice"
- import addReview from '../reducers/ReviewSlice';
+import addReview from '../reducers/ReviewSlice';
+import HomeProducts from '../reducers/homeProductSlice';
+
+
 const store = configureStore({
   reducer: {
     chat: chatReducer,
@@ -50,17 +47,13 @@ const store = configureStore({
     Admin: SetRolesSlice,
     imageStore: imageSlice,
     auth: authReducer,
-
     carts: CartCRUD,
-
-
     cart: cartReducer,    
     notification: NotificationReducer, 
     orders: OrdersSlice,
     review: addReview,
-
     wishlist: WishlistSlice,
-        
+    HomeProducts: HomeProducts,
         
   },
   middleware: [...getDefaultMiddleware(),thunk],
@@ -68,4 +61,5 @@ const store = configureStore({
 
 export default store;
 export type RootState = ReturnType<typeof store.getState>;
+export type AppStore = typeof store;
 export type AppDispatch = typeof store.dispatch;

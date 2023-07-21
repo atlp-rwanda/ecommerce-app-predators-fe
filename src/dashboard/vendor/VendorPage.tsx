@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Table, Product_form } from '../../components';
 import cart from "./../../assets/dashboard/cart.svg";
 import add from "./../../assets/dashboard/plus.svg";
-import { ToastContainer } from 'react-toastify';
 import { fetchProductsCollection } from '../../redux/action/productActions';
 import { useDispatch } from 'react-redux';
 import Layout from '../../Layout'; 
@@ -22,7 +21,6 @@ export default function VendorPage() {
   return (
     <Layout>
     <div className="md:ml-52">
-      <ToastContainer /> 
       <div className=''>
         <div className='p-3 md:p-1  flex flex-col items-center '>
           <div className="dashboard flex flex-col gap-8 flex-wrap w-[90%]"> 
@@ -36,14 +34,9 @@ export default function VendorPage() {
                   <p className=' text-5xl px-2 self-end'>100</p>
                 </div>
               </div>
-              <div onClick={() => showForm(true)} className="add_new_product cursor-pointer bg-tertiary h-10 w-10 p-3 flex items-center justify-center rounded-xl">
-              <div
-                onClick={() => showForm(true)}
-                className="add_new_product cursor-pointer text-white bg-tertiary h-4 w-4 p-3 flex items-center justify-center rounded-xl"
-              > 
-                <img src={add} alt="add product" className='w-[100%] h-[100%]'/>
+              <div onClick={() => showForm(true)} className="add_new_product cursor-pointer bg-tertiary h-14 w-14 p-3 flex items-center justify-center rounded-xl">
+                <img src={add} alt="add product" />
               </div>
-            </div >
           </div >
           <Table />
           <div className="buttons_pagination flex text-sm font-light self-center">

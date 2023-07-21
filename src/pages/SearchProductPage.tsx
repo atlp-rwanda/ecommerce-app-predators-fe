@@ -109,7 +109,7 @@ function SearchProductPage() {
              price={product.price}
              picture_urls={product.picture_urls}
              id={product.id}
-             rating={undefined}
+             rating={"0"}
            />
            </Link>
          ))}
@@ -136,7 +136,7 @@ function SearchProductPage() {
                   price={product.price}
                   picture_urls={product.picture_urls}
                   id={product.id}
-                  rating={undefined}
+                  rating={"0"}
                 />
               ))}
             </div>

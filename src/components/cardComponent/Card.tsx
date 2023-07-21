@@ -8,7 +8,7 @@ interface Product {
   name: string;
   price: string;
   picture_urls: string[];
-  rating: any;
+  rating: string;
 }
 
 export const Card = (product: Product) => {

@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import profilePhoto from "./../../assets/dashboard/account_photo.jpg";
 import {Sidebar} from '../../components';
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import Notification from '../../components/notification/Notification';
 
 interface profileData {
@@ -195,54 +194,6 @@ export default function ProfilePage() {
             return;
         }
 
-        // if (phone.trim() === '') {
-        //     toast.error('Please enter your phone');
-        //     setLoading(false);
-        //     return;
-        // }
-
-        // if (country.trim() === '') {
-        //     toast.error('Please enter your country');
-        //     setLoading(false);
-        //     return;
-        // }
-
-        // if (province.trim() === '') {
-        //     toast.error('Please enter your province');
-        //     setLoading(false);
-        //     return;
-        // }
-
-        // if (district.trim() === '') {
-        //     toast.error('Please enter your distric');
-        //     setLoading(false);
-        //     return;
-        // }
-
-        // if (sector.trim() === '') {
-        //     toast.error('Please enter your sector');
-        //     setLoading(false);
-        //     return;
-        // }
-
-        // if (street.trim() === '') {
-        //     toast.error('Please enter your street address');
-        //     setLoading(false);
-        //     return;
-        // }
-
-        // if (language.trim() === '') {
-        //     toast.error('Please enter your preferred language');
-        //     setLoading(false);
-        //     return;
-        // }
-
-        // if (currency.trim() === '') {
-        //     toast.error('Please enter your preferred currency');
-        //     setLoading(false);
-        //     return;
-        // }
-
         Dispatch(updateProfile(profile) as any)
         .then(() => {
             setLoading(false);
@@ -256,7 +207,6 @@ export default function ProfilePage() {
 
   return (
     <div className="profile h-full">
-        <ToastContainer />
         <Sidebar />
         <div className=' relative md:ml-52 flex flex-col sm:flex-row sm:h-full'>
             <div className="sm:relative flex-1 w-[90%] sm:w-full self-center sm:self-start secondary-menu mt-5 sm:mt-0 sm:max-w-xs sm:min-w-[280px] sm:h-screen">
@@ -283,7 +233,7 @@ export default function ProfilePage() {
                 <div className="main-content pt-5">
                     <div className='flex mb-10 justify-end gap-10 items-center flex-wrap'>
                         <div className="dashboard__notification flex gap-7 text-blue-500 justify-self-end">
-                            <i className="material-symbols-rounded cursor-pointer cursor-pointer">message</i>
+                            <i className="material-symbols-rounded cursor-pointer">message</i>
                             <Notification />
                         </div>
                         <div className=" dashboard__photo hidden lg:block rounded-full overflow-hidden w-10 h-10">

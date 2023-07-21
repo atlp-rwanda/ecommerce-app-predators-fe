@@ -16,21 +16,19 @@ import UpdateProduct from '../src/pages/UpdateProduct';
 import ProfilePage from './pages/profile/ProfilePage';
 import ViewProduct from './pages/viewProduct';
 import AdminViewUsersPage from './pages/AdminViewUsersPage';
-
 import Cart from './pages/cart/cartData';
-
-import LoginPage from "./pages/LoginPage";
 import CheckoutPage from './pages/checkout/CheckoutPage';
 import Payment_success from './pages/payment/Payment_success';
 import Payment_fail from './pages/payment/Payment_fail';
-import { ToastContainer } from "react-toastify";
+import LoginPage from './pages/LoginPage';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
-
 import NotFound from './pages/error/NotFound';
 import WishlistPage from './pages/WishlistPage';
 import Orders from './pages/buyer/Orders';
 
 
+import ProtectedRoute from '../src/utils/ProtectedRoute'
 function App() {
   return (
     <Router>
@@ -58,6 +56,41 @@ function App() {
         <Route path="/viewProduct/:id" element={<ViewProduct/>} /> 
 
         <Route path="/admin/users" element={<AdminViewUsersPage />} />
+        <Route path="/admin" element={
+          <ProtectedRoute>
+            <Admin />
+          </ProtectedRoute>
+        } />
+        <Route path="/search-product" element={<SearchProduct />} />
+        <Route path="/reset-password-page" element={<ResetPasswordPage />} />
+        <Route
+          path="/confirm-password-page"
+          element={<PasswordComfirmPage />}
+        />
+        <Route path="/two-factor" element={<TwoFactorAuth />} />
+        <Route path="/PopupMessage" element={<PopupMessage />} />
+        <Route path="/vendor" element={
+          <ProtectedRoute>
+            <VendorPage />
+          </ProtectedRoute>
+        } />
+        <Route path="/search-product" element={<SearchProduct />} />
+        <Route path="/profile" element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        } />
+        <Route path="/product/:id" element={<UpdateProduct />} />
+        <Route path="/viewProduct/:id" element={
+          <ProtectedRoute>
+            <ViewProduct />
+          </ProtectedRoute>
+        } />
+        <Route path="/admin/users" element={
+          <ProtectedRoute>
+            <AdminViewUsersPage />
+          </ProtectedRoute>
+        } />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route path="/login/fail" element={<LoginError />} />
@@ -71,6 +104,7 @@ function App() {
 
 
 
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ModalButton />
       <ToastContainer />

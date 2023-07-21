@@ -20,15 +20,25 @@ export default function VendorPage() {
                 </div>
               </div>
             </div>
-          </div>
-          <UserTable />
-          <div className="buttons_pagination flex text-sm font-light">
-            <button className='border p-2 text-center rounded-l-lg h-10'>Prev</button>
-            <button className='border-t border-b p-2 text-center h-10 w-10 current bg-slate-500'>1</button>
-            <button className='border p-2 text-center h-10 w-10'>2</button>
-            <p className='border-t border-b p-2 h-10 text-center w-10 inline-block'>...</p>
-            <button className='border-t border-b border-l p-2 text-center h-10 w-10'>40</button>
-            <button className='border p-2 text-center rounded-r-lg h-10'>Next</button>
+            <UserTable />
+            <div className="buttons_pagination flex text-sm font-light">
+              <button className="border p-2 text-center rounded-l-lg h-10">
+                Prev
+              </button>
+              <button className="border-t border-b p-2 text-center h-10 w-10 current bg-slate-500">
+                1
+              </button>
+              <button className="border p-2 text-center h-10 w-10">2</button>
+              <p className="border-t border-b p-2 h-10 text-center w-10 inline-block">
+                ...
+              </p>
+              <button className="border-t border-b border-l p-2 text-center h-10 w-10">
+                40
+              </button>
+              <button className="border p-2 text-center rounded-r-lg h-10">
+                Next
+              </button>
+            </div>
           </div>
         </div>
       </div>
