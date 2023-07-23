@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = 'https://ecommercepredators.onrender.com/';
+const API_URL = 'https://ecommercepredators.onrender.com';
 // const API_URL = 'http://localhost:3000';
 
 interface profileData {

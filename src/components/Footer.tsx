@@ -6,12 +6,12 @@ import headphone from '../assets/headphone.svg';
 
 function Footer() {
   return (
-    <div className="bg-blue-200 pos">
-      <div className="flex bg-white py-4 px-20 mx-6 rounded-lg xs:w-max gap-x-20 mt-10">
-        <h4 className="text-2xl font-bold text-customBlue mt-4">
+    <div className="bg-blue-200 pt-5">
+      <div className="flex flex-wrap bg-white py-4 px-20 mx-6 rounded-lg justify-center xl:justify-between gap-x-10">
+        <h4 className="text-2xl whitespace-nowrap font-bold text-customBlue mt-4">
           Subscribe Newsletter
         </h4>
-        <div className="relative flex mt-3">
+        <div className="relative flex mt-3 max-[780px]:w-[250px]">
           <input
             className="bg-[#EDA415] text-sm rounded-lg text-white px-4 py-2 w-80 h-10 placeholder-white"
             type="email"
@@ -24,7 +24,7 @@ function Footer() {
             <AiOutlineSend />
           </button>
         </div>
-        <div className="flex bg-white py-4 px-8 mx-6 rounded-lg xs:w-max gap-x-4 items-center mt-1">
+        <div className="flex whitespace-nowrap py-4 px-8 mx-6 rounded-lg xs:w-max gap-x-4 items-center mt-1">
           <img src={headphone} alt="" className="h-6" />
           <h6>
             Call Us: <span>(+25) 0785 7676 47</span>

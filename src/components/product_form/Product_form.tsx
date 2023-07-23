@@ -25,7 +25,7 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
   const [description, setDescr] = useState('');
   const [instock, setStock] = useState('');
   const [price, setPrice] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('0');
   const [available, setAvailabe] = useState(false);
   const [date, setDate] = useState('');
   const [isLoading, setLoading] = useState(false);
@@ -46,7 +46,7 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
     setPrice(e.target.value);
   }
   
-  function handleCategoryChange(e: ChangeEvent<HTMLInputElement>) {
+  function handleCategoryChange(e: ChangeEvent<HTMLSelectElement>) {
     setCategory(e.target.value);
   }
   
@@ -137,7 +137,7 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
     <div id='container_form' onClick={handleOnClose} className="container_form bg-black/30 h-screen w-full fixed inset-0 backdrop-blur-sm flex justify-center z-50 overflow-auto">
         <div className="add_product_form bg-white max-w-lg px-10 py-5 rounded-xl m-10 absolute">
             <div className="form__header flex flex-col">
-                <i onClick={handleOnClose} id='cancel_btn' className="cancel_btn cursor-pointer material-symbols-rounded cursor-pointer self-end">cancel</i>
+                <i onClick={handleOnClose} id='cancel_btn' className="cancel_btn material-symbols-rounded cursor-pointer self-end">cancel</i>
                 <p className="title font-light text-center mb-8 text-xl">New Product</p>
             </div>
             <form className='flex flex-col gap-5 font-light'>
@@ -149,7 +149,17 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
                     <input className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 placeholder:font-light placeholder:text-gray-600/80 p-2 pl-4' type="number" onChange={handlePriceChange} value={price} placeholder='Product Price' name="price" id="" />
                     <input className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 placeholder:font-light placeholder:text-gray-600/80 p-2 pl-4' type="number" onChange={handleStockChange} value={instock} placeholder='Instock' name="stock" id="" />
                 </div>
-                <input className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 placeholder:font-light placeholder:text-gray-600/80 p-2 pl-4' type="number" onChange={handleCategoryChange} value={category} placeholder='Product Category' name="category" id="" />
+                <select className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 p-2 pl-4' onChange={handleCategoryChange} defaultValue="0" name="category" id="" >
+                  <option value="0">Select Product Category</option>
+                  <option value="1">Electronics</option>
+                  <option value="2">Headphones</option>
+                  <option value="3">Gaming</option>
+                  <option value="4">Phone accessories</option>
+                  <option value="5">Phones</option>
+                  <option value="6">Computers</option>
+                  <option value="7">Tablets</option>
+                  <option value="8">Home appliances</option>
+                </select>
                 <input className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 placeholder:font-light placeholder:text-gray-600/80 p-2 pl-4' type="date" onChange={handleDateChange} value={date} placeholder='Expiry Date' name="expiry_date" id="" />
                 <select className='focus:outline-none shadow-md h-12 border border-black/10 rounded-lg outline-0 font-light text-gray-600/80 p-2 pl-4' name="availability" onChange={handleAvailabilityChange} value={available ? 'true' : 'false'} id="">
                     <option value="true">Available</option>

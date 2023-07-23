@@ -5,11 +5,10 @@ export default {
   testEnvironment: 'jsdom',
   moduleNameMapper: {
     '\\.(css|less|scss)$': 'identity-obj-proxy',
-    "\\.(jpg|jpeg|png|gif|svg)$": "identity-obj-proxy",
   },
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
   },
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
+  collectCoverageFrom: ['src/redux/action/*.{js,jsx,ts,tsx}'],
 };
