@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import NavHeader from '../../components/buyerHeader/HeaderNav';
+import NavHeader from '../../components/navigation/Navigation';
 import HeadPhones from '../../assets/images/headphone.png';
 import Send from '../../assets/images/send-2.png';
 import { useState, useEffect } from 'react';
@@ -84,11 +84,7 @@ const ResponsiveTable = () => {
   return (
     <>
       <div className="fixed top-0 w-full z-10">
-        <NavHeader
-          onSearchText={function (_text: string): void {
-            throw new Error('Function not implemented.');
-          }}
-        />
+        <NavHeader/>
       </div>
       <div className="container mx-auto mt-52">
         <div className="grid grid-cols-6 sm:grid-cols-2 lg:grid-cols-7 gap-2 mt-2">
