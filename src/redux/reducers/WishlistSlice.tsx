@@ -5,7 +5,6 @@ import {
   addToWishList,
 } from '../action/WishlistAction';
 import { toast } from 'react-toastify';
-
 const wishlistSlice = createSlice({
   name: 'wishlist',
   initialState: {
@@ -69,5 +68,4 @@ const wishlistSlice = createSlice({
       });
   },
 });
-
 export default wishlistSlice.reducer;
