@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -7,8 +6,6 @@ import { searchProductsByFilter } from '../redux/action/SearchAction';
 import Sidebar from '../components/userSidebar/Sidebar';
 import { Card } from './../components/cardComponent/Card';
 import NavHeader from '../components/buyerHeader/HeaderNav';
-import { Link, Route, Routes } from 'react-router-dom';
-import ViewProduct from './viewProduct';
 
 interface Product {
   id: number;
@@ -16,6 +13,7 @@ interface Product {
   price: string;
   aggregate_rating: undefined;
   picture_urls: string[];
+  rating:string;
 }
 
 interface SearchCriteria {
@@ -90,8 +88,8 @@ function SearchProductPage() {
   return (
     <div className="font-Poppins">
       <NavHeader onSearchText={handleSearchText} />
-      <div className="grid grid-cols-7 container">
-        <div className="col-span-1 ml-2 mt-5">
+      <div className="grid grid-cols-1 md:grid-cols-7 container mx-auto ">
+          <div className="hidden md:block col-span-1 ml-2 mt-5">
           <div className="flex justify-between">
             <div className="text-primary font-semibold">Categories</div>
             <div className="text-gray-500">Reset</div>
@@ -100,45 +98,41 @@ function SearchProductPage() {
         </div>
         <div className="col-span-1 md:col-span-6 mx-4 md:ml-6 mt-10">
           {filteredProducts.length > 0 ? (
-         <div className="grid grid-cols-3 gap-3 mt-8 mx-20">
-         {filteredProducts.map((product: Product) => (
-          <Link  to={`/viewProduct/${product.id}`} key={product.id}>
-           <Card
-             key={product.id}
-             name={product.name}
-             price={product.price}
-             picture_urls={product.picture_urls}
-             id={product.id}
-             rating={"0"}
-           />
-           </Link>
-         ))}
-         <Routes>
-          <Route path="/viewProduct/:id" element={<ViewProduct />} />
-          </Routes>
-       </div>
-
+            <div className="grid grid-cols-1 mt-36 mx-20 md:grid-cols-3 gap-6">
+              {filteredProducts.map((product: Product) => (
+                <Card
+                key={product.id}
+                name={product.name}
+                price={product.price}
+                picture_urls={product.picture_urls}
+                id={product.id}
+                rating={"0"}
+                />
+              ))}
+            </div>
           ) : (
             <p className="text-tertiary text-3xl font-Poppins text-center mt-10">
               No results found.
             </p>
           )}
-        </div>
 
-        <div className="col-span-6 ml-6 mt-44">
           {isSearchPerformed && searchProduct?.related && (
-            <div className="grid grid-cols-3 gap-3 mt-8 mx-20 ml-72 ">
-              <h2 className="text-2xl font-bold mb-4">You may also like</h2>
-              {searchProduct.related.map((product: Product) => (
-                <Card
+            <div>
+              <div className="text-center">
+                <h1 className="text-2xl font-bold mt-8">You may also like</h1>
+              </div>
+              <div className="grid grid-cols-1 mt-36 mx-20 md:grid-cols-3 gap-6">
+                {searchProduct.related.map((product: Product) => (
+                  <Card
                   key={product.id}
                   name={product.name}
                   price={product.price}
                   picture_urls={product.picture_urls}
                   id={product.id}
                   rating={"0"}
-                />
-              ))}
+                  />
+                ))}
+              </div>
             </div>
           )}
         </div>
