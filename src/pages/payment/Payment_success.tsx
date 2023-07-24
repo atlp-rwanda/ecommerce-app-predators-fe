@@ -1,19 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import {
+  DecodedToken,
+  decryptToken,
+  getTokenFromLS,
+} from '../../utils/token_funcs';
 const Payment_success = () => {
   const navigate = useNavigate();
-
+  const [token] = useState<DecodedToken | null>(() =>
+    decryptToken(getTokenFromLS, 'token')
+  );
   useEffect(() => {
+    fetch(
+      `https://ecommercepredators.onrender.com/api/pay/success/?id=${token?.id}`
+    )
+      .then((response) => response.json())
+      .then((data) => console.log(data));
     const timeout = setTimeout(() => {
       navigate('/');
     }, 5000);
-
     return () => {
       clearTimeout(timeout);
     };
-  }, [navigate]);
-
+  }, [navigate, token]);
   return (
     <div className="bg-gray-100">
       <div className="flex flex-col items-center justify-center min-h-screen">
@@ -47,5 +56,4 @@ const Payment_success = () => {
     </div>
   );
 };
-
 export default Payment_success;

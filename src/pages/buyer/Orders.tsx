@@ -1,27 +1,27 @@
 import { useState, useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Dialog, Transition } from '@headlessui/react';
-import moment, { Moment } from 'moment'; 
+import moment, { Moment } from 'moment';
 import { OrdersAction, getByIdOrdersAction } from '../../redux/action/OrdersAction';
 import Review from '../../components/review/review';
 import { Navigation } from "../../components";
 
 interface Product {
-  id:number;
+  id: number;
   name: string | number | null | undefined;
   quantity: number | null | undefined;
   subtotal: number | null | undefined;
 }
 
 interface OrdersData {
-  data: Order[] | null | undefined;  
+  data: Order[] | null | undefined;
   message: string | undefined;
 }
 
 interface BillingInfo {
   country: string | null | undefined;
   street_address: string | number | null | undefined;
-  town: string  | null | undefined;
+  town: string | null | undefined;
   state: string | null | undefined;
   email: string | null | undefined;
   post_code: string | null | undefined;
@@ -29,27 +29,27 @@ interface BillingInfo {
 
 interface Order {
   id: number;
-  data: OrdersData; 
+  data: OrdersData;
   products_info: Product[];
   billing_info: BillingInfo;
   createdAt: Moment;
   total: number;
-  status: 'pending' | 'completed';
+  status: 'pending' | 'paid';
 }
 
 function Orders() {
   let [isOpen, setIsOpen] = useState(false);
-  const [viewOrder, setViewOrder] = useState<Order | null>(null); 
+  const [viewOrder, setViewOrder] = useState<Order | null>(null);
   const [orders, setOrders] = useState<Order[]>([]);
 
   const dispatch = useDispatch();
 
   const ordersListing = useSelector((state: Order[] | any) => state.orders.data.order);
- 
+
   useEffect(() => {
     setOrders(ordersListing || []);
   }, [ordersListing]);
- 
+
 
   useEffect(() => {
     dispatch(OrdersAction() as any);
@@ -59,33 +59,33 @@ function Orders() {
     if (isOpen) {
       setIsOpen(false);
       window.location.reload();
-    } else { 
+    } else {
       setIsOpen(true);
     }
   }
 
-    const handleModal = (id: number) => {
-      dispatch(getByIdOrdersAction({ orderId: id }) as any).then((response: any) => {
-        setViewOrder(response.payload.data.order.order);
-        handleModelState()
-        setOrders(ordersListing);
-      });
-    };
+  const handleModal = (id: number) => {
+    dispatch(getByIdOrdersAction({ orderId: id }) as any).then((response: any) => {
+      setViewOrder(response.payload.data.order.order);
+      handleModelState()
+      setOrders(ordersListing);
+    });
+  };
 
   return (
     <>
-    <Navigation />
+      <Navigation />
       <div className="flex flex-col ">
         <div className="flex-1 p-3 font-semibold text-sm text-gray-600">
           <div className="flex gap-2 justify-start">
             <div className="">Home</div>
             <div className="text-center">
-              <i className="material-symbols-rounded">arrow_forward_ios</i> 
+              <i className="material-symbols-rounded">arrow_forward_ios</i>
             </div>
             <div className="">My orders</div>
           </div>
         </div>
-        {orders.length > 0 ? 
+        {orders.length > 0 ?
           <div className="relative overflow-x-auto lg:m-[70px] mt-0">
             <table className="w-full text-sm text-left text-black">
               <thead className="text-xs uppercase bg-[#E2F4FF] border-none">
@@ -105,7 +105,7 @@ function Orders() {
                   <th></th>
                 </tr>
               </thead>
-              <tbody>  
+              <tbody>
                 {orders.map((order: Order) => (
                   <tr
                     key={order.id}
@@ -131,8 +131,8 @@ function Orders() {
                           shopping_bag
                         </i>
                         <span
-                          className="hidden lg:block md:block mt-1" 
-                            
+                          className="hidden lg:block md:block mt-1"
+
                         >
                           View details
                         </span>
@@ -190,9 +190,9 @@ function Orders() {
                                       Subtotal: {product?.subtotal} USD
                                     </p>
                                   </div>
-                                    {viewOrder?.status === 'pending' && (
-                                      <Review id={product?.id} />
-                                    )}
+                                  {viewOrder?.status === 'paid' && (
+                                    <Review id={product?.id} />
+                                  )}
                                 </div>
                               ))}
                               <div className="flex flex-col">
@@ -240,13 +240,13 @@ function Orders() {
                               </div>
                             </>
                           )}
-                          {viewOrder?.status === 'completed' && (
+                          {viewOrder?.status === 'paid' && (
                             <>
-                              <div className="bg-green-600 text-white px-3 rounded-full py-1 flex">
-                                <i className="material-symbols-rounded">done</i> Pending
+                              <div className="bg-gray-200 text-gray-400 px-3 rounded-full py-1 flex">
+                                <i className="material-symbols-rounded"></i>Pending
                               </div>
                               <div className="bg-green-600 text-white px-3 rounded-full py-1 flex">
-                                <i className="material-symbols-rounded">done</i> Pending
+                                <i className="material-symbols-rounded">done</i> Paid
                               </div>
                             </>
                           )}
@@ -265,9 +265,9 @@ function Orders() {
           <div className="text-center p-5 font-bold ">
             <h1>No orders found</h1>
           </div>
-      }
+        }
 
-    </div>
+      </div>
     </>
   );
 }

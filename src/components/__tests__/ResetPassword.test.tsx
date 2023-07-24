@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
-import { resetPassword} from '../../redux/action/UserAction';
+import { resetPassword } from '../../redux/action/UserAction';
 import configureStore, { MockStoreEnhanced } from 'redux-mock-store';
 import thunk, { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
