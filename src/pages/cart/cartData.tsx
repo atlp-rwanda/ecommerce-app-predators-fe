@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import NavHeader from '../../components/navigation/Navigation';
-import HeadPhones from '../../assets/images/headphone.png';
-import Send from '../../assets/images/send-2.png';
+import Footer from '../../components/Footer';
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -11,7 +10,9 @@ import {
   deleteAllCarts,
   updateCartQuantity,
 } from '../../redux/action/cartAction';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 interface CartItem {
   [x: string]: any;
@@ -26,7 +27,7 @@ interface CartItem {
 }
 
 const ResponsiveTable = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<ThunkDispatch<any, any, AnyAction>>();
   const [, setQuantities] = useState<number[]>([]);
   useEffect(() => {
     dispatch(getAllCarts() as any);
@@ -51,44 +52,47 @@ const ResponsiveTable = () => {
   }, [carts]);
 
   const handleQuantityChange = (index: number, newQuantity: number) => {
-    const updatedCart = { ...carts };
-    const updatedData = [...updatedCart.data.data]; // Create a copy of the data array
-
-    // Create a copy of the cart item and update the quantity property
+    // Create a copy of the data array
+    const updatedData = [...carts.data.data];
     const updatedCartItem = { ...updatedData[index] };
     updatedCartItem.quantity = newQuantity;
-
-    updatedData[index] = updatedCartItem; // Replace the cart item in the data array
-    updatedCart.data.data = updatedData; // Replace the data array in the cart object
-
-    /* setCart(updatedCart); */
+    updatedData[index] = updatedCartItem;
+    dispatch(
+      updateCartQuantity({
+        id: updatedCartItem.product_id,
+        quantity: newQuantity,
+      })
+    );
   };
 
-  const handleQuantityIncrement = (cartId: number, index: number) => {
+  const handleQuantityIncrement = (productId: number, index: number) => {
     const newQuantity = Math.max(0, carts.data.data[index].quantity + 1);
     handleQuantityChange(index, newQuantity);
-    dispatch(updateCartQuantity({ id: cartId, quantity: newQuantity }) as any);
+    dispatch(
+      updateCartQuantity({ id: productId, quantity: newQuantity }) as any
+    );
   };
 
-  const handleQuantityDecrement = (cartId: number, index: number) => {
+  const handleQuantityDecrement = (productId: number, index: number) => {
     const newQuantity = Math.max(0, carts.data.data[index].quantity - 1);
     handleQuantityChange(index, newQuantity);
-    dispatch(updateCartQuantity({ id: cartId, quantity: newQuantity }) as any);
+    dispatch(
+      updateCartQuantity({ id: productId, quantity: newQuantity }) as any
+    );
   };
 
   const handleDeleteAllCarts = () => {
     dispatch(deleteAllCarts() as any);
   };
 
- 
   return (
     <>
       <div className="fixed top-0 w-full z-10">
-        <NavHeader/>
+        <NavHeader />
       </div>
       <div className="container mx-auto mt-52">
-        <div className="grid grid-cols-6 sm:grid-cols-2 lg:grid-cols-7 gap-2 mt-2">
-          <div className="col-span-5 sm:col-span-5 lg:col-span-5">
+        <div className="grid grid-cols-6 max-sm:grid-cols-1 sm:grid-cols-1  lg:grid-cols-7 gap-2 mt-2 mb-5">
+          <div className="col-span-5 sm:col-span-5 max-sm:w-[90%] max-sm:mx-auto max-sm:overflow-x-auto lg:col-span-5">
             <table className="min-w-full divide-y divide-gray-200 bg-secondary font-Poppins">
               <thead>
                 <tr>
@@ -115,9 +119,9 @@ const ResponsiveTable = () => {
                   .slice(0, -1)
                   .map((cart: CartItem, index: number) => (
                     <tr key={cart.id}>
-                      <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-2 whitespace-nowrap">
                         <div className="flex items-center">
-                          <div className="flex-shrink-0 h-fit w-32">
+                          <div className="flex-shrink-0 h-fit w-16">
                             {cart.product &&
                               cart.product.picture_urls &&
                               cart.product.picture_urls[0] && (
@@ -143,7 +147,7 @@ const ResponsiveTable = () => {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <button
-                            className="px-2 py-1 rounded-md border border-gray-300"
+                            className="px-2 py-1 rounded-md hover:bg-gray-200 border border-gray-300"
                             onClick={() =>
                               handleQuantityDecrement(cart.id, index)
                             }
@@ -162,7 +166,7 @@ const ResponsiveTable = () => {
                             }
                           />
                           <button
-                            className="px-2 py-1 rounded-md border border-gray-300"
+                            className="px-2 py-1 rounded-md hover:bg-gray-200 border border-gray-300"
                             onClick={() =>
                               handleQuantityIncrement(cart.id, index)
                             }
@@ -176,7 +180,8 @@ const ResponsiveTable = () => {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <button
-                          className="text-red-400 font-semibold border border-red-400 px-5 py-2 rounded-full"
+                          className="text-red-400 font-semibold border border-red-400 px-5 py-2
+                           rounded-full  hover:bg-red-400 hover:text-white duration-500"
                           onClick={() => dispatch(deleteCart(cart.id) as any)}
                         >
                           delete
@@ -186,10 +191,14 @@ const ResponsiveTable = () => {
                   ))}
               </tbody>
             </table>
-            <div className="mx-16 flex justify-between">
-              <button className="bg-tertiary text-white font-semibold p-2 rounded-full">
-                continue shopping
-              </button>
+            <div className="mx-16 flex justify-center space-x-16 my-6">
+              <NavLink
+                to="/"
+                className="bg-tertiary hover:bg-yellow-400 duration-500 text-white font-semibold py-2 px-4 rounded-full"
+              >
+                Continue Shopping
+              </NavLink>
+
               <div className="flex flex-col">
                 <div className="flex justify-between text-lg mx-5 font-semibold">
                   {/*   <label className="">Total Amount: </label>
@@ -197,7 +206,8 @@ const ResponsiveTable = () => {
                 </div>
               </div>
               <button
-                className="text-red-400 font-semibold border border-red-400 px-5 py-2 rounded-full"
+                className="text-red-400 font-semibold border border-red-400
+                 hover:bg-red-400 hover:text-white px-5 py-2 rounded-full duration-500"
                 onClick={handleDeleteAllCarts}
               >
                 clean cart
@@ -211,10 +221,10 @@ const ResponsiveTable = () => {
             </div>
             <div className="flex justify-between mx-5 font-semibold">
               <label>Subtotal</label>
-              <label>{}</label>
+              <label>${}</label>
             </div>
             <hr className="mx-5 mt-4" />
-            <div>
+            <div className="h-fit">
               <form className="mt-4 flex justify-between mx-4">
                 <div className="relative flex-grow">
                   <input
@@ -251,42 +261,18 @@ const ResponsiveTable = () => {
               </div>
               <div className="flex mx-5">
                 <Link to="/checkout">
-                <button
-                  type="submit"
-                  className="bg-tertiary w-full text-white py-3 rounded-2xl mb-5 font-semibold"
-                >
-                  Proceed to checkout
-                </button>
+                  <button
+                    type="submit"
+                    className="bg-tertiary w-full text-white py-2 px-4 rounded-2xl mb-5 font-semibold"
+                  >
+                    Proceed to checkout
+                  </button>
                 </Link>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="bg-secondary p-10 w-full mt-10">
-          <div className="bg-white flex justify-between mx-10 h-20 rounded-2xl shadow-bottom">
-            <div className="h-20 flex justify-between w-full mx-10 py-4">
-              <label className="ml-10 text-primary font-bold font-Poppins text-xl pt-2">
-                Subscribe newsletter
-              </label>
-              <div className="bg-tertiary text-white px-5 pb-2 rounded-full flex items-center w-52">
-                <label className="pt-2">Email address</label>
-                <img
-                  src={Send}
-                  alt="send"
-                  className="w-5 ml-auto mt-2 cursor-pointer"
-                />
-              </div>
-              <div className="span-col-2 mr-1 flex">
-                <img src={HeadPhones} alt="headset" className="w-6 pt-2" />
-
-                <label className="mt-3 mx-2">Call us 24/7:</label>
-                <br />
-                <label className="mt-3">(+250) 785 767 647</label>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div>{' '}
+        <Footer />
       </div>
     </>
   );
