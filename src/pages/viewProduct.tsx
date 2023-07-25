@@ -1,6 +1,3 @@
-/* eslint-disable no-irregular-whitespace */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -10,16 +7,15 @@ import StaticReview from '../components/StaticReview';
 import { FaCheck } from 'react-icons/fa';
 import Navigation from '../components/navigation/Navigation';
 
-
 function ViewProduct() {
   const { id } = useParams(); // Get the product ID from the URL params
   const selectedProduct = useSelector(
-    (state: any) => state.CollectionProducts.data
+    (state: any) => state.CollectionProducts?.data
   );
-  console.log(selectedProduct)
+  console.log('######: ', selectedProduct);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchProductById(id) as any); // Dispatch the fetchProductById action with the product ID
+    dispatch(fetchProductById(id) as any);
   }, [dispatch, id]);
   if (!selectedProduct) {
     return <p>Product loading....</p>;
@@ -32,11 +28,15 @@ function ViewProduct() {
           <div className="flex gap-2 justify-start">
             <div className="">Home</div>
             <div className="text-center mt-1">
-              <i className="material-symbols-rounded cursor-pointer">arrow_forward_ios</i>
+              <i className="material-symbols-rounded cursor-pointer">
+                arrow_forward_ios
+              </i>
             </div>
             <div className="">All categories</div>
             <div className="text-center mt-1">
-              <i className="material-symbols-rounded cursor-pointer">arrow_forward_ios</i>
+              <i className="material-symbols-rounded cursor-pointer">
+                arrow_forward_ios
+              </i>
             </div>
             <div className="">{selectedProduct?.data?.item?.name}</div>
           </div>
@@ -83,16 +83,12 @@ function ViewProduct() {
               </div>
               <AddToCart />
             </div>
-
           </div>
 
           <StaticReview src={selectedProduct?.data?.item?.review} />
         </div>
-
       </div>
     </>
   );
 }
 export default ViewProduct;
-
-// console.log('fixing')
