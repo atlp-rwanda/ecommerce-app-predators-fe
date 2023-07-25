@@ -1,5 +1,5 @@
 /* eslint-disable no-irregular-whitespace */
-export default function staticReview(props: { src: string | undefined }) {
+export default function staticReview(props: { src: string | undefined, review: string }) {
   return (
     <>
       <div className="flex flex-col gap-10 md:flex-row lg:flex-row justify-center">
@@ -43,7 +43,7 @@ export default function staticReview(props: { src: string | undefined }) {
       </div>
       <div className=" lg:rounded lg:border lg:border-gray-300  lg:px-20 lg:mx-40 lg:my-10 md:h-32 md:rounded md:border md:border-gray-300  ">
         <h1 className="text-primary font-semibold mt-3">Customer Reviews</h1>
-        <p className="text-sm text-gray-500 py-3">No Review yet</p>
+        <p className="text-sm text-gray-500 py-3">{props.review}</p>
       </div>
 
     </>
