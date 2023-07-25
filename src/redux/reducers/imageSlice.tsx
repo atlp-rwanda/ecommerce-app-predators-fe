@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 
 const imageSlice = createSlice({
     name: 'images',
-    initialState: {images: []},
+    initialState: {images: []} as {images: string[]},
     reducers: {
-        setImages :(state, action) => {
+        setImages :(state, action: PayloadAction<string[]>) => {
             state.images = action.payload;
         }
     },

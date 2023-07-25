@@ -9,6 +9,28 @@ const HomeProducts = useSelector((state: {HomeProducts: {data: {products: Produc
   const [products, setProducts] = useState<Product[]>([]);
   const [category, setCategory] = useState<string | null>("All");
   const [categories, setCategories] = useState<Array<number | string>>([]);
+  const [columns, setColumns] = useState(3);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Update windowWidth state when the window is resized
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const padding = windowWidth * 0.14
+    setColumns(Math.floor((windowWidth-padding)/240))
+  }, [windowWidth])
 
   const handleCategoryChange= (event: MouseEvent<HTMLButtonElement>) => {
     const currentTarget = event.currentTarget;
@@ -67,7 +89,7 @@ const HomeProducts = useSelector((state: {HomeProducts: {data: {products: Produc
           })}
         </div>
       </div>
-      <div className="flex gap-5 mt-8 justify-evenly flex-wrap">
+      <div className={`grid grid-cols-${columns} gap-4 mt-8`}>
         {
           products.map((product: Product, index) => (
             <Card

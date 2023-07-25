@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, SetStateAction, useEffect, ChangeEvent } from 'react';
+import { useState, SetStateAction, useEffect, ChangeEvent, MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { updateProduct, getProductById } from '../redux/action/UpdateProduct';
-import { Link, useParams } from 'react-router-dom'; 
+import { Link, useParams } from 'react-router-dom';
+import { MultipleFilesUpload } from '../components';
+import { setImages } from '../redux/reducers/imageSlice';
 import Layout from '../Layout';
 
 interface ProductTypes {
@@ -12,6 +14,7 @@ interface ProductTypes {
   description: string;
   price: number;
   picture_urls: string[];
+  category_id: number;
   available: boolean;
   expiryDate: string;
   instock: number;
@@ -25,37 +28,29 @@ export default function UpdateProduct() {
   const [uname, setName] = useState(product?.data?.item.name);
   const [udescription, setDescription] = useState(product?.data?.item.description);
   const [uprice, setPrice] = useState(product?.data?.item.price);
+  const images = useSelector((state: {imageStore: {images: string[]}}) => state.imageStore.images);
   const [upicture_urls, setPicture_urls] = useState<string[]>([product?.data?.item.picture_urls]);
   const [uavailable, setAvailable] = useState(product?.data?.item.available);
   const [uinstock, setInstock] = useState(product?.data?.item.instock);
   const [uexpiryDate, setExpiryDate] = useState(product?.data?.item.expiryDate);
+  const [category, setCategory] = useState(product?.data?.item.category_id)
 
 
-  const productData = {
-    id: Number(id),
-    name: uname,
-    description: udescription,
-    price: uprice,
-    picture_urls: upicture_urls,
-    available: uavailable,
-    instock: uinstock,
-    expiryDate: uexpiryDate,
-  };
-
+  const handleDeleteImage = (e: MouseEvent<HTMLElement>) => {
+    const currentTarget = e.target as HTMLElement
+    setPicture_urls(imgs => imgs.filter(img => img !== currentTarget.dataset.url))
+  }
 
   const handleName = (e: ChangeEvent<HTMLInputElement>) => {
     setName(() => e.target.value)
   };
-
+  const handleCategory = (e: ChangeEvent<HTMLSelectElement>) => {
+    setCategory(() => e.target.value)
+  };
   const handleDescription = (e: {
     target: { value: SetStateAction<string> };
   }) => {
     setDescription(e.target.value);
-  };
-
-  const handlePictureUrls = (e: { target: { value: string } }) => {
-    const urls = e.target.value.split(','); // Split the value using a delimiter (e.g., comma)
-    setPicture_urls(urls);
   };
 
   const handlePrice = (e: { target: { value: string } }) => {
@@ -72,8 +67,7 @@ export default function UpdateProduct() {
     setInstock(value);
   };
   const handleAvailable = (e: { target: { value: string } }) => {
-    const value = JSON.parse(e.target.value);
-    setAvailable(value);
+    setAvailable(e.target.value === "true");
   };
 
 
@@ -85,6 +79,8 @@ export default function UpdateProduct() {
       setPicture_urls(res?.payload?.data?.item?.picture_urls);
       setAvailable(res?.payload?.data?.item?.available);
       setInstock(res?.payload?.data?.item?.instock);
+      setCategory(res?.payload?.data?.item?.category_id);
+      dispatch(setImages([]));
       setExpiryDate(res?.payload?.data?.item?.expiryDate.slice(0, 10));
     });
   }, [dispatch, id]);
@@ -94,19 +90,31 @@ export default function UpdateProduct() {
   const handleSubmit = async (e: any) => {
     try {
       e.preventDefault();
-      await dispatch(updateProduct(productData as ProductTypes) as any);
-      console.log(productData)
-      toast.success('Updated successfully');
-      setLoading(true);
 
-      setName('');
-      setDescription('');
-      setPrice(0);
-      setPicture_urls([]);
-      setAvailable('');
-      setInstock(0);
-      setExpiryDate(new Date());
-      window.location.replace('/vendor');
+      const productData = {
+        id: Number(id),
+        name: uname,
+        description: udescription.length>254?udescription.slice(0,255): udescription,
+        price: uprice,
+        picture_urls: [...images, ...upicture_urls],
+        available: uavailable,
+        instock: uinstock,
+        category_id: category,
+        expiryDate: uexpiryDate,
+      };
+      await dispatch(updateProduct(productData as ProductTypes) as any);
+      setLoading(true);
+      setTimeout(() => {
+        setName('');
+        setDescription('');
+        setPrice(0);
+        setPicture_urls([]);
+        setAvailable('');
+        setCategory(0);
+        setInstock(0);
+        setExpiryDate(new Date());
+        window.location.replace('/vendor')
+      }, 3000)
     } catch (error) {
       console.log(error);
       toast.error('Error updating');
@@ -171,7 +179,7 @@ export default function UpdateProduct() {
                   value={uprice}
                   onChange={handlePrice}
                   placeholder="Price"
-                  className=" p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className=" p-2 h-10 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
               <div className="mt-2">
@@ -180,14 +188,14 @@ export default function UpdateProduct() {
                   value={uinstock}
                   onChange={handleInstock}
                   placeholder="Instock"
-                  className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="p-2 h-10 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
               <div className="mt-2">
                 <select
-                  value={uavailable}
+                  value={uavailable? "true" : "false"}
                   onChange={handleAvailable}
-                  className="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="p-2 h-10 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 >
                   <option value="true">Available</option>
                   <option value="false">Not Available</option>
@@ -206,15 +214,29 @@ export default function UpdateProduct() {
                 className=" p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
-            <div className="mt-2">
-              <input
-                type="url"
-                value={upicture_urls}
-                onChange={handlePictureUrls}
-                placeholder="Image Urls"
-                className=" p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              />
+            {upicture_urls?.length? <p className=' mt-2 font-Poppins'>Existing Images</p> : ""}
+            <div className='mb-2 flex gap-4 flex-wrap'>
+              {
+                upicture_urls.map((pic, idx) => (
+                  <div className=" border rounded-lg mt-2 relative" key={`${idx}`}>
+                    <img src={pic} alt="" className=' w-20 h-20 rounded-lg overflow-hidden' />
+                    <span className='material-symbols-rounded rounded-full border border-red-400 text-red-400 absolute -right-3 -top-3 cursor-pointer' data-url={`${pic}`} onClick={handleDeleteImage}>close</span>
+                  </div>
+                ))
+              }
             </div>
+            <MultipleFilesUpload/>
+            <select className=' mt-2 focus:outline-none shadow-md h-10 border border-black/10 rounded-lg outline-0 p-2 pl-4' onChange={handleCategory} defaultValue={`${category < 9? category: "0"}`} name="category" id="" >
+              <option value="0">Select Product Category</option>
+              <option value="1">Electronics</option>
+              <option value="2">Headphones</option>
+              <option value="3">Gaming</option>
+              <option value="4">Phone accessories</option>
+              <option value="5">Phones</option>
+              <option value="6">Computers</option>
+              <option value="7">Tablets</option>
+              <option value="8">Home appliances</option>
+            </select>
 
             <Link
               to={`/vendor`}

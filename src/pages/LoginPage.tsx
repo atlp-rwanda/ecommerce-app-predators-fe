@@ -41,7 +41,7 @@ const LoginPage = () => {
         setPassword('');
       })
       .catch(() => {
-        console.log(status);
+        // console.log(status);
       });
   };
 

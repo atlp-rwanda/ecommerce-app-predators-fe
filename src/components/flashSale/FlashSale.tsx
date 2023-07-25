@@ -15,7 +15,7 @@ export default function FlashSale() {
         newProducts.push(HomeProducts[index]);
       }
       setProducts(newProducts);
-      randomNumber %= newProducts.length
+      randomNumber %= newProducts.length - 1
     }
   }, [HomeProducts]);
   return (

@@ -16,7 +16,7 @@ function ViewProduct() {
   const selectedProduct = useSelector(
     (state: any) => state.CollectionProducts.data
   );
-  console.log(selectedProduct)
+  // console.log(selectedProduct)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProductById(id) as any); // Dispatch the fetchProductById action with the product ID
