@@ -67,13 +67,17 @@ const LoginPage = () => {
 
   // Redirect the user to the appropriate page based on their role
   if (loginWithGoogle) return <Navigate to="/" />;
-  if (role) {
+  if (role ===0 || role) {
     if (role === 2) {
       return <Navigate to="/" />;
-    } else if (role === 1) {
+    } else if (role === 0) {
+      return <Navigate to="/admin" />;
+    }
+    else{
       return <Navigate to="/vendor" />;
     }
   }
+  
 
   // Helper functions
   const isValidEmail = (email: string) => {
