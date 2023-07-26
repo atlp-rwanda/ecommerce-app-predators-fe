@@ -3,7 +3,7 @@ import { login } from '../action/authAction';
 import { RootState } from '../store/Store';
 
 interface authState {
-  role: 2 | 1 | null;
+  role: 2 | 1 | 0|null;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }

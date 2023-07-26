@@ -27,8 +27,7 @@ import NotFound from './pages/error/NotFound';
 import WishlistPage from './pages/WishlistPage';
 import Orders from './pages/buyer/Orders';
 
-
-import ProtectedRoute from '../src/utils/ProtectedRoute'
+import ProtectedRoute from '../src/utils/ProtectedRoute';
 function App() {
   return (
     <Router>
@@ -37,31 +36,16 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/product-page" element={<ProductPage />} />
         <Route path="/register-page" element={<RegisterPage />} />
-        <Route path="/reset-password-page" element={<ResetPasswordPage />} />
-        <Route
-          path="/confirm-password-page"
-          element={<PasswordComfirmPage />}
-        />
-
-        <Route path="/admin" element={<Admin />} />
         <Route path="/search-product" element={<SearchProduct />} />
-        <Route path="/two-factor" element={<TwoFactorAuth />} />
-        <Route path="/PopupMessage" element={<PopupMessage />} />
-        <Route path="/vendor" element={<VendorPage />} />
-
         <Route path="/my/orders" element={<Orders />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/product/:id" element={<UpdateProduct />} />
-
-        <Route path="/viewProduct/:id" element={<ViewProduct/>} /> 
-
-        <Route path="/admin/users" element={<AdminViewUsersPage />} />
-        <Route path="/admin" element={
-          <ProtectedRoute>
-            <Admin />
-          </ProtectedRoute>
-        } />
-        <Route path="/search-product" element={<SearchProduct />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/reset-password-page" element={<ResetPasswordPage />} />
         <Route
           path="/confirm-password-page"
@@ -69,41 +53,46 @@ function App() {
         />
         <Route path="/two-factor" element={<TwoFactorAuth />} />
         <Route path="/PopupMessage" element={<PopupMessage />} />
-        <Route path="/vendor" element={
-          <ProtectedRoute>
-            <VendorPage />
-          </ProtectedRoute>
-        } />
-        <Route path="/search-product" element={<SearchProduct />} />
-        <Route path="/profile" element={
-          <ProtectedRoute>
-            <ProfilePage />
-          </ProtectedRoute>
-        } />
+        <Route
+          path="/vendor"
+          element={
+            <ProtectedRoute>
+              <VendorPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/product/:id" element={<UpdateProduct />} />
-        <Route path="/viewProduct/:id" element={
-          <ProtectedRoute>
-            <ViewProduct />
-          </ProtectedRoute>
-        } />
-        <Route path="/admin/users" element={
-          <ProtectedRoute>
-            <AdminViewUsersPage />
-          </ProtectedRoute>
-        } />
+        <Route
+          path="/viewProduct/:id"
+          element={
+            <ProtectedRoute>
+              <ViewProduct />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <ProtectedRoute>
+              <AdminViewUsersPage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/login/success" element={<LoginSuccess />} />
         <Route path="/login/fail" element={<LoginError />} />
         <Route path="/login" element={<LoginPage />} />
-
-        <Route path="*" element={<NotFound />} />
         <Route path="/checkout" element={<CheckoutPage />} />
-        <Route path='/payment/success' element={<Payment_success />} /> 
-        <Route path='/payment/fail' element={<Payment_fail />} /> 
-       
-
-
-
+        <Route path="/payment/success" element={<Payment_success />} />
+        <Route path="/payment/fail" element={<Payment_fail />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ModalButton />
