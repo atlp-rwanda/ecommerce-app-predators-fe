@@ -22,7 +22,31 @@ export const fetchProducts = createAsyncThunk(
     }
   }
 );
+export const fetchProductsCollection = createAsyncThunk(
+  'products/fetchProducts',
+  async () => {
+    try {
+      // Get the token from localStorage
+      const token = localStorage.getItem('token');
+      console.log(token);
+      // Set the headers
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const response = await axios.post(
+        `https://ecommercepredators.onrender.com/api/vendor/collection`,
+        {},
+        config
+      );
 
+      return response.data;
+    } catch (error) {
+      throw new Error('Something went wrong!');
+    }
+  }
+);
 export const productRemove = createAsyncThunk(
   'products/productRemove',
   async ({ data }: ProductData, thunkAPI) => {
@@ -88,13 +112,10 @@ export const fetchProductById = createAsyncThunk(
         `https://ecommercepredators.onrender.com/api/product/${id}`,
         config
       );
-      console.log(response)
+      /*    console.log('Actions fro Pro: ', response); */
       return response.data;
-      
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.response.data);
     }
   }
 );
-
-// console.log('fixing')

@@ -1,5 +1,5 @@
-import { createSlice} from "@reduxjs/toolkit";
-import {  fetchProductsCollection } from "../action/productActions";
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchProductById } from '../action/ProductAction';
 
 export interface Product {
   product: any;
@@ -45,21 +45,21 @@ const productCollectionSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProductsCollection.pending, (state) => {
+      .addCase(fetchProductById.pending, (state) => {
         state.loading = true;
         state.status = 'pending';
         state.error = null;
       })
-      .addCase(fetchProductsCollection.fulfilled, (state, action) => {
+      .addCase(fetchProductById.fulfilled, (state, action) => {
         state.loading = false;
         state.status = 'success';
         state.data = action.payload;
         state.error = null;
+        /*     console.log('#####################:', state.data); */
       })
-      .addCase(fetchProductsCollection.rejected, (state) => {
+      .addCase(fetchProductById.rejected, (state) => {
         state.loading = false;
-        state.status = "error";
-        
+        state.status = 'error';
       });
   },
 });
