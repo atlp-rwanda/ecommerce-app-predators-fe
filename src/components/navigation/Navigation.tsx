@@ -33,7 +33,7 @@ export default function Navigation() {
   }
 
   return (
-    <div className=" font-Poppins fixed top-0 w-full">
+    <div className=" font-Poppins fixed top-0 z-50 w-full">
       <div className=" max-[768px]:hidden py-2 px-[7%] flex justify-between  bg-white">
         <div>
           <span className="text-sm">
