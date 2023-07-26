@@ -16,7 +16,7 @@ const ChatModal = ({ closeModal }: Props) => {
   const [activeRoom, setActiveRoom] = useState<User>(PUBLIC_SPACE);
   const dispatch = useDispatch();
 
-  console.log(activeRoom);
+  // console.log(activeRoom);
 
   const joinPublic = () => setActiveRoom(PUBLIC_SPACE);
   const joinRoom = () => setActiveRoom(CUSTOMER_SUPPORT);

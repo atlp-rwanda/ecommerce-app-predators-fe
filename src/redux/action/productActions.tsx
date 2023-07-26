@@ -8,7 +8,7 @@ export const fetchProductsCollection = createAsyncThunk(
     try {
       // Get the token from localStorage
       const token = localStorage.getItem('token');
-      console.log(token)
+      // console.log(token)
       // Set the headers
       const config = {
         headers: {
