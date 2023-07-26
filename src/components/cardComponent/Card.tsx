@@ -33,9 +33,8 @@ export const Card = (product: Product) => {
     return stars;
   };
 
-  return (
-    <>    
-    <Link to={`/viewProduct/${product.id}`} className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between">
+  return (   
+    <Link to={`/viewProduct/${product.id}`} className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between w-60">
       <div className='rounded-lg overflow-hidden w-52 h-52'>
         <img src={product.picture_urls[0]} alt="" className='w-full min-h-[138px]'/>
       </div>
@@ -49,7 +48,6 @@ export const Card = (product: Product) => {
         {renderRatingStars(parseInt(product.rating))}
       </div>
     </Link>
-    </>
 
   );
 };

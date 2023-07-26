@@ -8,6 +8,7 @@ interface UpdateData {
   price: number;
   picture_urls: string[];
   available: boolean;
+  category_id: number;
   expiryDate: string;
   instock: number;
 }
@@ -47,6 +48,7 @@ export const updateProduct = createAsyncThunk(
     {
       id,
       name,
+      category_id,
       description,
       price,
       available,
@@ -74,6 +76,7 @@ export const updateProduct = createAsyncThunk(
           description,
           price,
           available,
+          category_id,
           picture_urls,
           expiryDate,
           instock,

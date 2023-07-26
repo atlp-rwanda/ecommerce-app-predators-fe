@@ -1,16 +1,17 @@
-import logo from "../../assets/sidebar/Electron.svg";
-import { Link } from "react-router-dom";
-import { RiMenuFill } from "react-icons/ri";
-import {IoClose} from "react-icons/io5"
-import { useEffect, useState } from "react";
-import { getProfile } from "../../redux/action/profileAction";
-import { useDispatch, useSelector } from "react-redux";
+import logo from '../../assets/sidebar/Electron.svg';
+import { Link } from 'react-router-dom';
+import { RiMenuFill } from 'react-icons/ri';
+import { IoClose } from 'react-icons/io5';
+import { useEffect, useState } from 'react';
+import { getProfile } from '../../redux/action/profileAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Navigation() {
   const Dispatch = useDispatch();
   const [isOpen, setMenu] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   const [showLogOut, setShowLogOut] = useState<boolean>(false);
+
   const Profile = useSelector((state: any) => state.updateProfile.data.data);
 
   useEffect(() => {
@@ -63,8 +64,8 @@ export default function Navigation() {
   );
 
   return (
-    <div className=" font-Poppins">
-      <div className=" max-[768px]:hidden py-5 px-[7%] flex justify-between relative">
+    <div className=" font-Poppins fixed top-0 w-full">
+      <div className=" max-[768px]:hidden py-2 px-[7%] flex justify-between  bg-white">
         <div>
           <span className="text-sm">
             Need help? Call us: (+25) 0785 7676 47
@@ -160,7 +161,7 @@ export default function Navigation() {
         <div>
           <select
             id="dropdown"
-            className="bg-tertiary p-5 text-white border border-tertiary text-sm"
+            className="bg-tertiary py-3 px-5 text-white border border-tertiary text-sm"
           >
             <option value="">Browse categories</option>
             <option value="Telephone">Telephone</option>
@@ -168,7 +169,7 @@ export default function Navigation() {
             <option value="Tv Screens">Tv Screens</option>
           </select>
         </div>
-        <ul className="flex items-center space-x-6 py-5 text-sm">
+        <ul className="flex items-center space-x-6 py-3 text-sm">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -210,5 +211,3 @@ export default function Navigation() {
     </div>
   );
 }
-
-

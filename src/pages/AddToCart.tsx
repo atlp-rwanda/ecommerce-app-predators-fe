@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/action/CartActions';
+import { toast } from 'react-toastify';
 //import PlayGame from '../components/PlayGame';
 import { useParams } from 'react-router';
 import { addToWishList } from '../redux/action/WishlistAction';
@@ -24,6 +25,7 @@ function AddToCart() {
   const handleQuantityIncrease = () => {
     setQuantity(quantity + 1);
   };
+  // Previous code...
   const handleAddToCart = () => {
     const item: Item = {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -32,20 +34,31 @@ function AddToCart() {
     };
     dispatch(addToCart(item) as any)
       .then(() => {
-        setConfirmation(` This product has been added your the cart.`);
-        // Clear confirmation after 3 seconds
+        /*  setConfirmation(`This product has been added to your cart.`); */
+        toast.success('Product added to cart!', {
+          position: 'top-right',
+          autoClose: 3000,
+        });
         setTimeout(() => {
           setConfirmation('');
         }, 3000);
       })
       .catch(() => {
-        setConfirmation('Failed to add item to cart.');
+        /*  setConfirmation('Failed to add item to cart.'); */
+        toast.error('Failed to add item to cart.', {
+          position: 'top-right',
+          autoClose: 3000,
+        });
       });
   };
+  // Remaining code...
+
   const handleAddToWishlist = () => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const productId = parseInt(id!);
     dispatch(addToWishList(productId) as any)
       .then((response: any) => console.log('Added To Wish List', response))
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       .catch(() => {});
   };
   return (
@@ -63,16 +76,16 @@ function AddToCart() {
           </button>
         </div>
         <button
-          className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5 gap-2"
+          className="bg-[#EDA415] hover:bg-yellow-400 duration-500  rounded text-white px-2 py-1 mt-5 gap-2"
           onClick={handleAddToCart}
         >
           Add to Cart
         </button>
-        <button className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5  ml-6">
+        <button className="bg-[#EDA415] hover:bg-yellow-400 duration-500  rounded text-white px-2 py-1 mt-5  ml-6">
           Buy it Now
         </button>
         <button
-          className="bg-[#EDA415] rounded text-white px-2 py-1 mt-5  ml-6"
+          className="bg-[#EDA415] hover:bg-yellow-400 duration-500 rounded text-white px-2 py-1 mt-5  ml-6"
           onClick={handleAddToWishlist}
         >
           Add to Wishlist
@@ -82,7 +95,6 @@ function AddToCart() {
       </div>
     </>
   );
-  
 }
 export default AddToCart;
 
