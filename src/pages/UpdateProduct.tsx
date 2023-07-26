@@ -114,7 +114,7 @@ export default function UpdateProduct() {
         setInstock(0);
         setExpiryDate(new Date());
         window.location.replace('/vendor')
-      }, 3000)
+      }, 2000)
     } catch (error) {
       console.log(error);
       toast.error('Error updating');
@@ -226,7 +226,7 @@ export default function UpdateProduct() {
               }
             </div>
             <MultipleFilesUpload/>
-            <select className=' mt-2 focus:outline-none shadow-md h-10 border border-black/10 rounded-lg outline-0 p-2 pl-4' onChange={handleCategory} defaultValue={`${category < 9? category: "0"}`} name="category" id="" >
+            <select className=' mt-2 focus:outline-none shadow-md h-10 border border-black/10 rounded-lg outline-0 p-2 pl-4' onChange={handleCategory} value={category} name="category" id="" >
               <option value="0">Select Product Category</option>
               <option value="1">Electronics</option>
               <option value="2">Headphones</option>
@@ -257,6 +257,3 @@ export default function UpdateProduct() {
 
 
 }
-
-
-// console.log('fixing')

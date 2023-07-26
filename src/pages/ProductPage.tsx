@@ -15,5 +15,3 @@ function productPage() {
 }
 
 export default productPage;
-
-// console.log('fixing')

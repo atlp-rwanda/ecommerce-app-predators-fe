@@ -37,5 +37,3 @@ const resetPassowrdSlice = createSlice({
   },
 });
 export default resetPassowrdSlice.reducer;
-
-// console.log('fixing')

@@ -9,7 +9,7 @@ export default function MainProduct({name, price, photo_url}: {name: string, pri
         </div>
       </div>
       <div className="relative h-60 w-60 sm:h-80 sm:w-80 self-center">
-        <img src={`${photo_url}`} className=" object-fill" alt=""/>
+        <img src={`${photo_url}`} className=" w-full h-full object-contain" alt=""/>
         <div className=" font-Poppins font-semibold rounded-full h-20 w-20 bg-tertiary absolute bottom-5 right-0 flex flex-col items-center justify-center text-white">
           <p>Only</p>
           <p>${price}</p>

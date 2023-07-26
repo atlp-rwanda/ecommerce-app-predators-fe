@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice} from "@reduxjs/toolkit";
+import {  fetchProductsCollection, } from "../action/productActions";
 import { fetchProductById } from '../action/ProductAction';
 
 export interface Product {
@@ -45,6 +46,22 @@ const productCollectionSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchProductsCollection.pending, (state) => {
+        state.loading = true;
+        state.status = 'pending';
+        state.error = null;
+      })
+      .addCase(fetchProductsCollection.fulfilled, (state, action) => {
+        state.loading = false;
+        state.status = 'success';
+        state.data = action.payload;
+        state.error = null;
+      })
+      .addCase(fetchProductsCollection.rejected, (state) => {
+        state.loading = false;
+        state.status = "error";
+        
+      })
       .addCase(fetchProductById.pending, (state) => {
         state.loading = true;
         state.status = 'pending';
@@ -65,5 +82,3 @@ const productCollectionSlice = createSlice({
 });
 
 export default productCollectionSlice.reducer;
-
-// console.log('fixing')

@@ -56,4 +56,3 @@ export const getAllUsers = createAsyncThunk(
         }
     }
 );
-// console.log('fixing')

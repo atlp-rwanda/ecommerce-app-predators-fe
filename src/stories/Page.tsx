@@ -89,5 +89,3 @@ export const Page: React.FC = () => {
     </article>
   );
 };
-
-// console.log('fixing')

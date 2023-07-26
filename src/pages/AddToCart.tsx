@@ -97,5 +97,3 @@ function AddToCart() {
   );
 }
 export default AddToCart;
-
-// console.log('fixing')

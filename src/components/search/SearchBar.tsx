@@ -26,5 +26,3 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearchText }) => {
 };
 
 export default SearchBar;
-
-// console.log('fixing')

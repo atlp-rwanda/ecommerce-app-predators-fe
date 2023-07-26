@@ -34,4 +34,3 @@ const prodUpdateSlice = createSlice({
   },
 });
 export default prodUpdateSlice.reducer;
-// console.log('fixing')

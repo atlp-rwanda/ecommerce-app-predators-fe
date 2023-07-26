@@ -10,6 +10,8 @@ export default function Navigation() {
   const Dispatch = useDispatch();
   const [isOpen, setMenu] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const [showLogOut, setShowLogOut] = useState<boolean>(false);
+
   const Profile = useSelector((state: any) => state.updateProfile.data.data);
 
   useEffect(() => {
@@ -32,9 +34,38 @@ export default function Navigation() {
     setMenu((prevState) => !prevState);
   }
 
+  function handleLogout(event: React.MouseEvent<HTMLLIElement, MouseEvent>): void {
+    event.preventDefault();
+    console.log('logout');
+
+    localStorage.removeItem('token');
+    window.location.href = '/login';
+  }
+
+  const User_Profile = (
+    <div className="relative">
+      <button
+        onClick={() => {
+          setShowLogOut((prev) => !prev);
+        }}
+        className="flex gap-2"
+      >
+        <i className="material-symbols-rounded cursor-pointer">person</i>
+        <span className="text-sm mt-1 max-[640px]:hidden">
+          {Profile?.name.split(' ')[0]}
+        </span>
+      </button>
+      {showLogOut && (
+        <ul className="absolute bg-white top-10 z-40 -right-3 py-3 min-w-full flex items-start rounded-lg" >
+          <li onClick={handleLogout} className="text-slate-500 sm:text-black hover:text-tertiary px-4 cursor-pointer">Logout</li>
+        </ul>
+        )}
+    </div>
+  );
+
   return (
-    <div className=" font-Poppins fixed top-0 w-full">
-      <div className=" max-[768px]:hidden py-2 px-[7%] flex justify-between  bg-white">
+    <div className=" font-Poppins">
+      <div className=" max-[768px]:hidden py-5 px-[7%] flex justify-between relative">
         <div>
           <span className="text-sm">
             Need help? Call us: (+25) 0785 7676 47
@@ -69,7 +100,7 @@ export default function Navigation() {
             <div className="flex max-[768px]:hidden grow max-w-[1000px] text-sm relative">
               <input
                 type="text"
-                className=" rounded-3xl p-2 px-5 w-full pr-[85px]"
+                className=" rounded-3xl p-2 w-full pr-[85px]"
                 placeholder="Search anything"
               />
               <button
@@ -92,14 +123,7 @@ export default function Navigation() {
                   </span>
                 </Link>
               ) : (
-                <Link to="/" className="flex gap-2">
-                  <i className="material-symbols-rounded cursor-pointer">
-                    person
-                  </i>
-                  <span className="text-sm mt-1 max-[640px]:hidden">
-                    {Profile?.name.split(' ')[0]}
-                  </span>
-                </Link>
+                User_Profile
               )}
             </div>
             <div className="flex gap-2 hover:text-tertiary">
@@ -114,7 +138,7 @@ export default function Navigation() {
               className="flex gap-2 items-center hover:text-tertiary cursor-pointer md:hidden"
               onClick={handleMenu}
             >
-              <RiMenuFill className="scale-[150%]" />
+              <RiMenuFill className="scale-[150%]"/>
               <span className="text-sm max-[640px]:hidden">Menu</span>
             </div>
           </div>
@@ -137,7 +161,7 @@ export default function Navigation() {
         <div>
           <select
             id="dropdown"
-            className="bg-tertiary py-3 px-5 text-white border border-tertiary text-sm"
+            className="bg-tertiary p-5 text-white border border-tertiary text-sm"
           >
             <option value="">Browse categories</option>
             <option value="Telephone">Telephone</option>
@@ -145,7 +169,7 @@ export default function Navigation() {
             <option value="Tv Screens">Tv Screens</option>
           </select>
         </div>
-        <ul className="flex items-center space-x-6 py-3 text-sm">
+        <ul className="flex items-center space-x-6 py-5 text-sm">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -185,5 +209,5 @@ export default function Navigation() {
         </div>
       </div>
     </div>
-  );
+  )
 }

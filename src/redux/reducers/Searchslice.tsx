@@ -34,5 +34,3 @@ const searchSlice = createSlice({
 });
 
 export default searchSlice.reducer;
-
-// console.log('fixing')

@@ -69,5 +69,3 @@ export const Header = ({
     </div>
   </header>
 );
-
-// console.log('fixing')

@@ -15,5 +15,3 @@ export const searchProducts = createAsyncThunk(
     }
   }
 );
-
-// console.log('fixing')

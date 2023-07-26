@@ -51,5 +51,3 @@ const UserInput = ({ activeRoom }: Props) => {
 };
 
 export default UserInput;
-
-// console.log('fixing')

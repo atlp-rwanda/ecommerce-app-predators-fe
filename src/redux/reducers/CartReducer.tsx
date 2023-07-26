@@ -28,5 +28,3 @@ const cartSlice = createSlice({
 export const { addToCartSuccess, addToCartFailure } = cartSlice.actions;
 
 export default cartSlice.reducer;
-
-// console.log('fixing')

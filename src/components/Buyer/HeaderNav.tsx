@@ -82,5 +82,3 @@ function NavHeader({ onSearchText }: NavHeaderProps) {
 }
 
 export default NavHeader;
-
-// console.log('fixing')

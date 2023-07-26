@@ -163,5 +163,3 @@ const sortedNotifications = notifications
 };
 
 export default Notification;
-
-// console.log('fixing')

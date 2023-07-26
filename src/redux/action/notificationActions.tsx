@@ -146,5 +146,3 @@ export const markAllNotificationsAsRead = createAsyncThunk(
     }
   }
 );
-
-// console.log('fixing')

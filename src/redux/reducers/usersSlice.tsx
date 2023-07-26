@@ -31,4 +31,3 @@ const getAllUsersSlice = createSlice({
   },
 });
 export default getAllUsersSlice.reducer;
-// console.log('fixing')

@@ -21,16 +21,14 @@ function ViewProduct() {
   if (!selectedProduct) {
     return <p>Product loading....</p>;
   }
-  console.log(selectedProduct?.data?.item?.review);
+  // console.log(selectedProduct?.data?.item?.review);
   return (
     <>
       <div className="grid">
-        <div className="col-span-2">
           <Navigation />
-        </div>
-        <div className="mt-52">
+        <div className="">
           <div className="flex flex-col container mx-auto">
-            <div className="flex-1 -mt-8 max-sm:-mt-24 p-1 font-semibold text-md fixed w-full bg-white">
+            <div className="flex-1 p-1 font-semibold text-md w-full bg-white">
               <div className="flex gap-2 justify-start">
                 <div className="">Home</div>
                 <div className="text-center mt-1">
@@ -51,7 +49,7 @@ function ViewProduct() {
               <div className="flex flex-col md:flex-row lg:flex-row justify-center">
                 <div className="w-[100%] lg:w-[50%] md:w-[40%] h-[400px] flex justify-center align-baseline">
                   <img
-                    src={selectedProduct?.data?.item?.picture_urls}
+                    src={selectedProduct?.data?.item?.picture_urls[0]}
                     alt="img"
                   />
                 </div>

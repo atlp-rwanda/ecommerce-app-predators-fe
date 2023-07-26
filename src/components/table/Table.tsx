@@ -152,4 +152,3 @@ export default function Table() {
 
     </div >
   )}
-// console.log('fixing')

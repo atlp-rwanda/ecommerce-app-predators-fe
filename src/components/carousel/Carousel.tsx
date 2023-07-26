@@ -66,4 +66,4 @@ function Carousel_container() {
   );
 }
 
-export default Carousel_container;
+export default Carousel_container
