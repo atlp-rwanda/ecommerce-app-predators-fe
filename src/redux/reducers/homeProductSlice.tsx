@@ -36,4 +36,3 @@ const getHomeProductSlice = createSlice({
   },
 });
 export default getHomeProductSlice.reducer;
-// console.log('fixing')

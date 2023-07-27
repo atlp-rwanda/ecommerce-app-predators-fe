@@ -41,5 +41,3 @@ const useFetch = (url: string) => {
 };
 
 export default useFetch;
-
-// console.log('fixing')

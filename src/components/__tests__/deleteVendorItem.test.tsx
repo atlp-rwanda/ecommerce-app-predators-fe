@@ -54,4 +54,3 @@ test('entering "delete" and submitting the form triggers the delete action', () 
   const confirmButton = screen.getByText('confirm');
   fireEvent.click(confirmButton);
 });
-// console.log('fixing')

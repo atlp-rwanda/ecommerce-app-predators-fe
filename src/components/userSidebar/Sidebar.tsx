@@ -136,5 +136,3 @@ function Sidebar() {
 }
 
 export default Sidebar;
-
-// console.log('fixing')

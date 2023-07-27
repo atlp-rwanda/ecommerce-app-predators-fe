@@ -337,5 +337,3 @@ const RegisterPage: React.FC = () => {
 };
 
 export default RegisterPage;
-
-// console.log('fixing')

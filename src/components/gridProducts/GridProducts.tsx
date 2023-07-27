@@ -61,7 +61,7 @@ export default function GridProducts() {
             {products.slice(0,2).map((product, idx) => {
                 return (<div key={idx} className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between grow md:flex-row">
                     <div className='rounded-lg overflow-hidden w-52 h-32 self-center relative max-[580px]:w-[90%]'>
-                        <img src={`${product.picture_urls[0]}`} alt="" className=' h-full w-full object-cover'/>
+                        <img src={`${product.picture_urls[0]}`} alt="" className=' h-full w-full object-contain'/>
                     </div>
                     <div className="flex flex-col gap-4 w-[50%] self-center">
                         <p className=" break-words text-primary font-Poppins text-left">{product.name}</p>

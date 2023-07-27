@@ -39,5 +39,3 @@ const AdminViewUsersPage = () => {
 };
 
 export default AdminViewUsersPage;
-
-// console.log('fixing')

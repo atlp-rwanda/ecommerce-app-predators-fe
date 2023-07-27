@@ -67,5 +67,3 @@ function NotDashboardFooter() {
 }
 
 export default NotDashboardFooter;
-
-// console.log('fixing')

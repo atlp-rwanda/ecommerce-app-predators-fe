@@ -36,7 +36,7 @@ export const Card = (product: Product) => {
   return (   
     <Link to={`/viewProduct/${product.id}`} className="border p-3 border-gray-300 rounded-lg hover:shadow-lg cursor-pointer flex flex-col gap-3 justify-between w-60">
       <div className='rounded-lg overflow-hidden w-52 h-52'>
-        <img src={product.picture_urls[0]} alt="" className='w-full min-h-[138px]'/>
+        <img src={product.picture_urls[0]} alt="" className='w-full h-full object-contain'/>
       </div>
       <div>
         <p className=" break-words text-primary font-semibold text-left">
@@ -51,4 +51,3 @@ export const Card = (product: Product) => {
 
   );
 };
-// console.log('fixing')

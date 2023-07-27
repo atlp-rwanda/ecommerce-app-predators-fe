@@ -50,5 +50,3 @@ const productSlice = createSlice({
 });
 
 export default productSlice.reducer;
-
-// console.log('fixing')

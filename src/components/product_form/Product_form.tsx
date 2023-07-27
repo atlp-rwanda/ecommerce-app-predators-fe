@@ -108,7 +108,6 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
       setLoading(false);
       return;
     }
-
     dispatch(addProduct(product) as any)
     .then(() => {
         setName("");
@@ -171,5 +170,3 @@ export default function Product_form({ visible, onClose }: { visible: boolean, o
     </div>
   )
 }
-
-// console.log('fixing')

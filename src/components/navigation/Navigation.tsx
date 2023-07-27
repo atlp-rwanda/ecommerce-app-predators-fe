@@ -64,8 +64,8 @@ export default function Navigation() {
   );
 
   return (
-    <div className=" font-Poppins fixed top-0 z-50 w-full">
-      <div className=" max-[768px]:hidden py-2 px-[7%] flex justify-between  bg-white">
+    <div className=" font-Poppins">
+      <div className=" max-[768px]:hidden py-5 px-[7%] flex justify-between relative">
         <div>
           <span className="text-sm">
             Need help? Call us: (+25) 0785 7676 47
@@ -112,7 +112,7 @@ export default function Navigation() {
             </div>
           </div>
           <div className="flex gap-8 sm:gap-5 grow-[1] justify-end text-white">
-            <div className="flex gap-2 text-tertiary">
+            <div className="flex gap-2 hover:text-tertiary">
               {Profile == undefined ? (
                 <Link to="/login" className="flex gap-2">
                   <i className="material-symbols-rounded cursor-pointer">
@@ -138,7 +138,7 @@ export default function Navigation() {
               className="flex gap-2 items-center hover:text-tertiary cursor-pointer md:hidden"
               onClick={handleMenu}
             >
-              <RiMenuFill className="scale-[150%]" />
+              <RiMenuFill className="scale-[150%]"/>
               <span className="text-sm max-[640px]:hidden">Menu</span>
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function Navigation() {
         <div>
           <select
             id="dropdown"
-            className="bg-tertiary py-3 px-5 text-white border border-tertiary text-sm"
+            className="bg-tertiary p-5 text-white border border-tertiary text-sm"
           >
             <option value="">Browse categories</option>
             <option value="Telephone">Telephone</option>
@@ -169,7 +169,7 @@ export default function Navigation() {
             <option value="Tv Screens">Tv Screens</option>
           </select>
         </div>
-        <ul className="flex items-center space-x-6 py-3 text-sm">
+        <ul className="flex items-center space-x-6 py-5 text-sm">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -209,5 +209,5 @@ export default function Navigation() {
         </div>
       </div>
     </div>
-  );
+  )
 }

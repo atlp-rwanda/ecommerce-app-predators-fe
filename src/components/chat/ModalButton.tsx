@@ -31,5 +31,3 @@ const ModalButton = () => {
 };
 
 export default ModalButton;
-
-// console.log('fixing')

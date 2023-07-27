@@ -36,4 +36,3 @@ const getProductByIdSlice = createSlice({
   },
 });
 export default getProductByIdSlice.reducer;
-// console.log('fixing')

@@ -51,4 +51,3 @@ describe('notifications actions', () => {
       expect(actions[1].payload).toEqual(mockNotifications);
     });
   });
-  

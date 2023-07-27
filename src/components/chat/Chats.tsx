@@ -39,5 +39,3 @@ const Chats = ({ activeRoom }: Props) => {
 };
 
 export default Chats;
-
-// console.log('fixing')

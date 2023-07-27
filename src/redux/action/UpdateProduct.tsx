@@ -91,5 +91,3 @@ export const updateProduct = createAsyncThunk(
     }
   }
 );
-
-// console.log('fixing')

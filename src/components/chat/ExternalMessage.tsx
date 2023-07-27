@@ -25,5 +25,3 @@ const ExternalMessage = ({ message }: Props) => {
 };
 
 export default ExternalMessage;
-
-// console.log('fixing')

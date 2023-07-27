@@ -63,4 +63,3 @@ export const updateProfile = createAsyncThunk(
     }
   }
 );
-// console.log('fixing')

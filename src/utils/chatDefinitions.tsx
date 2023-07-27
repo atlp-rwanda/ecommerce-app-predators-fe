@@ -88,5 +88,3 @@ export const socket: Socket = io(CHAT_SERVER, {
     id: dbId,
   },
 });
-
-// console.log('fixing')
