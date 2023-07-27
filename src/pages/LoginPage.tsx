@@ -71,7 +71,7 @@ const LoginPage = () => {
     if (role === 2) {
       return <Navigate to="/" />;
     } else if (role === 0) {
-      return <Navigate to="/admin" />;
+      return <Navigate to="/admin/users" />;
     }
     else{
       return <Navigate to="/vendor" />;
@@ -168,7 +168,7 @@ const LoginPage = () => {
           )}
         </form>
       </div>
-      <div className="relative w-2/5 h-full bg-blue-900 flex flex-col hidden lg:block">
+      <div className="relative w-2/5 h-full bg-customBlue hidden lg:block">
         <h1 className="absolute top-[20%] left-[25%] text-4xl w-3/5 text-white capitalize font-extrabold">
           Everything you are. In one simple link.
         </h1>

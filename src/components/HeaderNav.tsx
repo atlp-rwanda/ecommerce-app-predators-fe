@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import profile from './../assets/dashboard/account_photo.jpg';
 import Notification from './notification/Notification';
 function HeaderNav() {
@@ -16,9 +17,11 @@ function HeaderNav() {
             </div>
           </div>
         </div>
-        <div className=" dashboard__photo hidden lg:block rounded-full overflow-hidden w-10 h-10">
-            <img src={profile} alt="profile_photo" className='object-cover' />
-        </div>
+        <Link to="/profile">
+          <div className=" dashboard__photo hidden lg:block rounded-full overflow-hidden w-10 h-10">
+              <img src={profile} alt="profile_photo" className='object-cover' />
+          </div>
+        </Link>
       </div>
     </div>
   );
